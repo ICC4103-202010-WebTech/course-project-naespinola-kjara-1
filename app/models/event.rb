@@ -6,7 +6,7 @@ class Event < ApplicationRecord
   has_many :reports
   has_one :homepage
 
-  validates :tittle, presence: true
+  validates :title, presence: true
   validates :description, presence: true
   validates :private, inclusion: { in: [true, false] }
   validates :include_organization, inclusion: { in: [true, false] }

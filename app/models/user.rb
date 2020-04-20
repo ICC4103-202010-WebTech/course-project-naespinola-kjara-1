@@ -5,7 +5,8 @@ class User < ApplicationRecord
   has_many :comments
   has_one :mailbox
   has_many :guests
-  has_many :messages
+  has_many :received_messages, :class_name => 'Message', :foreign_key => 'user_receiver_id'
+  has_many :transmitted_messages, :class_name => 'Message', :foreign_key => 'user_transmitter_id'
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
@@ -14,11 +15,5 @@ class User < ApplicationRecord
   validates :is_organization_admin, inclusion: { in: [true, false] }
   validates :is_system_admin, inclusion: { in: [true, false] }
   validates :in_blacklist, inclusion: { in: [true, false] }
-
-
-
-
-
-
 
 end

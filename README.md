@@ -1,24 +1,34 @@
-# README
+# Project assignmnet 1.2
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Members:
+* Katherine Jara Carrasco
+* Natalia Espínola Parra
 
-Things you may want to cover:
 
-* Ruby version
+## Requirements
 
-* System dependencies
+- Number 13: Explain what should happen model-wise if an event is deleted and guests have already cast
+             votes. Explain how your model layer is well-behaved in this scenario.
 
-* Configuration
+If an event is deleted, then your guests will be removed from the Guest table. Votes relayed 
+by the guests will be removed from the Votes table. Also, the dates available to vote for that 
+event will be removed from the DatesToVotes table.
 
-* Database creation
+- Number 14: Explain what should happen model-wise if an organization is deleted and events have been
+             already created within the organization. Explain how your model layer is well-behaved in this
+             scenario.
 
-* Database initialization
+If an organization is removed, the events that belong to that organization change to the creator 
+user, and this user no longer belongs to the organization.
 
-* How to run the test suite
+- Number 15: Explain what should happen model-wise if a user is deleted and the user has already created
+             organizations, events and/or comments. Explain how your model layer is well-behaved in this
+             scenario.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+We assume that each user can belong to a single organization, so a user could only create one 
+organization to have the position of organization administrator. An organization administrator 
+has the power to grant the administration position to another user who is a member of the 
+organization. Each organization has a single administrator. If the organization administrator 
+is removed, then the system administrator can choose who will be the next administrator, otherwise 
+the user with more invitations created for the organization that is not on the blacklist will be 
+chosen by default.

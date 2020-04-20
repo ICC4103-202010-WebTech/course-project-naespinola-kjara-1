@@ -5,4 +5,7 @@ class Event < ApplicationRecord
   has_one :wall_of_comment
   has_many :reports
   has_one :homepage
+
+  validates :tittle, presence: true
+  validates :description, presence: true
 end

@@ -2,6 +2,9 @@ class Organization < ApplicationRecord
   has_many :users
   has_one :homepage
 
+  validates :name, presence: true
+  validates :description, presence: true
+
 
   validates :image, allow_blank: true, format: {
       with: %r{\.(gif|jpg|png)\Z}i,

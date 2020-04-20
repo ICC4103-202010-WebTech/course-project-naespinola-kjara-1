@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  event: one
+  dates_to_vote: one
+
+two:
+  user: two
+  event: two
+  dates_to_vote: two

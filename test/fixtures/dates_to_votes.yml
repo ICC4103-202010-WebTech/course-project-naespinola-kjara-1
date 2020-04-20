@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event: one
+  date: 2020-04-19 22:01:10
+
+two:
+  event: two
+  date: 2020-04-19 22:01:10

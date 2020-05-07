@@ -7,11 +7,6 @@ Members:
 
 ## Requirements
 
-- Numbers [1-10]: rake db:queries_demo
-
-	(location lib/tasks/model_queries.rake) 
-- Number 11: Users should have a unique username and email address.(Implemented, location app/models/user.rb) 
-- Number 12: E-mail addresses should be well-formed. (Implemented, location app/models/user.rb) 
 - Number 13: Explain what should happen model-wise if an event is deleted and guests have already cast
              votes. Explain how your model layer is well-behaved in this scenario.
 

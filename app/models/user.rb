@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_one :mailbox
   has_many :events
   has_many :comments
+  has_many :reports
   has_many :guests
   has_many :received_messages, :class_name => 'Message', :foreign_key => 'user_receiver_id'
   has_many :transmitted_messages, :class_name => 'Message', :foreign_key => 'user_transmitter_id'

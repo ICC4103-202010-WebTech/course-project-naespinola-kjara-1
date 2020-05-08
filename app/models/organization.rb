@@ -1,6 +1,6 @@
 class Organization < ApplicationRecord
-  has_one :homepage
   has_many :users
+  has_one :homepage
 
   validates :name, presence: true
   validates :description, presence: true

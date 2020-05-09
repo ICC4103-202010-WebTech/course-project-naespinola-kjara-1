@@ -1,0 +1,17 @@
+<%= form_with(model: message_received, local: true) do |form| %>
+  <% if message_received.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(message_received.errors.count, "error") %> prohibited this message_received from being saved:</h2>
+
+      <ul>
+        <% message_received.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

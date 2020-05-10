@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.includes(:user).where("events.user_id=3 ")
+    @events = Event.includes(:user).where("events.user_id=1  ")
     @events1 = Event.includes(:user).where("events.include_organization=true")
 
 
@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   def show
     @event_wall_of_comments = WallOfComment.includes(:event)
     @event_guests = Guest.includes(:user, :event)
-    @event_dates_to_votes = DatesToVote.joins(:event)
+    @event_dates_to_votes = DatesToVote.joins(:event).where("dates_to_votes.event_id and events.id ")
   end
 
   # GET /events/new

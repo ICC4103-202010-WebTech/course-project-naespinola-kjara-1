@@ -1,4 +1,44 @@
 <p id="notice"><%= notice %></p>
+<h1>Organizations</h1>
+<div>
 
+    <aside id="organization_links">
+      <ul id="links">
+        <li>Calendar </li>
+        <li>Members</li>
+        <li>Videos</li>
+        <li>Documents</li>
+
+      </ul>
+    </aside>
+    <img src= <%= @organization.image %> >
+    <dl id="organization_info">
+      <dt>Name</dt>
+      <dd>❄ <%= @organization.name %> </dd>
+      <dt>Description , rich text</dt>
+      <dd>❄ <%= @organization.description %> <%= @organization.rich_text%></dd>
+    </dl>
+    <table id="event_in_organization">
+      <thead>
+      <th>Title event</th>
+      </thead>
+      <tbody>
+      <% @events1.each do |events| %>
+        <tr>
+          <td>❄ <%= link_to events.title, events %></td>
+        </tr>
+
+        </tbody>
+        </table>
+
+
+      <% end %>
+
+
+
+</div>
+<br>
+
+<%= link_to 'New Organization', new_organization_path %>
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>

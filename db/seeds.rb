@@ -8,25 +8,41 @@
 
 o1 = Organization.create(name: "Snow", image:"https://www.audiovisualstudio.es/wp-content/uploads/2017/08/LED.jpg",
                          rich_text: " ", description: "Hello members", video: "", document: "" )
+o2 = Organization.create(name: "Autumn fall", image:"https://services.meteored.com/img/article/se-acerca-el-otono-astronomico-208381-2_768.jpg",
+                         rich_text: " ", description: "Hello members, welcome everyone!!", video: "", document: "" )
+
 u1 = User.create(organization:o1, username: "user1", email: "user1@gmail.com", password: "1234567k", is_organization_admin: false, is_system_admin: true, in_blacklist:false)
 u2 = User.create(organization:o1, username: "user2", email: "user2@gmail.com", password: "winter123", is_organization_admin: true, is_system_admin: false, in_blacklist:false)
 
 u3 = User.create(organization: o1, username: "user3", email: "user3@gmail.com", password: "summer78", is_organization_admin: false, is_system_admin: false, in_blacklist:false)
-
 u4 = User.create(organization: o1, username: "user4", email: "user4@gmail.com", password: "black560", is_organization_admin: false, is_system_admin: false, in_blacklist:true)
+u5 = User.create(organization: o2, username: "user5", email: "user5@gmail.com", password: "autumn5632", is_organization_admin: false, is_system_admin: false, in_blacklist:false)
+u6 = User.create(organization: o2, username: "user6", email: "user6@gmail.com", password: "jaja12345", is_organization_admin: true, is_system_admin: true, in_blacklist:false)
 
 l1 = Location.create(country: "Chile", region: "Metropolitana")
 l2 = Location.create(country: "Argentina", region: "Buenos Aires")
+l3 = Location.create(country: "Brasil", region: "Región Norte - Acre")
+l4 = Location.create(country: "Chile", region: "Arica y Parinacota")
+l5 = Location.create(country: "Chile", region: "Atacama")
+l6 = Location.create(country: "Chile", region: "Biobío")
 
-p1 = Profile.create(user: u1, location: l1, image: "https://files.lafm.com.co/assets/public/styles/image_631x369/public/2018-06/ana_polo_0_0.jpg?itok=uL9mqrzk", document: "",video: "", short_bio: "I live in Miami and love justice.", name: "Ana", last_name: "Polo")
-p2 = Profile.create(user: u2, location: l1,  image: "https://pbs.twimg.com/profile_images/561715227889127425/3pG719Kb_400x400.jpeg", document: "" ,video: "", short_bio: "CEO & Senior Partner", name: "Eduardo", last_name: "Smith")
-p3 = Profile.create(user: u3, location: l2,  image: "https://diariocorreo.pe/resizer/CUEoZ5t8eAY7O-4GClnbXe_OYf0=/980x528/smart/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/4XZ2TFCMLJFIBBGZJXSN6DODLA.jpg", document: "",video: "", short_bio: "I don't sing to be famous", name: "Pepito", last_name: "Torres")
-p4 = Profile.create(user: u4, location: l2, image: "https://media.metrolatam.com/2018/08/23/mujer1-234853dc0e0619b7be7317871413304c-1200x600.jpg", document: "",video: "", short_bio: "Hi!", name: "Pepita", last_name: "Sol")
-
+p1 = Profile.create(user: u1, location: l1, image: "https://media.metrolatam.com/2019/06/12/draanamariapolop-a77ad0bb58934792a160341b6f38e310-1200x800.jpg",
+                    document: "",video: "", short_bio: "I live in Miami and love justice.", name: "Ana", last_name: "Polo")
+p2 = Profile.create(user: u2, location: l2,  image: "https://www.rockandpop.cl/wp-content/uploads/2020/04/sam_smith_por_covid19_cambia_el_nombre_de_su_album_y_pospone_su_estreno.jpg_1902800913-1024x768.jpg",
+                    document: "" ,video: "", short_bio: "Hello everyone, i love singing!", name: "Sam", last_name: "Smith")
+p3 = Profile.create(user: u3, location: l3,  image: "https://diariocorreo.pe/resizer/CUEoZ5t8eAY7O-4GClnbXe_OYf0=/980x528/smart/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/4XZ2TFCMLJFIBBGZJXSN6DODLA.jpg",
+                    document: "",video: "", short_bio: "I don't sing to be famous.", name: "Pepito", last_name: "Torres")
+p4 = Profile.create(user: u4, location: l4, image: "https://media.metrolatam.com/2018/08/23/mujer1-234853dc0e0619b7be7317871413304c-1200x600.jpg",
+                    document: "",video: "", short_bio: "Hi!", name: "Pepita", last_name: "Sol")
+p5 = Profile.create(user: u5, location: l5, image: "https://i.pinimg.com/originals/82/db/f2/82dbf2759fe8ebea414e3e83b894dc2c.jpg",
+                    document: "",video: "", short_bio: "Hello everyone!!", name: "Rick", last_name: "Sánchez")
+p6 = Profile.create(user: u6, location: l6, image: "https://los40.cl/wp-content/uploads/2020/03/chayanne.jpg",
+                    document: "",video: "", short_bio: "Hello everyone, a dance?", name: "Elmer", last_name: "Figueroa")
 m1 = Mailbox.create(user: u1)
 m2 = Mailbox.create(user: u2)
 m3 = Mailbox.create(user: u3)
 m4 = Mailbox.create(user: u4)
+m5 = Mailbox.create(user: u5)
 
 msm1 = Message.create(user_receiver: u1, user_transmitter: u2, text_message: "hi1")
 msm2 = Message.create(user_receiver: u2, user_transmitter: u3, text_message: "hi2")
@@ -51,6 +67,13 @@ e3 = Event.create(user: u3, title: "Event3", description: "Hello everyone gala 2
                   image:"https://www.networkworld.es/archivos/201810/concert-2527495-960-720.jpg", videos: "", documents: "", location:"Park, New York")
 e4 = Event.create(user: u1, title: "Event4", description: "Hello everyone 30th birthday celebration", private: true, include_organization: false,
                   image: "https://cdn0.matrimonios.cl/emp/fotos/3/8/0/5/t30_2x_whatsapp-image-2019-11-08-at-4-08-46-pm_8_143805-157350251244349.jpeg", videos: "", documents: "", location:"Santiago")
+e5 = Event.create(user: u6, title: "Event5", description: "Hello everyone 30th birthday celebration", private: true, include_organization: true ,
+                  image: "https://static.tumblr.com/745109f3b8e935808d5b9ca2b80b058a/2peleeu/zbvod4s1v/tumblr_static_tumblr_static_86z1yiduyaw4co8wggw8kooog_640.jpg",
+                  videos: "", documents: "", location:"Coquimbo")
+
+e5 = Event.create(user: u5, title: "Event6", description: "Hello everyone 60th birthday celebration", private: false, include_organization: true ,
+                  image: "https://i.pinimg.com/originals/ac/db/90/acdb90265c02bf9c04b92b4beaa1f293.jpg",
+                  videos: "", documents: "", location:"Antofagasta")
 
 h1 = Homepage.create(organization: o1, event:e1)
 

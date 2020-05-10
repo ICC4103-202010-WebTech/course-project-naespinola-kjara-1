@@ -4,13 +4,14 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.all.take(1)
-    @events1 = Event.includes(:user).where("events.include_organization=true")
+    @organizations = Organization.joins(:users).where("users.id=1")
+
   end
 
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    @events1 = Event.includes(:user).where("events.include_organization=1")
   end
 
   # GET /organizations/new

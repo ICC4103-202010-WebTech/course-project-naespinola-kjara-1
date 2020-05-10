@@ -10,12 +10,12 @@ Rails.application.routes.draw do
       end
     end
   end
-  resources :organizations
+
   resource :user do
     resources :profiles, shallow: true
     resources :mailboxes, shallow: true
-
   end
+  resources :organizations
 
 
   resource :user, defaults: {format: :html}

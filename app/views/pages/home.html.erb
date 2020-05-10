@@ -15,3 +15,26 @@
   <% end %>
   </tbody>
 </table>
+<h4>Organizations</h4>
+<table id="organizations">
+  <thead>
+  <th>
+    N
+  </th>
+  <th>
+    Name
+  </th>
+  <th>
+    Description
+  </th>
+  <tbody>
+  <%  @organizations.each_with_index do |organization, i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= link_to organization.name, organization%></td>
+      <td><%=organization.description %></td>
+    </tr>
+  <%end %>
+  </tbody>
+  </thead>
+</table>

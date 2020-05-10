@@ -4,7 +4,7 @@ class WallOfCommentsController < ApplicationController
   # GET /wall_of_comments
   # GET /wall_of_comments.json
   def index
-    @wall_of_comments = WallOfComment.all
+    @wall_of_comments = WallOfComment.includes(:event)
   end
 
   # GET /wall_of_comments/1

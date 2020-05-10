@@ -37,6 +37,10 @@ ActiveRecord::Schema.define(version: 2020_04_20_020555) do
     t.string "description"
     t.boolean "private"
     t.boolean "include_organization"
+    t.string "image"
+    t.string "videos"
+    t.string "documents"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_events_on_user_id"

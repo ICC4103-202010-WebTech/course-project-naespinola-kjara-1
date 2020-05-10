@@ -43,10 +43,14 @@ ms2 = MessageSent.create(mailbox: m2, message: msm1)
 ms3 = MessageSent.create(mailbox: m3, message: msm2)
 ms4 = MessageSent.create(mailbox: m4, message: msm3)
 
-e1 = Event.create(user: u1, title: "Event1", description: "Hello everyone 40th birthday celebration", private: false, include_organization: true)
-e2 = Event.create(user: u2, title: "Event2", description: "Hello everyone 35th birthday celebration", private: true, include_organization: true)
-e3 = Event.create(user: u3, title: "Event3", description: "Hello everyone gala 2020", private: false, include_organization: false)
-e4 = Event.create(user: u1, title: "Event4", description: "Hello everyone 30th birthday celebration", private: true, include_organization: false)
+e1 = Event.create(user: u1, title: "Event1", description: "Hello everyone 40th birthday celebration", private: false, include_organization: true,
+                  image: "https://fonzievents.com/wp-content/uploads/2016/09/02-1.jpg", videos: "", documents: "", location: "Las Vegas" )
+e2 = Event.create(user: u2, title: "Event2", description: "Hello everyone 35th birthday celebration", private: true, include_organization: true,
+                  image: "https://www.marquid.com/wp-content/uploads/2017/06/6197706_orig.jpg", videos: "", documents: "", location:"London")
+e3 = Event.create(user: u3, title: "Event3", description: "Hello everyone gala 2020", private: false, include_organization: false,
+                  image:"https://www.networkworld.es/archivos/201810/concert-2527495-960-720.jpg", videos: "", documents: "", location:"Park, New York")
+e4 = Event.create(user: u1, title: "Event4", description: "Hello everyone 30th birthday celebration", private: true, include_organization: false,
+                  image: "https://cdn0.matrimonios.cl/emp/fotos/3/8/0/5/t30_2x_whatsapp-image-2019-11-08-at-4-08-46-pm_8_143805-157350251244349.jpeg", videos: "", documents: "", location:"Santiago")
 
 h1 = Homepage.create(organization: o1, event:e1)
 

@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   resource :user, defaults: {format: :html}
   resources :mailboxes, defaults: {format: :html}
   resources :profiles, defaults: {format: :html}
-  resources :events, defaults: {format: :html}
+  resources :events, defaults: {format: :html} do
+    resources :dates_to_votes, defaults: {format: :html}
+  end
   resources :organizations, defaults: {format: :html}
+  resources :guests, defaults: {format: :html}
 end

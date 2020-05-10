@@ -3,13 +3,25 @@
 <h4><%= @event.title%></h4>
 <div id="container">
   <aside id="event_add">
-    <p>Aside vacio</p>
+    <ul id="links">
+      <li><%=link_to "Date of the event", @dates_to_votes%></li>
+      <li><%= render partial: "guests/guest", object: @guest %>></li>
+
+    </ul>
   </aside>
   <dl id="info_org">
+    <img src= <%= @event.image %> >
+    <dt>Location</dt>
+    <dd>- <%= @event.location %> </dd>
+    <dt>Creation Date</dt>
+    <dd>- <%= @event.created_at %> </dd>
     <dt>Description</dt>
-    <dd>- <%= @event.description %> </dd>
-   
+    <dd>- <%= @event.description%> </dd>
+    <dt>Documents</dt>
+    <dd>- <%= @event.videos%> </dd>
+    <dd>- <%= @event.documents%> </dd>
   </dl>
+
 
 </div>
 

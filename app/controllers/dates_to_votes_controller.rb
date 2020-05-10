@@ -4,7 +4,7 @@ class DatesToVotesController < ApplicationController
   # GET /dates_to_votes
   # GET /dates_to_votes.json
   def index
-    @dates_to_votes = DatesToVote.all
+    @dates_to_votes = DatesToVote.includes(:event,:votes)
   end
 
   # GET /dates_to_votes/1

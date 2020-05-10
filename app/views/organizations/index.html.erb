@@ -3,19 +3,37 @@
 <h1>Organizations</h1>
 <div>
   <% @organizations.each do |organization| %>
-    <aside id="organization_info">
-      <h6>Aside vacio</h6>
+    <aside id="organization_links">
+      <ul id="links">
+        <li>Calendar </li>
+        <li>Members</li>
+        <li>Videos</li>
+        <li>Documents</li>
+
+      </ul>
     </aside>
     <img src= <%= organization.image %> >
-    <dl id="info_org">
+    <dl id="organization_info">
       <dt>Name</dt>
-      <dd>- <%= organization.name %> </dd>
-      <dt>Rich Text</dt>
-      <dd>-  <%= organization.rich_text%></dd>
-      <dt>Description</dt>
-      <dd>- <%= organization.description %> </dd>
+      <dd>❄ <%= organization.name %> </dd>
+      <dt>Description , rich text</dt>
+      <dd>❄ <%= organization.description %> <%= organization.rich_text%></dd>
     </dl>
+    <table id="event_in_organization">
+      <thead>
+      <th>Title event</th>
+      </thead>
+      <tbody>
+      <% @events1.each do |events| %>
+      <tr>
+        <td>❄ <%= link_to events.title, events %></td>
+      </tr>
 
+      </tbody>
+    </table>
+
+
+      <% end %>
   <% end %>
 
 

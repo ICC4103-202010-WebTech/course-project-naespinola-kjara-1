@@ -5,6 +5,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations.json
   def index
     @organizations = Organization.all.take(1)
+    @events1 = Event.includes(:user).where("events.include_organization=true")
   end
 
   # GET /organizations/1

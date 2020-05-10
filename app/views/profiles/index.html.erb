@@ -7,21 +7,23 @@
     <img src= <%= profile.image %> style="width:150px;height:110px;">
     <ul id="links">
       <li><%= link_to "Event",  events_path%></li>
-
-      <li>Tea</li>
-      <li>Milk</li>
+      <li>Vote </li>
+      <li>View invitation to event</li>
+      <li>Change password</li>
     </ul>
 
   </aside>
 
 
   <dl id="profile_info">
+    <dt>Username</dt>
+    <dd>❄ <%= profile.user.username %> </dd>
     <dt>Name</dt>
-    <dd>- <%= profile.name %> <%= profile.last_name %></dd>
+    <dd>❄ <%= profile.name %> <%= profile.last_name %></dd>
     <dt>Location</dt>
-    <dd>- Country: <%= profile.location.country %>, Region: <%= profile.location.region %> </dd>
+    <dd>❄ Country: <%= profile.location.country %>, Region: <%= profile.location.region %> </dd>
     <dt>Bio</dt>
-    <dd>- <%= profile.short_bio %> </dd>
+    <dd>❄ <%= profile.short_bio %> </dd>
   </dl>
 
 
@@ -29,5 +31,5 @@
 
 </div>
 <br>
-
+<%= link_to 'Delete user', user_profiles_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'New Profile', new_profile_path %>

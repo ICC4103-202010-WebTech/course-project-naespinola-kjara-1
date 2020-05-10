@@ -1,30 +1,59 @@
 <p id="notice"><%= notice %></p>
 
 <h4><%= @event.title%></h4>
+
+
+
 <div id="container">
   <aside id="event_add">
-    <ul id="links">
-      <li><%=link_to "Date of the event", @dates_to_votes%></li>
-      <li><%= render partial: "guests/guest", object: @guest %>></li>
+    <table id="event_date">
+      <thead>
+      <th>Dates of vote</th>
+      </thead>
+      <tbody>
+      <%@event_dates_to_votes.each do |event_dates_to_vote| %>
+        <tr>
+          <td>❄ <%=  event_dates_to_vote.date %></td>
 
-    </ul>
+      <% end %>
+        </tr>
+
+        </tbody>
+        </table>
+    <table id="event_guest">
+      <thead>
+      <th>Guest</th>
+      </thead>
+      <tbody>
+      <% @event_guests.each do |event_guest| %>
+          <tr>
+            <td><%=event_guest.user.username%></td>
+
+      <% end %>
+      </tr>
+
+      </tbody>
+    </table>
+
   </aside>
   <dl id="info_org">
-    <img src= <%= @event.image %> >
+    <img src= <%= @event.image %>  >
     <dt>Location</dt>
-    <dd>- <%= @event.location %> </dd>
+    <dd>❄ <%= @event.location %> </dd>
     <dt>Creation Date</dt>
-    <dd>- <%= @event.created_at %> </dd>
+    <dd>❄ <%= @event.created_at %> </dd>
     <dt>Description</dt>
-    <dd>- <%= @event.description%> </dd>
+    <dd>❄ <%= @event.description%> </dd>
     <dt>Documents</dt>
-    <dd>- <%= @event.videos%> </dd>
-    <dd>- <%= @event.documents%> </dd>
+    <dd>❄ <%= @event.videos%> </dd>
+    <dd>❄ <%= @event.documents%> </dd>
   </dl>
+
 
 
 </div>
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Back', events_path %> |
+<%= link_to 'Delete',"dates_to_votes#destroy", method: :delete, data: { confirm: 'Are you sure?' } %>

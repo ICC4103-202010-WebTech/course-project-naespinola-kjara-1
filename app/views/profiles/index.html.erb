@@ -4,8 +4,9 @@
 <div id="container">
   <% @profiles.each_with_index do |profile, i| %>
   <aside id="profile_links">
-    <img src= <%= profile.image %> style="width:150px;height:110px;">
+
     <ul id="links">
+      <li><%= profile.image %></li>
       <li><%= link_to "Event",  events_path%></li>
       <li><%= link_to "Organization", organizations_path %></li>
       <li>Vote </li>

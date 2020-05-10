@@ -4,7 +4,7 @@ class MessageReceivedsController < ApplicationController
   # GET /message_receiveds
   # GET /message_receiveds.json
   def index
-    @message_receiveds = MessageReceived.all
+    @message_receiveds = MessageReceived.includes(:mailbox,:message)
   end
 
   # GET /message_receiveds/1

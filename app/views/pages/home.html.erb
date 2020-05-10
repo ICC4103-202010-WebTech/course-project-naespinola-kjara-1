@@ -1,1 +1,17 @@
 <h4>Upcoming Events</h4>
+<table style="width:100%">
+  <thead>
+  <th>N</th>
+  <th>Event</th>
+  <th>Description</th>
+  </thead>
+  <tbody>
+  <% @events.each_with_index do |event, i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= link_to event.title,event %></td>
+      <td><%= event.description %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

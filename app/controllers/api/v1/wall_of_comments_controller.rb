@@ -1,4 +1,4 @@
-class API::V1::WallOfCommentsController < ApplicationController
+class API::V1::WallOfCommentsController < APIController
   before_action :set_wall_of_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /wall_of_comments

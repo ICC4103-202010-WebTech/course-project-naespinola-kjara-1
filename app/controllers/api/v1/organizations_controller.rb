@@ -1,4 +1,4 @@
-class API::V1::OrganizationsController < ApplicationController
+class API::V1::OrganizationsController < APIController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
 
   # GET /organizations

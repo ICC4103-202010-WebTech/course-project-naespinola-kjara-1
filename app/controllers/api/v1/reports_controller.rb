@@ -1,4 +1,4 @@
-class API::V1::ReportsController < ApplicationController
+class API::V1::ReportsController < APIController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
 
   # GET /reports

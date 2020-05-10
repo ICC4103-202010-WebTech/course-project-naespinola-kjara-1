@@ -1,4 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<h4><%= @event.title%></h4>
+<div id="container">
+  <aside id="event_add">
+    <p>Aside vacio</p>
+  </aside>
+  <dl id="info_org">
+    <dt>Description</dt>
+    <dd>- <%= @event.description %> </dd>
+   
+  </dl>
+
+</div>
+
+
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>

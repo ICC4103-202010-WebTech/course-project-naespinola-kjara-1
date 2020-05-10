@@ -1,4 +1,4 @@
-class API::V1::MessageReceivedsController < ApplicationController
+class API::V1::MessageReceivedsController < APIController
   before_action :set_message_received, only: [:show, :edit, :update, :destroy]
 
   # GET /message_receiveds

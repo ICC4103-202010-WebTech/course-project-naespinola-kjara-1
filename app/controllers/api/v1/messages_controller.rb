@@ -1,4 +1,4 @@
-class API::V1::MessagesController < ApplicationController
+class API::V1::MessagesController < APIController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
   # GET /messages

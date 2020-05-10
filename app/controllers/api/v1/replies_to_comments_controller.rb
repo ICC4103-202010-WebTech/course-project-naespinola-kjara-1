@@ -1,4 +1,4 @@
-class API::V1::RepliesToCommentsController < ApplicationController
+class API::V1::RepliesToCommentsController < APIController
   before_action :set_replies_to_comment, only: [:show, :edit, :update, :destroy]
 
   # GET /replies_to_comments

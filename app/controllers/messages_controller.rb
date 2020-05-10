@@ -4,7 +4,8 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.includes(:user_receiver,:user_transmitter)
+
   end
 
   # GET /messages/1

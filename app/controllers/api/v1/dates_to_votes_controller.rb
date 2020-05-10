@@ -1,4 +1,4 @@
-class API::V1::DatesToVotesController < ApplicationController
+class API::V1::DatesToVotesController < APIController
   before_action :set_dates_to_vote, only: [:show, :edit, :update, :destroy]
 
   # GET /dates_to_votes

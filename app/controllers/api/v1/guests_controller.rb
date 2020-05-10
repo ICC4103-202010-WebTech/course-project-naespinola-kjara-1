@@ -1,4 +1,4 @@
-class API::V1::GuestsController < ApplicationController
+class API::V1::GuestsController < APIController
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
 
   # GET /guests

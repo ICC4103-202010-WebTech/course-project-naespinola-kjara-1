@@ -4,7 +4,7 @@ class MessageSentsController < ApplicationController
   # GET /message_sents
   # GET /message_sents.json
   def index
-    @message_sents = MessageSent.all
+    @message_sents = MessageSent.includes(:mailbox,:message)
   end
 
   # GET /message_sents/1

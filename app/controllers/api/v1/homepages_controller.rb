@@ -1,4 +1,4 @@
-class API::V1::HomepagesController < ApplicationController
+class API::V1::HomepagesController < APIController
   before_action :set_homepage, only: [:show, :edit, :update, :destroy]
 
   # GET /homepages

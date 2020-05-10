@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-o1 = Organization.create(name: "Snow", image: " ", rich_text: " ", description: "Hello members", video: "", document: "" )
+o1 = Organization.create(name: "Snow", image:"https://www.audiovisualstudio.es/wp-content/uploads/2017/08/LED.jpg",
+                         rich_text: " ", description: "Hello members", video: "", document: "" )
 u1 = User.create(organization:o1, username: "user1", email: "user1@gmail.com", password: "1234567k", is_organization_admin: false, is_system_admin: true, in_blacklist:false)
 u2 = User.create(organization:o1, username: "user2", email: "user2@gmail.com", password: "winter123", is_organization_admin: true, is_system_admin: false, in_blacklist:false)
 
@@ -17,10 +18,10 @@ u4 = User.create(organization: o1, username: "user4", email: "user4@gmail.com", 
 l1 = Location.create(country: "Chile", region: "Metropolitana")
 l2 = Location.create(country: "Argentina", region: "Buenos Aires")
 
-p1 = Profile.create(user: u1, location: l1, image: "", document: "",video: "", short_bio: "", name: "Ana", last_name: "Polo")
-p2 = Profile.create(user: u2, location: l1,  image: "", document: "" ,video: "", short_bio: "", name: "Eduardo", last_name: "Smith")
-p3 = Profile.create(user: u3, location: l2,  image: "", document: "",video: "", short_bio: "", name: "Pepito", last_name: "Torres")
-p4 = Profile.create(user: u4, location: l2, image: "", document: "",video: "", short_bio: "", name: "Pepita", last_name: "Sol")
+p1 = Profile.create(user: u1, location: l1, image: "https://files.lafm.com.co/assets/public/styles/image_631x369/public/2018-06/ana_polo_0_0.jpg?itok=uL9mqrzk", document: "",video: "", short_bio: "I live in Miami and love justice.", name: "Ana", last_name: "Polo")
+p2 = Profile.create(user: u2, location: l1,  image: "https://pbs.twimg.com/profile_images/561715227889127425/3pG719Kb_400x400.jpeg", document: "" ,video: "", short_bio: "CEO & Senior Partner", name: "Eduardo", last_name: "Smith")
+p3 = Profile.create(user: u3, location: l2,  image: "https://diariocorreo.pe/resizer/CUEoZ5t8eAY7O-4GClnbXe_OYf0=/980x528/smart/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/4XZ2TFCMLJFIBBGZJXSN6DODLA.jpg", document: "",video: "", short_bio: "I don't sing to be famous", name: "Pepito", last_name: "Torres")
+p4 = Profile.create(user: u4, location: l2, image: "https://media.metrolatam.com/2018/08/23/mujer1-234853dc0e0619b7be7317871413304c-1200x600.jpg", document: "",video: "", short_bio: "Hi!", name: "Pepita", last_name: "Sol")
 
 m1 = Mailbox.create(user: u1)
 m2 = Mailbox.create(user: u2)

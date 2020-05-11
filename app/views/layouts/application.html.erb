@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>CourseProjectNaespinolaKjara1</title>
     <%= csrf_meta_tags %>
@@ -8,29 +9,52 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <body class= " bg-light text-dark" >
   <header>
-    <h1><%= link_to "Vote Event Date ~VED~", root_path %></h1>
+    <div class="p-3  bg-dark text-white">   <h4><%= link_to "Vote Event Date ~VED~", root_path %></h4></div>
   </header>
-  <nav>
-    <ul id="navbar">
-      <li><%= link_to "Home", root_path%></li>
-      <li><%= link_to "Profile", user_profiles_path%></li>
-      <li><%= link_to "Mailbox",  user_mailboxes_path%></li>
 
+  <nav  class="navbar navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="#"> </a>
+    <img src="https://img.freepik.com/vector-gratis/sombrero-fiesta-letrero-neon_1262-15922.jpg?size=338&ext=jpg" width="30" height="30" class="d-inline-block align-top" alt="  ">
+       Welcome
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-    </ul>
-  </nav>
-  <div id="container">
-    <main id="main_content">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="<%= user_profiles_path%>" >Profile </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="<%= root_path%>">Home </a>
+        </li>
+        <li class="nav-item mailbox">
+          <a class="nav-link" href="<%= user_mailboxes_path%>">Mailbox </a>
+        </li>
+
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+
+  </nav >
+  <div id="container"   class= " p-3 bg-light text-dark">
+    <main id="main_content"  class= " p-3 bg-light text-dark">
       <%= yield %>
     </main>
   </div>
-  <footer>
-    <h4>
-      Contact Information
-    </h4>
-    <p>Contact us at: help@voteeventdate.com</p>
-  </footer>
+
+  <div class="fixed-bottom">
+    <footer class="bg-dark p-4">
+      <h4 class="text-white">
+        Contact Information
+      </h4>
+      <p class="text-muted">Contact us at: help@voteeventdate.com</p>
+    </footer>
+  </div>
   </body>
 </html>

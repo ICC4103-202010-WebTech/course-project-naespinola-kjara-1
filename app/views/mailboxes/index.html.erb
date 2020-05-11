@@ -1,20 +1,22 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Mailbox</h1>
-
 <% @mailboxes.each do |mailbox| %>
-
   <div>
-    <% @messages.each_with_index  do |message,i| %>
-      <aside id="inbox">
-        <dl id="organization_info">
-          <dt>Welcome! </dt>
-          <dd>❄ <%=mailbox.user.username %> </dd>
+    <h2 class="text-info">❄ Mailbox ❄</h2>
+    <p>Welcome! ❄ <%=mailbox.user.username %></p>
+  </div>
+
+  <div id="container">
+    <div class="row">
+      <div class="col-3">
+        <ul id="links">
+          <% @messages.each_with_index  do |message,i| %>
           <dt>Messages </dt>
-          <dd>❄ <%= message.user_transmitter_id%> </dd>
-        </dl>
-      </aside>
-      <table id = all_messages>
+          <button type="button" class="list-group-item list-group-item-action p-2">❄ <%= message.user_transmitter_id%> </button>
+
+            </ul>
+            </div>
+            <div class="col">
+      <table  class="table table-striped table-dark"id = all_messages>
         <thead>
         <th>
           N
@@ -38,12 +40,14 @@
     <%end %>
     </table>
 
+          </div>
+</div>
+    </div>
 
 
 
-  </div>
-<br>
 
 <%= link_to 'Destroy', mailbox, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Edit', edit_mailbox_path(mailbox) %>
 <%end %>
+<br>

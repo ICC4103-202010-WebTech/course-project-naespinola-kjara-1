@@ -1,13 +1,16 @@
-<h4><%= @event.title%></h4>
+<h3 class="text-info"><%= @event.title%></h3>
 <div class="card-deck">
   <div class="card text-white bg-dark mb-3" style="max-width: 20rem;" >
   <aside id="event_add">
+
+
     <table class="table table-striped table-dark" id="event_date">
       <thead>
-      <th>❄ Dates of vote</th>
+      <%@event_dates_to_votes.each do |event_dates_to_vote| %>
+      <th> ❄ Dates of vote</th>
       </thead>
       <tbody>
-      <%@event_dates_to_votes.each do |event_dates_to_vote| %>
+
         <tr>
           <td>🌙 <%=  event_dates_to_vote.date %></td>
 
@@ -88,15 +91,27 @@
       </tr>
       </tbody>
     </table>
-
-    <dl   id="info_event">
     <dt>❄ Wall Of Comments ❄ </dt>
-    <% @event_comments.each do |event_comment| %>
-    <dd>🌙User: <%= event_comment.user.username%> </dd>
-      <dd>🌙 Comment: <%= event_comment.rich_text%> </dd>
-      <dd>🌙 Created at: <%= event_comment.created_at%> </dd>
-    <% end %>
-  </dl>
+    <div class="list-group">
+      <% @event_comments.each do |event_comment| %>
+      <a href="#" class="list-group-item list-group-item-action">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1"><%= event_comment.user.username%></h5>
+          <small class="text-muted">🌙 Created at: <%= event_comment.created_at%></small>
+        </div>
+        <p class="mb-1"><%= event_comment.rich_text%></p>
+        <small class="text-muted">Report</small>
+        <small class="text-muted">Reply</small>
+
+      <% end %>
+      </a>
+    </div>
+
+
+
+
+
+
   </div>
 </div>
 

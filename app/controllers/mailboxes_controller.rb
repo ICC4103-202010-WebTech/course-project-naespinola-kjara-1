@@ -4,7 +4,10 @@ class MailboxesController < ApplicationController
   # GET /mailboxes
   # GET /mailboxes.json
   def index
-    @mailboxes = Mailbox.includes(:user).where("mailboxes.user_id=3")
+    @mailboxes = Mailbox.includes(:user).where("mailboxes.user_id=1")
+    @messages = Message.joins(:user_receiver,:user_transmitter).where("messages.user_receiver_id=1")
+
+
   end
 
   # GET /mailboxes/1

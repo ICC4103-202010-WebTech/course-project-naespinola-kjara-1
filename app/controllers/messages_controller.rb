@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.includes(:user_receiver,:user_transmitter)
+    @messages = Message.includes(:user_receiver,:user_transmitter).where("messages.user_receiver_id=1")
 
   end
 

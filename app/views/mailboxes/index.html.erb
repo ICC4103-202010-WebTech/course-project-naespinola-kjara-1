@@ -2,24 +2,48 @@
 
 <h1>Mailbox</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @mailboxes.each do |mailbox| %>
 
-  <tbody>
-    <% @mailboxes.each do |mailbox| %>
-      <tr>
-        <td><%= link_to 'Show', mailbox %></td>
-        <td><%= link_to 'Edit', edit_mailbox_path(mailbox) %></td>
-        <td><%= link_to 'Destroy', mailbox, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div>
+    <% @messages.each_with_index  do |message,i| %>
+      <aside id="inbox">
+        <dl id="organization_info">
+          <dt>Welcome! </dt>
+          <dd>❄ <%=mailbox.user.username %> </dd>
+          <dt>Messages </dt>
+          <dd>❄ <%= message.user_transmitter_id%> </dd>
+        </dl>
+      </aside>
+      <table id = all_messages>
+        <thead>
+        <th>
+          N
+        </th>
+        <th>
+          Name
+        </th>
+        <th>
+          Text
+        </th>
+        </thead>
+        <tbody>
+        <tr>
 
+          <td><%= i+1%></td>
+          <td><%= message.user_transmitter_id%> </td>
+          <td><%= message.text_message%></td>
+
+        </tr>
+        </tbody>
+    <%end %>
+    </table>
+
+
+
+
+  </div>
 <br>
 
-<%= link_to 'New Mailbox', new_mailbox_path %>
+<%= link_to 'Destroy', mailbox, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_mailbox_path(mailbox) %>
+<%end %>

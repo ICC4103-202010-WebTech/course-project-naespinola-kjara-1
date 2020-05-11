@@ -2,8 +2,6 @@
 
 <h4><%= @event.title%></h4>
 
-
-
 <div id="container">
   <aside id="event_add">
     <table id="event_date">
@@ -36,9 +34,9 @@
     </table>
 
   </aside>
-  <dl id="info_org">
+  <dl id="info_event">
     <dt>Image</dt>
-    <dd>❄ <%= @event.image %> </dd>
+    <dd>❄ Image the event<%= @event.image %> </dd>
     <dt>Location</dt>
     <dd>❄ <%= @event.location %> </dd>
     <dt>Creation Date</dt>
@@ -46,15 +44,19 @@
     <dt>Description</dt>
     <dd>❄ <%= @event.description%> </dd>
     <dt>Documents</dt>
-    <dd>❄ <%= @event.videos%> </dd>
-    <dd>❄ <%= @event.documents%> </dd>
+    <dd>❄ Videos <%= @event.videos%> </dd>
+    <dd>❄ .pdf <%= @event.documents%> </dd>
+    <dt>Wall Of Comments</dt>
+    <% @event_comments.each do |event_comment| %>
+    <dd>❄ User: <%= event_comment.user.username%> </dd>
+      <dd>❄ Comment: <%= event_comment.rich_text%> </dd>
+      <dd>❄ Created at: <%= event_comment.created_at%> </dd>
+    <% end %>
   </dl>
-
-
 
 </div>
 
-
+<br>
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %> |
 <%= link_to 'Delete',"dates_to_votes#destroy", method: :delete, data: { confirm: 'Are you sure?' } %>

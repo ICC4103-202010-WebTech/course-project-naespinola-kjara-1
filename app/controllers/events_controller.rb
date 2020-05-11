@@ -15,7 +15,8 @@ class EventsController < ApplicationController
   def show
     @event_wall_of_comments = WallOfComment.includes(:event)
     @event_guests = Guest.includes(:user, :event)
-    @event_dates_to_votes = DatesToVote.joins(:event).where("dates_to_votes.event_id and events.id ")
+    @event_dates_to_votes = DatesToVote.joins(:event).where("dates_to_votes.event_id == events.id ")
+    @event_comments = Comment.joins(:wall_of_comment,:user).where("comments.wall_of_comment_id == wall_of_comments.id")
   end
 
   # GET /events/new

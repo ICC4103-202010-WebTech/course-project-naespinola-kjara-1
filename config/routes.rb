@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   end
   resources :organizations, defaults: {format: :html}
   resources :guests, defaults: {format: :html}
+  resources :votes, defaults:{format: :html}
 end

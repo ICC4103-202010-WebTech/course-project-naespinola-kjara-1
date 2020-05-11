@@ -1,46 +1,45 @@
 <p id="notice"><%= notice %></p>
-<h1>Organizations</h1>
-<div>
+<h4>Organizations</h4>
+<div id="container">
+  <div class="row">
+    <div class="col-3">
+      <aside id="organization_links">
+        <ul id="links">
+          <button type="button" class="list-group-item list-group-item-action p-2">Calendar </button>
+          <button type="button" class="list-group-item list-group-item-action p-2">Members</button>
+          <button type="button" class="list-group-item list-group-item-action p-2">Videos</button>
+          <button type="button" class="list-group-item list-group-item-action p-2">Documents</button>
+        </ul>
+      </aside>
+    </div>
+    <div class="col">
+      <dl id="organization_info">
+        <dt>Image</dt>
+        <dd>❄ <%= @organization.image %> </dd>
+        <dt>Name</dt>
+        <dd>❄ <%= @organization.name %> </dd>
+        <dt>Description , rich text</dt>
+        <dd>❄ <%= @organization.description %> <%= @organization.rich_text%></dd>
+      </dl>
+      <table id="event_in_organization">
+        <thead>
+        <th>Title event</th>
+        </thead>
+        <tbody>
+        <% @events1.each do |events| %>
+          <tr>
+            <td>❄ <%= link_to events.title, events %></td>
+          </tr>
 
-    <aside id="organization_links">
-      <ul id="links">
-        <li>Calendar </li>
-        <li>Members</li>
-        <li>Videos</li>
-        <li>Documents</li>
+          </tbody>
+          </table>
+        <% end %>
+    </div>
+  </div>
+  <br>
 
-      </ul>
-    </aside>
-
-    <dl id="organization_info">
-      <dt>Image</dt>
-      <dd>❄ <%= @organization.image %> </dd>
-      <dt>Name</dt>
-      <dd>❄ <%= @organization.name %> </dd>
-      <dt>Description , rich text</dt>
-      <dd>❄ <%= @organization.description %> <%= @organization.rich_text%></dd>
-    </dl>
-    <table id="event_in_organization">
-      <thead>
-      <th>Title event</th>
-      </thead>
-      <tbody>
-      <% @events1.each do |events| %>
-        <tr>
-          <td>❄ <%= link_to events.title, events %></td>
-        </tr>
-
-        </tbody>
-        </table>
-
-
-      <% end %>
-
-
-
+  <%= link_to 'New Organization', new_organization_path %>
+  <%= link_to 'Edit', edit_organization_path(@organization) %> |
+  <%= link_to 'Back', organizations_path %>
 </div>
-<br>
 
-<%= link_to 'New Organization', new_organization_path %>
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>

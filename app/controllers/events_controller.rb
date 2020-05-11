@@ -14,9 +14,9 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event_wall_of_comments = WallOfComment.includes(:event)
-    @event_guests = Guest.includes(:user, :event)
-    @event_dates_to_votes = DatesToVote.joins(:event).where("dates_to_votes.event_id == events.id ")
-    @event_comments = Comment.joins(:wall_of_comment,:user).where("comments.wall_of_comment_id == wall_of_comments.id")
+    @event_guests = Guest.includes(:user, :event).where("guests.id =#{params[:id]}")
+    @event_dates_to_votes = DatesToVote.joins(:event).where("dates_to_votes.event_id = #{params[:id]}")
+    @event_comments = Comment.joins(:wall_of_comment,:user).where("comments.wall_of_comment_id =#{params[:id]}")
   end
 
   # GET /events/new

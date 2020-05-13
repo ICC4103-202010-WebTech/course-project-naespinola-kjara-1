@@ -5,11 +5,12 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       resources :events do
-        resources :comments, shallow: true
-        resources :dates_to_votes
+          resources :comments
       end
     end
   end
+
+
 
   resource :user do
     resources :profiles, shallow: true

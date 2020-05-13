@@ -95,15 +95,11 @@ v4 = Vote.create(guest: g5, dates_to_vote: dtv4)
 
 r1 = Report.create(user: u1, event: e1)
 
-wall1 = WallOfComment.create(event: e1)
-wall2 = WallOfComment.create(event: e2)
-wall3 = WallOfComment.create(event: e3)
-wall4 = WallOfComment.create(event: e4)
 
-c1 = Comment.create(user: u1, wall_of_comment: wall1, rich_text: "hello world")
-c2 = Comment.create(user: u2, wall_of_comment: wall2, rich_text: "hello friends")
-c3 = Comment.create(user: u3, wall_of_comment: wall3, rich_text: "hello mom")
-c4 = Comment.create(user: u4, wall_of_comment: wall1, rich_text: "hello dude")
+c1 = Comment.create(user: u1, event: e1, rich_text: "hello world")
+c2 = Comment.create(user: u2, event: e2, rich_text: "hello friends")
+c3 = Comment.create(user: u3, event: e3, rich_text: "hello mom")
+c4 = Comment.create(user: u4,event: e4, rich_text: "hello dude")
 
 
 

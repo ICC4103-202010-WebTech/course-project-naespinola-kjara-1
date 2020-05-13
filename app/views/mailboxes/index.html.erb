@@ -11,7 +11,7 @@
         <ul id="links">
           <% @messages.each_with_index  do |message,i| %>
           <dt>Messages </dt>
-          <button type="button" class="list-group-item list-group-item-action p-2">❄ <%= message.user_transmitter_id%> </button>
+          <button type="button" class="list-group-item list-group-item-action p-2">❄ user_id <%= message.user_transmitter_id%> </button>
 
             </ul>
             </div>
@@ -32,7 +32,7 @@
         <tr>
 
           <td><%= i+1%></td>
-          <td><%= message.user_transmitter_id%> </td>
+          <td> user_id  <%= message.user_transmitter_id%> </td>
           <td><%= message.text_message%></td>
 
         </tr>

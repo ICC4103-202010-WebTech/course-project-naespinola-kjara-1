@@ -26,28 +26,36 @@ class API::V1::EventsController < APIController
   def create
     @event = Event.new(event_params)
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      render :show, status: :created, location: api_v1_events_path(@event)
+    else
+      render json: @event.errors, status: :unprocessable_entity
     end
+
+    #respond_to do |format|
+    #  if @event.save
+    #    format.html { redirect_to @event, notice: 'Event was successfully created.' }
+    #    format.json { render :show, status: :created, location: @event }
+    #  else
+    #    format.html { render :new }
+    #    format.json { render json: @event.errors, status: :unprocessable_entity }
+    #  end
+    #end
   end
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { render :edit }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    # respond_to do |format|
+    if @event.update(event_params)
+      render :show, status: :ok, location: api_v1_events_path(@event)
+      # format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+      #format.json { render :show, status: :ok, location: @event }
+    else
+      render json: @event.errors, status: :unprocessable_entity
+      #format.html { render :edit }
+      #format.json { render json: @event.errors, status: :unprocessable_entity }
+      # end
     end
   end
 
@@ -55,11 +63,13 @@ class API::V1::EventsController < APIController
   # DELETE /events/1.json
   def destroy
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    head :no_content
+    # respond_to do |format|
+    # format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+    # format.json { head :no_content }
+    # end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -69,6 +79,10 @@ class API::V1::EventsController < APIController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.fetch(:event, {})
+      params.fetch(:event, {}).permit(:title, :description, :private, :include_organization, :image,
+                                      :videos, :documents, :location, :user_id,
+                                      {user_attributes: [:organization_id, :username, :email, :password, :is_organization_admin,
+                                                         :is_system_admin, :in_blacklist],
+                                       comment_attributes: [:user_id, :rich_text,:image]})
     end
 end

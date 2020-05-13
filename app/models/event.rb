@@ -1,10 +1,13 @@
 class Event < ApplicationRecord
   belongs_to :user
-  has_one :wall_of_comment
   has_one :homepage
   has_many :guests
   has_many :dates_to_votes
   has_many :reports
+  has_many :comments
+
+  accepts_nested_attributes_for :user
+  accepts_nested_attributes_for :comments
 
 
   validates :title, presence: true

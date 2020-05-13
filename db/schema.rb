@@ -14,13 +14,13 @@ ActiveRecord::Schema.define(version: 2020_04_20_020555) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "wall_of_comment_id", null: false
+    t.integer "event_id", null: false
     t.string "rich_text"
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_comments_on_event_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-    t.index ["wall_of_comment_id"], name: "index_comments_on_wall_of_comment_id"
   end
 
   create_table "dates_to_votes", force: :cascade do |t|
@@ -172,15 +172,8 @@ ActiveRecord::Schema.define(version: 2020_04_20_020555) do
     t.index ["guest_id"], name: "index_votes_on_guest_id"
   end
 
-  create_table "wall_of_comments", force: :cascade do |t|
-    t.integer "event_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_wall_of_comments_on_event_id"
-  end
-
+  add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
-  add_foreign_key "comments", "wall_of_comments"
   add_foreign_key "dates_to_votes", "events"
   add_foreign_key "events", "users"
   add_foreign_key "guests", "events"
@@ -203,5 +196,4 @@ ActiveRecord::Schema.define(version: 2020_04_20_020555) do
   add_foreign_key "users", "organizations"
   add_foreign_key "votes", "dates_to_votes"
   add_foreign_key "votes", "guests"
-  add_foreign_key "wall_of_comments", "events"
 end

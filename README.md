@@ -13,7 +13,7 @@ In our views you can see the content of the resources of the web application, wh
 We implement strictly RESTful APIs to perform CRUD operations on event and comment resources, where comments is nested to events. We create a collection of requests in postman with tests of our API operations, which can be found in the "Postman Collection" section. We create an API namespace for our routes with their specific api controllers. In order for this to work we had to add the code indicated in the statement in config/initializers/inflections.rb
 
 ### Features pending
-We lacked to perfect the operation and design of some views, such as the calendar of an organization, the members of an organization and that it is possible to see the name of the users in the messages.
+We lacked to perfect the operation and design of some views, such as the calendar of an organization, the members of an organization and that it is possible to see the name of the users in the messages. The bug at the footer: its static,will be improved soon. 
 
 ### Postman Collection
 https://www.getpostman.com/collections/eed94b7bd1cc50099a0a

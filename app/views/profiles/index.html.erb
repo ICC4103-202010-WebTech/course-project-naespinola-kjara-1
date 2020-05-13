@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <% @profiles.each_with_index do |profile, i| %>
-<h2 class="text-info">❄ Welcome! <%= profile.name %> </h2>
+<h2 class="text-info">🌼 Welcome! <%= profile.name %> </h2>
 <div id="container" >
   <div class="row">
     <div  class="col-3">
@@ -19,13 +19,13 @@
         </div>
         <div class="col">
           <dl id="profile_info">
-            <dt>Username</dt>
+            <dt class="text-success">Username</dt>
             <dd>• <%= profile.user.username %> </dd>
-            <dt>Name</dt>
+            <dt class="text-success">Name</dt>
             <dd>• <%= profile.name %> <%= profile.last_name %></dd>
-            <dt>Location</dt>
+            <dt class="text-success">Location</dt>
             <dd>• Country: <%= profile.location.country %>, Region: <%= profile.location.region %> </dd>
-            <dt>Bio</dt>
+            <dt class="text-success">Bio</dt>
             <dd>• <%= profile.short_bio %> </dd>
           </dl>
 

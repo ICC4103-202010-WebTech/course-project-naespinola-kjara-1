@@ -1,46 +1,29 @@
-<h2 class="text-info"><%= @event.title%></h2><h6>image_event </h6>
-<div class="card-deck">
-  <div style="max-width: 20rem;" >
-  <aside id="event_add">
+<h2 class="text-info">❄ <%= @event.title%></h2>
+<%@event_dates_to_votes.each do |event_dates_to_vote| %>
 
+<div id="container" >
+  <div class="row">
+    <div  class="col-3">
+      <aside id="profile_links">
+        <ul class="table-success" id="links">
+          <button type="button" class="list-group-item list-group-item-action p-2">image event</button>
+          <button  type="button" class="list-group-item list-group-item-action p-2">Dates to event</button>
+          <button type="button" class="list-group-item list-group-item-action p-2"><%=  event_dates_to_vote.date %></button>
+<% end %>
+          <button type="button" class="list-group-item list-group-item-action p-2">❄</button>
+          <button type="button" class="list-group-item list-group-item-action p-2">Guests</button>
+<% @event_guests.each do |event_guest| %>
+          <button type="button" class="list-group-item list-group-item-action p-2"><%=event_guest.user.username%></button>
+<% end %>
 
-    <table class="table table-striped" id="event_date">
-      <thead>
-      <%@event_dates_to_votes.each do |event_dates_to_vote| %>
-      <th> Dates of vote</th>
-      </thead>
-      <tbody>
-
-        <tr>
-          <td ><%=  event_dates_to_vote.date %></td>
-
-      <% end %>
-        </tr>
-
-        </tbody>
-        </table>
-    <table class="table table-striped table-dark"  id="event_guest">
-      <thead>
-      <th> Guest</th>
-      </thead>
-      <tbody>
-      <% @event_guests.each do |event_guest| %>
-          <tr>
-            <td><%=event_guest.user.username%></td>
-
-      <% end %>
-      </tr>
-
-      </tbody>
-    </table>
-
-  </aside>
-  </div>
-  <div class="card text-white bg-dark mb-3"  style="max-width: 50rem;">
-<table class="table table-striped table-dark" >
-  <thead>
+        </ul>
+      </aside>
+    </div>
+<div class="col">
+<table class="table table-striped" >
+  <thead class="table-success">
   <th>
-    Location
+    📍 Location
   </th>
   </thead>
   <tbody>
@@ -51,8 +34,8 @@
   </tr>
   </tbody>
 </table>
-    <table class="table table-striped table-dark" >
-      <thead>
+    <table class="table table-striped" >
+      <thead class="table-success">
       <th>
       Creation Date
       </th>
@@ -65,8 +48,8 @@
       </tr>
       </tbody>
     </table>
-    <table class="table table-striped table-dark" >
-      <thead>
+    <table class="table table-striped" >
+      <thead class="table-success">
       <th>
         Description
       </thead>
@@ -78,8 +61,8 @@
       </tr>
       </tbody>
     </table>
-    <table class="table table-striped table-dark" >
-      <thead>
+    <table class="table table-striped" >
+      <thead class="table-success">
       <th>
         Documents
       </thead>
@@ -92,7 +75,17 @@
       </tr>
       </tbody>
     </table>
-    <dt>❄ Wall Of Comments ❄ </dt>
+    <div  class="table-success" >
+
+
+    <div   class="font-weight-bolder">
+      <p class="text-dark" >
+       Wall Of Comments
+      </p>
+
+    </div>
+    </div>
+
     <div class="list-group">
       <% @event_comments.each do |event_comment| %>
       <a href="#" class="list-group-item list-group-item-action">
@@ -107,10 +100,6 @@
       <% end %>
       </a>
     </div>
-
-
-
-
 
 
   </div>

@@ -59,19 +59,19 @@ ms2 = MessageSent.create(mailbox: m2, message: msm1)
 ms3 = MessageSent.create(mailbox: m3, message: msm2)
 ms4 = MessageSent.create(mailbox: m4, message: msm3)
 
-e1 = Event.create(user: u1, title: "Event1", description: "Hello everyone 40th birthday celebration", private: false, include_organization: true,
+e1 = Event.create(user: u1, title: "Winter is comming", description: "The winter is the better weather of the year so welcome to gala 2020!!", private: false, include_organization: true,
                   image: "", videos: "", documents: "", location: "Las Vegas" )
-e2 = Event.create(user: u2, title: "Event2", description: "Hello everyone 35th birthday celebration", private: true, include_organization: true,
+e2 = Event.create(user: u2, title: "Party Somewhere", description: "Cool party", private: true, include_organization: true,
                   image: "", videos: "", documents: "", location:"London")
-e3 = Event.create(user: u3, title: "Event3", description: "Hello everyone gala 2020", private: false, include_organization: false,
+e3 = Event.create(user: u3, title: "Welcome to the jungle", description: "Hello everyone gala 2020", private: false, include_organization: false,
                   image:"", videos: "", documents: "", location:"Park, New York")
-e4 = Event.create(user: u1, title: "Event4", description: "Hello everyone 30th birthday celebration", private: true, include_organization: false,
+e4 = Event.create(user: u1, title: "Less is more", description: "Hello everyone 30th birthday celebration", private: true, include_organization: false,
                   image: "", videos: "", documents: "", location:"Santiago")
-e5 = Event.create(user: u6, title: "Event5", description: "Hello everyone 30th birthday celebration", private: true, include_organization: true ,
+e5 = Event.create(user: u6, title: "The Sky", description: "Hello everyone 30th birthday celebration", private: true, include_organization: true ,
                   image: "",
                   videos: "", documents: "", location:"Coquimbo")
 
-e5 = Event.create(user: u5, title: "Event6", description: "Hello everyone 60th birthday celebration", private: false, include_organization: true ,
+e5 = Event.create(user: u5, title: "One more year", description: "Hello everyone 60th birthday celebration", private: false, include_organization: true ,
                   image: "",
                   videos: "", documents: "", location:"Antofagasta")
 

@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 <% @mailboxes.each do |mailbox| %>
   <div>
-    <h2 class="text-info">❄ Mailbox ❄</h2>
-    <p>Welcome! ❄ <%=mailbox.user.username %></p>
+    <h2 class="text-info"> ✉️ Mailbox </h2>
+    <p class="text-success">Welcome!  <%=mailbox.user.username %></p>
   </div>
 
   <div id="container">
@@ -10,29 +10,30 @@
       <div class="col-3">
         <ul id="links">
           <% @messages.each_with_index  do |message,i| %>
-          <dt>Messages </dt>
-          <button type="button" class="list-group-item list-group-item-action p-2">❄ user_id <%= message.user_transmitter_id%> </button>
+          <dt >Messages </dt>
+          <button type="button" class="list-group-item list-group-item-action p-2"> user_id <%= message.user_transmitter_id%> </button>
 
             </ul>
             </div>
             <div class="col">
-      <table  class="table table-striped table-dark"id = all_messages>
-        <thead>
-        <th>
+
+      <table  class="table table-striped" class="text-success"id = all_messages>
+        <thead class="table-success">
+        <th >
           N
         </th>
-        <th>
+        <th >
           Name
         </th>
-        <th>
+        <th >
           Text
         </th>
         </thead>
         <tbody>
         <tr>
 
-          <td><%= i+1%></td>
-          <td> user_id  <%= message.user_transmitter_id%> </td>
+          <td ><%= i+1%></td>
+          <td > user_id  <%= message.user_transmitter_id%> </td>
           <td><%= message.text_message%></td>
 
         </tr>

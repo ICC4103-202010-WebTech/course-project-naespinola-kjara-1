@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 <% @profiles.each_with_index do |profile, i| %>
-<h4 class="text-info">❄ Welcome! <%= profile.name %> </h4>
+<h2 class="text-info">❄ Welcome! <%= profile.name %> </h2>
 <div id="container" >
   <div class="row">
-    <div class="col-3">
+    <div  class="col-3">
 
         <aside id="profile_links">
 
-          <ul id="links">
-            <button type="button" class="list-group-item list-group-item-action p-2">Image the profile<%= profile.image %></button>
+          <ul class="table-success" id="links">
+            <button  type="button" class="list-group-item list-group-item-action p-2">Image the profile<%= profile.image %></button>
             <button type="button" class="list-group-item list-group-item-action p-2"><%= link_to "Event",  events_path%></button>
             <button type="button" class="list-group-item list-group-item-action p-2"><%= link_to "Organization", organizations_path %></button>
             <button type="button" class="list-group-item list-group-item-action p-2"><%= link_to "Vote",  votes_path%></button>
@@ -20,13 +20,13 @@
         <div class="col">
           <dl id="profile_info">
             <dt>Username</dt>
-            <dd>❄ <%= profile.user.username %> </dd>
+            <dd>• <%= profile.user.username %> </dd>
             <dt>Name</dt>
-            <dd>❄ <%= profile.name %> <%= profile.last_name %></dd>
+            <dd>• <%= profile.name %> <%= profile.last_name %></dd>
             <dt>Location</dt>
-            <dd>❄ Country: <%= profile.location.country %>, Region: <%= profile.location.region %> </dd>
+            <dd>• Country: <%= profile.location.country %>, Region: <%= profile.location.region %> </dd>
             <dt>Bio</dt>
-            <dd>❄ <%= profile.short_bio %> </dd>
+            <dd>• <%= profile.short_bio %> </dd>
           </dl>
 
 

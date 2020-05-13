@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Votes</h1>
+<h2 class="text-info"> 🗓️ Vote  </h2>
 
 <div id="container">
   <div class="row">
@@ -9,15 +9,15 @@
 
         <ul id="links">
           <% @votes.each do |vote| %>
-          <button type="button" class="list-group-item list-group-item-action p-2">❄ <%= vote.dates_to_vote.event.title%></button>
+          <button type="button" class="list-group-item list-group-item-action p-2"> <%= vote.dates_to_vote.event.title%></button>
       <% end %>
       </ul>
     </div>
     <div class="col">
 
 
-    <table class="table table-striped table-dark" id="all_dates">
-      <thead>
+    <table class="table table-striped" id="all_dates">
+      <thead class="table-success">
       <th>
         N
       </th>

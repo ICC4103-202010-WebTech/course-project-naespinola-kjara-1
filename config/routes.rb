@@ -14,13 +14,13 @@ Rails.application.routes.draw do
 
   resource :user do
     resources :profiles, shallow: true
-    resources :mailboxes, shallow: true
+    resources :messages, shallow: true
   end
   resources :organizations
 
 
   resource :user, defaults: {format: :html}
-  resources :mailboxes, defaults: {format: :html}
+  resources :messages, defaults: {format: :html}
   resources :profiles, defaults: {format: :html}
   resources :events, defaults: {format: :html} do
     resources :dates_to_votes, defaults: {format: :html}

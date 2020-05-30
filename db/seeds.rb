@@ -38,26 +38,11 @@ p5 = Profile.create(user: u5, location: l5, image: "",
                     document: "",video: "", short_bio: "Hello everyone!!", name: "Rick", last_name: "Sánchez")
 p6 = Profile.create(user: u6, location: l6, image: "",
                     document: "",video: "", short_bio: "Hello everyone, a dance?", name: "Elmer", last_name: "Figueroa")
-m1 = Mailbox.create(user: u1)
-m2 = Mailbox.create(user: u2)
-m3 = Mailbox.create(user: u3)
-m4 = Mailbox.create(user: u4)
-m5 = Mailbox.create(user: u5)
 
 msm1 = Message.create(user_receiver: u1, user_transmitter: u2, text_message: "hi1")
 msm2 = Message.create(user_receiver: u2, user_transmitter: u3, text_message: "hi2")
 msm3 = Message.create(user_receiver: u3, user_transmitter: u4, text_message: "hi3")
 msm4 = Message.create(user_receiver: u4, user_transmitter: u1, text_message: "hi4")
-
-mr1 = MessageReceived.create(mailbox: m1, message: msm1)
-mr2 = MessageReceived.create(mailbox: m2, message: msm2)
-mr3 = MessageReceived.create(mailbox: m3, message: msm3)
-mr4 = MessageReceived.create(mailbox: m4, message: msm4)
-
-ms1 = MessageSent.create(mailbox: m1, message: msm4)
-ms2 = MessageSent.create(mailbox: m2, message: msm1)
-ms3 = MessageSent.create(mailbox: m3, message: msm2)
-ms4 = MessageSent.create(mailbox: m4, message: msm3)
 
 e1 = Event.create(user: u1, title: "Winter is comming", description: "The winter is the better weather of the year so welcome to gala 2020!!", private: false, include_organization: true,
                   image: "", videos: "", documents: "", location: "Las Vegas" )

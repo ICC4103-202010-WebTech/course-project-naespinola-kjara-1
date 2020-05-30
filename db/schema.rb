@@ -71,31 +71,6 @@ ActiveRecord::Schema.define(version: 2020_04_20_020555) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "mailboxes", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_mailboxes_on_user_id"
-  end
-
-  create_table "message_receiveds", force: :cascade do |t|
-    t.integer "mailbox_id", null: false
-    t.integer "message_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["mailbox_id"], name: "index_message_receiveds_on_mailbox_id"
-    t.index ["message_id"], name: "index_message_receiveds_on_message_id"
-  end
-
-  create_table "message_sents", force: :cascade do |t|
-    t.integer "mailbox_id", null: false
-    t.integer "message_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["mailbox_id"], name: "index_message_sents_on_mailbox_id"
-    t.index ["message_id"], name: "index_message_sents_on_message_id"
-  end
-
   create_table "messages", force: :cascade do |t|
     t.integer "user_receiver_id"
     t.integer "user_transmitter_id"
@@ -180,11 +155,6 @@ ActiveRecord::Schema.define(version: 2020_04_20_020555) do
   add_foreign_key "guests", "users"
   add_foreign_key "homepages", "events"
   add_foreign_key "homepages", "organizations"
-  add_foreign_key "mailboxes", "users"
-  add_foreign_key "message_receiveds", "mailboxes"
-  add_foreign_key "message_receiveds", "messages"
-  add_foreign_key "message_sents", "mailboxes"
-  add_foreign_key "message_sents", "messages"
   add_foreign_key "messages", "users", column: "user_receiver_id"
   add_foreign_key "messages", "users", column: "user_transmitter_id"
   add_foreign_key "profiles", "locations"

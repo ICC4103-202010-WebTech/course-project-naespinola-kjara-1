@@ -1,24 +1,51 @@
+
+
 <p id="notice"><%= notice %></p>
+<div>
+  <h2 class="text-info"> ✉️ Mailbox </h2>
+  <p class="text-success">Welcome!</p>
+</div>
 
-<h1>Messages</h1>
+<div id="container">
+  <div class="row">
+    <div class="col-3">
+      <ul id="links">
+        <% @messageList.each_with_index  do |message,i| %>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          <dt >Messages </dt>
+          <button type="button" class="list-group-item list-group-item-action p-2"> user_id <%= message[:transmitter]%> </button>
 
-  <tbody>
-    <% @messages.each do |message| %>
-      <tr>
-        <td><%= link_to 'Show', message %></td>
-        <td><%= link_to 'Edit', edit_message_path(message) %></td>
-        <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          </ul>
+          </div>
+          <div class="col">
+
+            <table  class="table table-striped" class="text-success" id = all_messages>
+              <thead class="table-success">
+              <th >
+                N
+              </th>
+              <th >
+                Name
+              </th>
+              <th >
+                Text
+              </th>
+              </thead>
+              <tbody>
+              <tr>
+
+                <td ><%= i+1%></td>
+                <td > user_name: <%= message[:transmitter]%> </td>
+                <td><%= message[:text]%></td>
+
+              </tr>
+              </tbody>
+        <%end %>
+        </table>
+
+        </div>
+        </div>
+</div>
 
 <br>
 

@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   belongs_to :organization
   has_one :profile
-  has_one :mailbox
   has_many :events
   has_many :comments
   has_many :reports

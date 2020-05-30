@@ -4,7 +4,22 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.includes(:user_receiver,:user_transmitter).where("messages.user_receiver_id=1")
+    id_user = current_user.id
+    message = Message.includes(:user_receiver,:user_transmitter).where("messages.user_receiver_id=#{id_user}")
+    @transmitter= Message.includes(:user_receiver,:user_transmitter).where("messages.user_receiver_id=#{id_user}").select(:user_transmitter)
+    #@messages = Message.select('messages.*, users.*').joins("LEFT JOIN users ON 1 = messages.user_receiver_id").joins("LEFT JOIN messages ON users.id = messages.user_transmitter_id")
+    #@messages = Message.select('messages.*, users.*').joins("INNER JOIN users ON users.id = messages.user_receiver_id").where("users.id = #{id_user}")
+
+    #@messages = Message.find_by(user_receiver: 1)
+    puts message
+    @messageList = []
+    message.each do |i|
+      receiverName = User.find_by(id: i.user_receiver_id).username
+      transmitterName = User.find_by(id: i.user_transmitter_id).username
+      @messageList <<{received: receiverName, transmitter:transmitterName, text: i.text_message}
+    end
+    puts @messageList
+
 
   end
 

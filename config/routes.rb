@@ -16,8 +16,10 @@ Rails.application.routes.draw do
     resources :profiles, shallow: true
     resources :messages, shallow: true
   end
-  resources :organizations
 
+  namespace :admin do
+    resources :organizations
+  end
 
   resource :user, defaults: {format: :html}
   resources :messages, defaults: {format: :html}

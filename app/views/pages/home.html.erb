@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <% @events.each do |event| %>
-      <%= render partial: 'event_tile', locals: { event: event } %>
+      <%= render partial: 'events/event_tile', locals: { event: event } %>
     <% end %>
   </div>
   <div class="row ml-0 mt-3">
@@ -12,7 +12,7 @@
   </div>
   <div class="row">
     <% @organizations.each do |organization| %>
-      <%= render partial: 'organization_tile', locals: { organization: organization } %>
+      <%= render partial: 'organizations/organization_tile', locals: { organization: organization } %>
     <% end %>
   </div>
 </div>

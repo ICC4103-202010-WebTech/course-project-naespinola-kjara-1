@@ -10,7 +10,6 @@
           <button type="button" class="list-group-item list-group-item-action p-2">Members</button>
           <button type="button" class="list-group-item list-group-item-action p-2">Videos</button>
           <button type="button" class="list-group-item list-group-item-action p-2">Documents</button>
-
         </ul>
       </aside>
     </div>
@@ -19,25 +18,11 @@
         <dt class="text-success">Description </dt>
         <dd>• <%= @organization.description %> <%= @organization.rich_text%></dd>
       </dl>
-      <table class="table table-striped" id="event_in_organization">
-        <thead class="table-success">
-        <th> N </th>
-        <th>Events</th>
-        <th>Description</th>
-        </thead>
-        <tbody>
-          <tr>
-            <% @events1.each_with_index do |events,i| %>
-              <td><%= i+1 %></td>
-              <td><%= link_to events.title, events %> </td>
-              <td><%= events.description %> </td>
-
-          </tr>
-            <% end %>
-
-          </tbody>
-          </table>
-
+      <div class="row">
+        <% @events1.each do |events| %>
+          <%= render partial: 'events/event_tile', locals: { event: events } %>
+        <% end %>
+      </div>
     </div>
   </div>
   <br>

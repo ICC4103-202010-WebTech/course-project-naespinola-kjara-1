@@ -30,7 +30,6 @@
           </dl>
 
 
-      <% end %>
       </div>
       </div>
 
@@ -43,4 +42,7 @@
 </div>
 <br>
 <%= link_to 'Delete user', user_profiles_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_profile_url(profile) %>
 <%= link_to 'New Profile', new_profile_path %>
+
+<% end %>

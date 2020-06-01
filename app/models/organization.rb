@@ -2,6 +2,9 @@ class Organization < ApplicationRecord
   has_many :users
   has_one :homepage
 
+  accepts_nested_attributes_for :users
+  accepts_nested_attributes_for :homepage
+
   validates :name, presence: true
   validates :description, presence: true
 

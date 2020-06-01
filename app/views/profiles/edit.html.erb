@@ -1,6 +1,11 @@
-<h1>Editing Profile</h1>
-
-<%= render 'form', profile: @profile %>
-
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>
+<div class="row ml-0 mt-3">
+  <h2 class="text-info">Edit "<%=@profile.name%>" </h2>
+</div>
+<div class="row ml-0 mt-2">
+  <p>Please enter the required information to edit the "<%=@profile.name%>" profile:</p>
+</div>
+<%= render partial: "form",
+           locals: {
+               profile: @profile,
+               submit_btn_text: "Update"
+           } %>

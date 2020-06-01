@@ -1,17 +1,38 @@
-<%= form_with(model: profile, local: true) do |form| %>
-  <% if profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+<div class="row ml-0">
+  <%= form_with model: profile, local: true do |form| %>
+    <!--  errors_for profile  -->
+    <div class="form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :short_bio %>
+      <%= form.text_area :short_bio, class: "form-control" %>
+    </div>
+    
+ 
 
-      <ul>
-        <% profile.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <%= form.fields_for :location do |location_form| %>
+      <div class="form-group">
+        <%= location_form.label :region %>
+        <%= location_form.text_field :region, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= location_form.label :country %>
+        <%= location_form.text_field :country, class: "form-control" %>
+      </div>
+
+     
+      <%end %>
+    
+    
+    <div class="form-group mt-2">
+      <%= form.submit submit_btn_text, class: ["btn", "btn-primary"] %>
+      <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

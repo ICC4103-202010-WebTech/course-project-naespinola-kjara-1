@@ -19,6 +19,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
+
   end
 
   # POST /profiles
@@ -69,6 +70,8 @@ class ProfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_params
-      params.fetch(:profile, {})
+      params.fetch(:profile, {}).permit({user_attributes: [:organization_id, :username, :email, :password, :is_organization_admin,
+                                                           :is_system_admin, :in_blacklist],
+                                         location_attributes: [:country, :region]}, :image, :document, :video, :short_bio, :name, :last_name)
     end
 end

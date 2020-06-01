@@ -1,31 +1,14 @@
-<p id="notice"><%= notice %></p>
-
-<div ><h2 class="text-info" >🎆  Events </h2></div>
-
-<table class="table table-striped" >
-  <thead  class="table-success">
-  <th>
-    N
-  </th>
-   <th>
-     Event Title
-   </th>
-  <th>
-    Description
-  </th>
-  </thead>
-
-  <tbody>
-    <% @events.each_with_index do |event, i|%>
-      <tr>
-        <td><%= i+1 %></td>
-        <td><%= link_to event.title, event%></td>
-        <td><%=event.description %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
+<div class="row ml-0 mt-3">
+  <h2 class="text-info">🎆 Events</h2>
+</div>
+<div class="row ml-0 mt-2">
+  <p>Hi</p>
+</div>
+<div class="row ml-0 mt-2 mb-3">
+  <%= link_to "Add Event", new_event_path, class: ["btn", "btn-primary"] %>
+</div>
+<div class="row">
+  <% @events.each do |event| %>
+    <%= render partial: 'event_tile', locals: { event: event } %>
+  <% end %>
+</div>

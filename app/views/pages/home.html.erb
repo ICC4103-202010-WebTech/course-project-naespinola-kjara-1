@@ -1,45 +1,18 @@
-<div class="card-deck">
-  <div class="card text-white  mb-3" style="max-width: 40rem;" >
-    <div class="p-2 bg-success text-white"><h4>Upcoming Events</h4></div>
-    <table class="table table-striped">
-      <thead class="table-success">
-      <th scope="col">N</th>
-      <th scope="col">Event</th>
-      <th scope="col">Description</th>
-      </thead>
-      <tbody>
-      <% @events.each_with_index do |event, i| %>
-        <tr>
-          <td><%= i+1 %></td>
-          <td><%= link_to event.title,event %></td>
-          <td><%= event.description %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
+<div >
+  <div class="row ml-0 mt-3">
+    <h2 class="text-info">Upcoming Events</h2>
   </div>
-  <div class="card text-white  mb-3" style="max-width: 40rem;">
-    <div class="p-2 bg-success text-white"> <h4>Organizations</h4> </div>
-    <table class="table table-striped" id="organizations">
-      <thead class="table-success">
-      <th>
-        N
-      </th>
-      <th>
-        Name
-      </th>
-      <th>
-        Description
-      </th>
-      <tbody>
-      <%  @organizations.each_with_index do |organization, i| %>
-        <tr>
-          <td><%= i+1 %></td>
-          <td><%= link_to organization.name, organization%></td>
-          <td><%=organization.description %></td>
-        </tr>
-      <%end %>
-      </tbody>
-    </table>
+  <div class="row">
+    <% @events.each do |event| %>
+      <%= render partial: 'event_tile', locals: { event: event } %>
+    <% end %>
+  </div>
+  <div class="row ml-0 mt-3">
+    <h2 class="text-info">Organizations </h2>
+  </div>
+  <div class="row">
+    <% @organizations.each do |organization| %>
+      <%= render partial: 'organization_tile', locals: { organization: organization } %>
+    <% end %>
   </div>
 </div>

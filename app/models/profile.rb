@@ -2,6 +2,9 @@ class Profile < ApplicationRecord
   belongs_to :user
   belongs_to :location
 
+  accepts_nested_attributes_for :user
+  accepts_nested_attributes_for :location
+
   validates :image, allow_blank: true, format: {
       with: %r{\.(gif|jpg|png)\Z}i,
       message: 'must be a url for gif, jpg, or png image.'

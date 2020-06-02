@@ -1,31 +1,9 @@
-<p id="notice"><%= notice %></p>
-
-<h2 class="text-info">📩  Invitations  </h2>
-
-<table  class="table table-striped" >
-  <thead class="table-success">
-  <th>
-    N
-  </th>
-  <th>
-    Event Title
-  </th>
-  <th>
-    Description
-  </th>
-  </thead>
-
-  <tbody>
-  <% @event_guests1.each_with_index do |event_guest, i| %>
-    <tr>
-      <td><%= i+1 %></td>
-      <td><%= link_to event_guest.title, event_guest%></td>
-      <td><%=event_guest.description %></td>
-    </tr>
+<div class="row ml-0 mt-3">
+  <h2 class="text-info">📩  Invitations</h2>
+</div>
+<div class="row">
+  <% @event_guests1.each do |guest| %>
+    <%= render partial: 'guest_tile', locals: {event_guests1: guest } %>
   <% end %>
-  </tbody>
-</table>
+</div>
 
-<br>
-
-<%= link_to 'New Invitation', new_guest_path %>

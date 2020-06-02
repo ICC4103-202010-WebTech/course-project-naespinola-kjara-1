@@ -24,9 +24,7 @@ Rails.application.routes.draw do
   resource :user, defaults: {format: :html}
   resources :messages, defaults: {format: :html}
   resources :profiles, defaults: {format: :html}
-  resources :events, defaults: {format: :html} do
-    resources :dates_to_votes, defaults: {format: :html}
-  end
+  resources :events, defaults: {format: :html} 
   resources :organizations, defaults: {format: :html}
   resources :guests, defaults: {format: :html}
   resources :votes, defaults:{format: :html}

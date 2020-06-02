@@ -1,5 +1,5 @@
 <h2 class="text-info">❄ <%= @event.title%></h2>
-<%@event_dates_to_votes.each do |event_dates_to_vote| %>
+<%@event_dates_to_votes.each_with_index do |event_dates_to_vote,i| %>
 
 <div id="container" >
   <div class="row">
@@ -7,13 +7,18 @@
       <aside id="profile_links">
         <ul class="table-success" id="links">
           <button type="button" class="list-group-item list-group-item-action p-2">image event</button>
-          <button  type="button" class="list-group-item list-group-item-action p-2">Dates to event</button>
-          <button type="button" class="list-group-item list-group-item-action p-2"><%=  event_dates_to_vote.date %></button>
+          <select class="custom-select">
+            <option selected>Dates to event</option>
+            <option value="i"><%=  event_dates_to_vote.date %></option>
+          </select>
+
 <% end %>
-          <button type="button" class="list-group-item list-group-item-action p-2">❄</button>
-          <button type="button" class="list-group-item list-group-item-action p-2">Guests</button>
+<button type="button" class="list-group-item list-group-item-action p-2">❄</button>
 <% @event_guests.each do |event_guest| %>
-          <button type="button" class="list-group-item list-group-item-action p-2"><%=event_guest.user.username%></button>
+  <select class="custom-select">
+    <option selected>Guests</option>
+    <option value="i"><%=event_guest.user.username%></option>
+  </select>
 <% end %>
 
         </ul>

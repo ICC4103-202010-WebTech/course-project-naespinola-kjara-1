@@ -1,9 +1,7 @@
 
-
 <p id="notice"><%= notice %></p>
 <div>
   <h2 class="text-info"> ✉️ Mailbox </h2>
-  <p class="text-success">Welcome!</p>
 </div>
 
 <div id="container">
@@ -12,8 +10,8 @@
       <ul id="links">
         <% @messageList.each_with_index  do |message,i| %>
 
-          <dt >Messages </dt>
-          <button type="button" class="list-group-item list-group-item-action p-2"> user_id <%= message[:transmitter]%> </button>
+          <dt class="text-success">Messages </dt>
+          <button type="button" class="list-group-item list-group-item-action p-2"> <%= message[:transmitter]%> </button>
 
           </ul>
           </div>
@@ -35,7 +33,7 @@
               <tr>
 
                 <td ><%= i+1%></td>
-                <td > user_name: <%= message[:transmitter]%> </td>
+                <td > <%= message[:transmitter]%> </td>
                 <td><%= message[:text]%></td>
 
               </tr>
@@ -48,5 +46,5 @@
 </div>
 
 <br>
+<button type="button" class="btn btn-outline-warning"><%= link_to 'New Message', new_message_path %></button>
 
-<%= link_to 'New Message', new_message_path %>

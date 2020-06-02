@@ -13,6 +13,8 @@ class OrganizationsController < ApplicationController
   def show
     @events1 = Event.joins(user: :organization).where("users.organization_id = #{params[:id]}").
         where("events.include_organization = 1")
+    @events2 = Event.joins(user: :organization).where("events.private = 0").where("users.organization_id = #{params[:id]}").
+        where("events.include_organization = 1")
   end
 
   # GET /organizations/new

@@ -4,13 +4,17 @@
   <div class="row">
     <div class="col-3">
       <aside id="organization_links">
-        <ul id="links">
+        <ul class="table-success" id="links">
           <button type="button" class="list-group-item list-group-item-action p-2">Image the organization </button>
           <button type="button" class="list-group-item list-group-item-action p-2">Calendar </button>
+
           <select class="custom-select">
             <option selected>Members</option>
-            <option value="i">member1</option>
+            <% @events1.each do |events| %>
+            <option value="i"><%=  events.user.username %></option>
+            <% end %>
           </select>
+
           <button type="button" class="list-group-item list-group-item-action p-2">Videos</button>
           <button type="button" class="list-group-item list-group-item-action p-2">Documents</button>
         </ul>
@@ -22,16 +26,17 @@
         <dd>• <%= @organization.description %> <%= @organization.rich_text%></dd>
       </dl>
       <div class="row">
-        <% @events1.each do |events| %>
-          <%= render partial: 'events/event_tile', locals: { event: events } %>
+        <% @events2.each do |event| %>
+          <%= render partial: 'events/event_tile', locals: { event: event } %>
         <% end %>
       </div>
     </div>
   </div>
   <br>
-
-  <%= link_to 'New Organization', new_organization_path %>
-  <%= link_to 'Edit', edit_organization_path(@organization) %> |
-  <%= link_to 'Back', organizations_path %>
+  <div class="btn-group mb-3" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-outline-warning"><%= link_to 'New Organization', new_organization_path %></button>
+  <button type="button" class="btn btn-outline-warning"> <%= link_to 'Edit', edit_organization_path(@organization) %></button>
+    <button type="button" class="btn btn-outline-warning"><%= link_to 'Back', organizations_path %></button>
+  </div>
 </div>
 

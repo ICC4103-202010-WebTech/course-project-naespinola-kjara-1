@@ -1,6 +1,4 @@
 <h2 class="text-info">❄ <%= @event.title%></h2>
-<%@event_dates_to_votes.each_with_index do |event_dates_to_vote,i| %>
-
 <div id="container" >
   <div class="row">
     <div  class="col-3">
@@ -9,18 +7,17 @@
           <button type="button" class="list-group-item list-group-item-action p-2">image event</button>
           <select class="custom-select">
             <option selected>Dates to event</option>
+            <%@event_dates_to_votes.each_with_index do |event_dates_to_vote,i| %>
             <option value="i"><%=  event_dates_to_vote.date %></option>
+            <% end %>
           </select>
-
-<% end %>
-<button type="button" class="list-group-item list-group-item-action p-2">❄</button>
-<% @event_guests.each do |event_guest| %>
-  <select class="custom-select">
-    <option selected>Guests</option>
-    <option value="i"><%=event_guest.user.username%></option>
-  </select>
-<% end %>
-
+          <button type="button" class="list-group-item list-group-item-action p-2">❄</button>
+          <select class="custom-select">
+            <option selected>Guests</option>
+            <% @event_guests.each do |event_guest| %>
+              <option value="i"><%=event_guest.user.username%></option>
+            <% end %>
+          </select>
         </ul>
       </aside>
     </div>
@@ -111,7 +108,11 @@
 </div>
 
 <br>
+  <div class="btn-group mb-3" role="group" aria-label="Basic example">
+    <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_event_path(@event) %> </button>
+    <button type="button" class="btn btn-outline-warning"> <%= link_to 'Back', events_path %> </button>
+    <button type="button" class="btn btn-outline-warning"><%= link_to 'Delete',"dates_to_votes#destroy", method: :delete, data: { confirm: 'Are you sure?' } %></button>
+  </div>
 </div>
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %> |
-<%= link_to 'Delete',"dates_to_votes#destroy", method: :delete, data: { confirm: 'Are you sure?' } %>
+
+

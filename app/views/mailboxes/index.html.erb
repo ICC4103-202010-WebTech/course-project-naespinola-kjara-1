@@ -1,10 +1,8 @@
 <p id="notice"><%= notice %></p>
-<% @mailboxes.each do |mailbox| %>
+<%@mailboxes.each do |mailbox| %>
   <div>
     <h2 class="text-info"> ✉️ Mailbox </h2>
-    <p class="text-success">Welcome!  <%=mailbox.user.username %></p>
   </div>
-
   <div id="container">
     <div class="row">
       <div class="col-3">
@@ -16,39 +14,24 @@
             </ul>
             </div>
             <div class="col">
-
-      <table  class="table table-striped" class="text-success" id = all_messages>
-        <thead class="table-success">
-        <th >
-          N
-        </th>
-        <th >
-          Name
-        </th>
-        <th >
-          Text
-        </th>
-        </thead>
-        <tbody>
-        <tr>
-
-          <td ><%= i+1%></td>
-          <td > user_id  <%= message.user_transmitter_id%> </td>
-          <td><%= message.text_message%></td>
-
-        </tr>
-        </tbody>
-    <%end %>
-    </table>
-
+              <table  class="table table-striped" class="text-success" id = all_messages>
+                <thead class="table-success">
+                <th >N</th>
+                <th >Name</th>
+                <th >Text</th>
+                </thead>
+                <tbody>
+                <tr>
+                  <td ><%= i+1%></td>
+                  <td > user_id  <%= message.user_transmitter_id%> </td>
+                  <td><%= message.text_message%></td>
+                </tr>
+                </tbody>
+          <%end %>
+          </table>
           </div>
-    </div>
+          </div>
   </div>
 
-
-
-
-<%= link_to 'Destroy', mailbox, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit', edit_mailbox_path(mailbox) %>
 <%end %>
 <br>

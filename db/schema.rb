@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_004024) do
     t.string "videos"
     t.string "documents"
     t.string "location"
+    t.string "pictures"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_events_on_user_id"
@@ -107,8 +108,9 @@ ActiveRecord::Schema.define(version: 2020_06_03_004024) do
     t.string "image"
     t.string "rich_text"
     t.string "description"
-    t.string "video"
-    t.string "document"
+    t.string "videos"
+    t.string "documents"
+    t.string "pictures"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

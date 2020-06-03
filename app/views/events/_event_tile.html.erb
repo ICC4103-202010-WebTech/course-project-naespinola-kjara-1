@@ -1,6 +1,8 @@
 <div class="col-md-4">
   <div class="card mb-4 shadow-sm">
-    <%= link_to image_tag("thumbnail.svg", class: "card-img-top", width: "100%", background: "#55595c", color: "#eceeef"), url_for(event) %>
+    <div class = "h-25 d-inline-block bg-info" size="wide: 400px;">
+      <%= link_to image_tag(event.image.thumb.url, class: "card-img-top", width: "100%", background: "#55595c", color: "#eceeef"), url_for(event) %>
+    </div>
     <div class="card-body">
       <p class="card-text"><%= link_to event.title, event %></p>
       <p class="card-text"><%= event.location %></p>
@@ -11,7 +13,6 @@
           <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_event_path(event) %></button>
         </div>
         <small class="text-muted"><%= "#{(event.created_at.to_date - DateTime.now.to_date).to_i} days left!" %></small>
-        <!-- change created_at!!! -->
       </div>
     </div>
   </div>

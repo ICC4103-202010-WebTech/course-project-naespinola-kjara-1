@@ -6,6 +6,10 @@ class Event < ApplicationRecord
   has_many :reports, :dependent => :delete_all
   has_many :comments, :dependent => :delete_all
 
+  has_one_attached :image
+  mount_uploader :image, ImageUploader
+
+
   accepts_nested_attributes_for :user
   accepts_nested_attributes_for :comments
   accepts_nested_attributes_for :dates_to_votes, allow_destroy: true

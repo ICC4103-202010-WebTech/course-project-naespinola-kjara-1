@@ -65,11 +65,28 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
+    @guests = Guest.where(event_id: @event.id)
+    @guests.each do |guest|
+     guest.destroy
     end
+    @dates_to_votes = DatesToVote.where(event_id: @event.id)
+    @dates_to_votes.each do  |dates_to_vote|
+      dates_to_vote.destroy
+    end
+    @reports = Report.where(event_id: @event.id)
+    @reports.each do  |report|
+      report.destroy
+    end
+    @comments = Comment.where(event_id: @event.id)
+    @comments.each do  |comment|
+      comment.destroy
+    end
+    @event.destroy
+
+    #respond_to do |format|
+    #  format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+    # format.json { head :no_content }
+    #end
   end
 
   private

@@ -8,7 +8,6 @@
         <aside id="profile_links">
 
           <ul class="table-success" id="links">
-            <button  type="button" class="list-group-item list-group-item-action p-2">Image the profile<%= profile.image %></button>
             <button type="button" class="list-group-item list-group-item-action p-2"><%= link_to "Event",  events_path%></button>
             <button type="button" class="list-group-item list-group-item-action p-2"><%= link_to "Organization", organizations_path %></button>
             <button type="button" class="list-group-item list-group-item-action p-2"><%= link_to "Vote",  votes_path%></button>
@@ -16,8 +15,18 @@
             <button type="button" class="list-group-item list-group-item-action p-2">Change password</button>
           </ul>
         </aside>
+      <div class="text-center mb-2">
+        <%= link_to " Edit ", edit_profile_url(profile), class: ["btn", "btn-info"] %>
+
+      </div>
         </div>
         <div class="col">
+          <div class="text-center ">
+            <%= image_tag(profile.image.thumb.url) %>
+
+          </div>
+          <br>
+
           <dl id="profile_info">
             <dt class="text-success">Username</dt>
             <dd>• <%= profile.user.username %> </dd>
@@ -35,12 +44,6 @@
 
   <br>
 
-
-  <div class="btn-group mb-3" role="group" aria-label="Basic example">
-    <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_profile_url(profile) %></button>
-    <!--<button type="button" class="btn btn-outline-warning"> link_to 'New Profile', new_profile_path %></button> -->
-   <!-- <button type="button" class="btn btn-outline-warning"> link_to 'Delete user', user_profiles_path, method: :delete, data: { confirm: 'Are you sure?' } %></button>-->
-  </div>
 
 </div>
 

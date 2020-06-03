@@ -22,6 +22,9 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @event.dates_to_votes.build
+
+
   end
 
   # GET /events/1/edit
@@ -79,8 +82,10 @@ class EventsController < ApplicationController
     def event_params
       params.fetch(:event, {}).permit(:title, :description, :private, :include_organization, :image,
                                       :videos, :documents, :location, :user_id,
-                                      {user_attributes: [:organization_id, :username, :email, :password, :is_organization_admin,
+                                      users_attributes: [:organization_id, :username, :email, :password, :is_organization_admin,
                                                          :is_system_admin, :in_blacklist],
-                                       comment_attributes: [:user_id, :rich_text,:image]})
+                                       comments_attributes: [:id,:user_id, :rich_text,:image],
+                                       guests_attributes: [:id,:user_id, :_destroy],
+                                       dates_to_votes_attributes: [:id, :date, :_destroy])
     end
 end

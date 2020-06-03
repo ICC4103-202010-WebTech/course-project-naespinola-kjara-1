@@ -14,7 +14,9 @@ class DatesToVotesController < ApplicationController
 
   # GET /dates_to_votes/new
   def new
+    @event = Event.find(params[:event_id])
     @dates_to_vote = DatesToVote.new
+
   end
 
   # GET /dates_to_votes/1/edit
@@ -24,7 +26,10 @@ class DatesToVotesController < ApplicationController
   # POST /dates_to_votes
   # POST /dates_to_votes.json
   def create
+    @event = Event.find(params[:event_id])
     @dates_to_vote = DatesToVote.new(dates_to_vote_params)
+    @dates_to_vote.event = @event
+
 
     respond_to do |format|
       if @dates_to_vote.save
@@ -69,6 +74,6 @@ class DatesToVotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def dates_to_vote_params
-      params.fetch(:dates_to_vote, {})
+      params.fetch(:dates_to_vote, {}).permit(:date, :event_id)
     end
 end

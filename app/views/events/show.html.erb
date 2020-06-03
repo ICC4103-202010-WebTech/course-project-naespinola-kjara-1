@@ -20,7 +20,13 @@
           </select>
         </ul>
       </aside>
+      <div class="row ml-0 mt-2 mb-3">
+        <%= link_to "Add Dates", new_event_dates_to_vote_path(@event), class: ["btn", "btn-info"] %>
+        &nbsp;
+        <%= link_to "Edit Event", edit_event_path, class: ["btn", "btn-primary"] %>
+      </div>
     </div>
+
 <div class="col">
 <table class="table table-striped" >
   <thead class="table-success">
@@ -102,17 +108,22 @@
       <% end %>
       </a>
     </div>
+  <div class="row ml-0 mt-2 mb-3">
+    <%= link_to "Add Comment", new_event_comment_path(@event), class: ["btn", "btn-info"] %>
+
+  </div>
 
 
   </div>
 </div>
 
 <br>
-  <div class="btn-group mb-3" role="group" aria-label="Basic example">
+  <div class="btn-group-vertical mb-5 mt-5" role="group" aria-label="Basic example">
     <button type="button" class="btn btn-outline-warning"><%= link_to 'Edit', edit_event_path(@event) %> </button>
     <button type="button" class="btn btn-outline-warning"> <%= link_to 'Back', events_path %> </button>
     <button type="button" class="btn btn-outline-warning"><%= link_to 'Delete',"dates_to_votes#destroy", method: :delete, data: { confirm: 'Are you sure?' } %></button>
-  </div>
+    </div>
+
 </div>
 
 

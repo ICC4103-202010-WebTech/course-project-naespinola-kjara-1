@@ -17,6 +17,13 @@ Rails.application.routes.draw do
     resources :messages, shallow: true
   end
 
+  resources :events do
+    resources :dates_to_votes, shallow: true
+  end
+  resources :events do
+    resources :comments, shallow: true
+  end
+
   namespace :admin do
     resources :organizations
   end

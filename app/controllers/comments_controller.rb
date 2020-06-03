@@ -14,7 +14,11 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new
+    @event = Event.find(params[:event_id])
+    #@user = User.find(params[:user_id])
     @comment = Comment.new
+
+
   end
 
   # GET /comments/1/edit
@@ -24,7 +28,14 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
+    @event = Event.find(params[:event_id])
+    # @user = User.find(params[:user_id])
     @comment = Comment.new(comment_params)
+    @comment.event = @event
+    #@comment.user = @user
+
+
+
 
     respond_to do |format|
       if @comment.save
@@ -69,6 +80,8 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.fetch(:comment, {})
+      params.fetch(:comment, {}).permit(:user_id,:event_id, :rich_text, :image,
+                                        users_attributes: [:username, :email, :password, :is_organization_admin,
+                                                           :is_system_admin, :in_blacklist])
     end
 end

@@ -1,17 +1,19 @@
-<%= form_with(model: comment, local: true) do |form| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<%= form_with model: [@event, @user, @comment], local: true do |form| %>
 
-      <ul>
-        <% comment.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="form-group">
+    <%= form.label :rich_text %>
+    <%= form.text_area :rich_text, class: "form-control" %>
+     </div>
+
+    <div class="form-group">
+      <%= form.label :user_id%>
+      <%= form.text_field :user_id, class: "form-control" %>
     </div>
-  <% end %>
 
-  <div class="actions">
-    <%= form.submit %>
+
+  <div class="form-group">
+    <%= form.submit class: ["btn", "btn-primary"] %>
+    <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
   </div>
 <% end %>
+

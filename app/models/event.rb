@@ -6,6 +6,10 @@ class Event < ApplicationRecord
   has_many :reports
   has_many :comments
 
+  has_one_attached :image
+  mount_uploader :image, ImageUploader
+
+
   accepts_nested_attributes_for :user
   accepts_nested_attributes_for :comments
 

@@ -33,5 +33,10 @@
     </div>
   </div>
   <br>
+  <div class="btn-group mb-3" role="group" aria-label="Basic example">
+  <button type="button" class="btn btn-outline-warning"><%= link_to 'New Organization', new_organization_path %></button>
+  <button type="button" class="btn btn-outline-warning"> <%= link_to 'Edit', edit_organization_path(@organization) %></button>
+    <button type="button" class="btn btn-outline-warning"><%= link_to 'Back', organizations_path %></button>
+  </div>
 </div>
 

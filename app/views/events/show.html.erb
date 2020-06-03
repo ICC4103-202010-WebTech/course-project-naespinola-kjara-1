@@ -3,6 +3,11 @@
 <div id="container" >
   <div class="row">
     <div  class="col-3">
+      <div class="row mr-5 mb-3">
+        <div class="text-center ">
+          <%= image_tag(@event.image.thumb.url) %>
+        </div>
+      </div>
       <aside id="profile_links">
         <ul class="table-success" id="links">
           <button type="button" class="list-group-item list-group-item-action p-2">image event</button>
@@ -32,7 +37,7 @@
       </div>
     </div>
 
-<div class="col">
+<div class="col ml-5">
 <table class="table table-striped" >
   <thead class="table-success">
   <th>

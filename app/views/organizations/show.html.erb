@@ -3,6 +3,11 @@
 <div id="container">
   <div class="row">
     <div class="col-3">
+      <div class="row mr-5 mb-3">
+        <div class="text-center ">
+          <%= image_tag(@organization.image.mini.url) %>
+        </div>
+      </div>
       <aside id="organization_links">
         <ul class="table-success" id="links">
           <button type="button" class="list-group-item list-group-item-action p-2">Image the organization </button>
@@ -20,7 +25,7 @@
         </ul>
       </aside>
     </div>
-    <div class="col">
+    <div class="col ml-5">
       <dl id="organization_info">
         <dt class="text-success">Description </dt>
         <dd>• <%= @organization.description %> <%= @organization.rich_text%></dd>

@@ -35,4 +35,6 @@ Rails.application.routes.draw do
   resources :organizations, defaults: {format: :html}
   resources :guests, defaults: {format: :html}
   resources :votes, defaults:{format: :html}
+
+  get '/search' => 'pages#search', :as => 'search_page'
 end

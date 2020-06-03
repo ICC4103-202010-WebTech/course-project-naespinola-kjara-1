@@ -12,6 +12,7 @@ class Organization < ApplicationRecord
   validates :description, presence: true
 
 
+
   validates :image, allow_blank: true, format: {
       with: %r{\.(gif|jpg|png)\Z}i,
       message: 'must be a url for gif, jpg, or png image.'

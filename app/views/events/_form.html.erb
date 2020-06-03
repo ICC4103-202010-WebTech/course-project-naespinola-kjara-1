@@ -1,57 +1,57 @@
 <div class="row ml-0">
   <%= form_with(model: event, local: true) do |form| %>
     <!--errors_for event -->
-    <div class="form-group">
-      <%= form.label :title %>
+    <div class="form-group  ">
+      <%= form.label :title , class:"text-success font-weight-bold"%>
       <%= form.text_field :title, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= form.label :description %>
+      <%= form.label :description , class:"text-success font-weight-bold"%>
       <%= form.text_area :description, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= form.label :private %>
+      <%= form.label :private, class:"text-success font-weight-bold" %>
       <%= form.check_box  :private, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= form.label :include_organization %>
+      <%= form.label :include_organization,class:"text-success font-weight-bold" %>
       <%= form.check_box :include_organization, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= form.label :location %>
+      <%= form.label :location,class:"text-success font-weight-bold" %>
       <%= form.text_field :location, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= form.label :user_id %>
+      <%= form.label :user_id,class:"text-success font-weight-bold" %>
       <%= form.text_field :user_id, class: "form-control" %>
     </div>
     <div class="form-group">
-      <%= form.label :image_banner %>
+      <%= form.label :image_banner,class:"text-success font-weight-bold" %>
       <%= form.file_field :image %>
     </div>
     <div class="form-group">
-      <%= form.label :documents %>
+      <%= form.label :documents,class:"text-success font-weight-bold" %>
       <%= form.file_field :documents %>
     </div>
     <div class="form-group">
-      <%= form.label :videos %>
+      <%= form.label :videos,class:"text-success font-weight-bold" %>
       <%= form.file_field :videos %>
     </div>
     <div class="form-group">
-      <%= form.label :images %>
+      <%= form.label :images ,class:"text-success font-weight-bold"%>
       <%= form.file_field :pictures %>
     </div>
     <div class="card">
     <div class="card-body">
-      <h5 class="card-title"><%=  dates_to_vote_section_title %></h5>
-      <p><%= dates_to_vote_instruction_text %></p>
+      <h5 class="card-title text-info"><%=  dates_to_vote_section_title %></h5>
+      <p class="text-success"><%= dates_to_vote_instruction_text %></p>
       <%=form.fields_for :dates_to_votes do |dates_to_votes_form| %>
         <div class="form-group">
-          <%= dates_to_votes_form.label :date %>
+          <%= dates_to_votes_form.label :date ,class:"text-success font-weight-bold"%>
           <%=dates_to_votes_form.datetime_local_field :date, class: "form-control" %>
 
           <% if action_name == 'edit' %>
-            <%= dates_to_votes_form.label "Delete"%>
+            <%= dates_to_votes_form.label "Delete",class:"text-success font-weight-bold"%>
             <%= dates_to_votes_form.check_box :_destroy %>
           <% end %>
           <hr>
@@ -61,15 +61,15 @@
   </div>
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><%=  comments_section_title %></h5>
-        <p><%= comments_instruction_text %></p>
+        <h5 class="card-title text-info"><%=  comments_section_title %></h5>
+        <p  class="text-success"><%= comments_instruction_text  %></p>
         <%=form.fields_for :comments do |comments_form| %>
           <div class="form-group">
-            <%= comments_form.label :rich_text %>
+            <%= comments_form.label :rich_text,class:"text-success font-weight-bold" %>
             <%= comments_form.text_area :rich_text, class: "form-control" %>
 
             <% if action_name == 'edit' %>
-              <%= comments_form.label "Delete"%>
+              <%= comments_form.label "Delete", class:"text-success font-weight-bold"%>
               <%= comments_form.check_box :_destroy %>
             <% end %>
             <hr>

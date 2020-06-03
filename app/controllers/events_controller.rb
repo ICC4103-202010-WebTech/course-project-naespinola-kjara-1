@@ -23,6 +23,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @event.dates_to_votes.build
+    @event.comments.build
 
 
   end
@@ -30,6 +31,7 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
   end
+
 
   # POST /events
   # POST /events.json

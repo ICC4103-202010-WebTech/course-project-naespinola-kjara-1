@@ -1,8 +1,8 @@
 <div class="row ml-0 mt-3">
-  <h2>Adding a comment "<%= @event.title %>"</h2>
+  <h2 class="text-info">Adding a comment to "<%= @event.title %>"</h2>
 </div>
 <div class="row ml-0 mt-2">
-  <p>Please enter the required information to create a new comment for the event:</p>
+  <p class="text-success" >Please enter the required information to create a new comment for the event:</p>
 </div>
 <div class="row ml-0 mt-2">
   <%= render 'form', locals: { event: @event, user: @user, comment: @comment} %>

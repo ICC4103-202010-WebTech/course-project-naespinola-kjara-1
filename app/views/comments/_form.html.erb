@@ -1,12 +1,12 @@
 <%= form_with model: [@event, @user, @comment], local: true do |form| %>
 
   <div class="form-group">
-    <%= form.label :rich_text %>
+    <%= form.label :rich_text, class:"text-success font-weight-bold" %>
     <%= form.text_area :rich_text, class: "form-control" %>
      </div>
 
     <div class="form-group">
-      <%= form.label :user_id%>
+      <%= form.label :user_id, class:"text-success font-weight-bold"%>
       <%= form.text_field :user_id, class: "form-control" %>
     </div>
 

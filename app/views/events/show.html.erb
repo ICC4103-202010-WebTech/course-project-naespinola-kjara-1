@@ -2,9 +2,9 @@
 <div id="container" >
   <div class="row">
     <div  class="col-3">
-      <div class="row mr-5 mb-3">
-        <div class="text-center ">
-          <%= image_tag(@event.image.thumb.url) %>
+      <div class="row mb-3 mt-3 ">
+        <div class="text-center figure-img img-fluid rounded">
+          <%= image_tag(@event.image.thumb.url, class: "figure-img img-fluid rounded") %>
         </div>
       </div>
       <aside id="profile_links">
@@ -122,10 +122,15 @@
     &nbsp;
     <%= link_to "Edit Comment", edit_comment_path(@event), class: ["btn", "btn-primary"] %>
   </div>
-
+  <div class="row ml-0 mt-2 mb-3">
+    <input type="checkbox" id="cbox1" ><label class="input-group-text mr-3" for="cbox1">Show images</label>
+    <input type="checkbox" id="cbox2" ><label class="input-group-text mr-3" for="cbox2">Show videos</label>
+    <input type="checkbox" id="cbox3" ><label class="input-group-text mr-3" for="cbox3">Show documents</label>
 
   </div>
+  </div>
 </div>
+
 
 <br>
 

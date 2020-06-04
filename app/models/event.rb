@@ -12,8 +12,7 @@ class Event < ApplicationRecord
   mount_uploader :documents, DocumentUploader
   has_many_attached :videos
   mount_uploader :videos, VideoUploader
-  has_many_attached :pictures
-  mount_uploader :image, ImageUploader
+
 
 
   accepts_nested_attributes_for :user

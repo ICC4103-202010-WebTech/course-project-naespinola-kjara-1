@@ -21,7 +21,6 @@ Rails.application.routes.draw do
     resources :dates_to_votes, shallow: true
   end
   resources :events do
-    resources :users
     resources :comments, shallow: true
   end
 

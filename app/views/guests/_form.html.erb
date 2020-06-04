@@ -1,5 +1,5 @@
 <%= form_with model: [@event, @guest], local: true do |form| %>
-  <!-- errors_for @guest %>-->
+  <%= errors_for event %>
   <div class="form-group">
     <%= form.label :user_id , class:"text-success font-weight-bold"%>
     <%= form.collection_select(:user_id, User.all.order(username: :asc), :id, :username, {}, { class: "form-control" }) %>

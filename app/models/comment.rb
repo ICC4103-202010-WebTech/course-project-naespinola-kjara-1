@@ -11,4 +11,5 @@ class Comment < ApplicationRecord
       with: %r{\.(gif|jpg|png)\Z}i,
       message: 'must be a url for gif, jpg, or png image.'
   }
+  validates :rich_text, presence: true
 end

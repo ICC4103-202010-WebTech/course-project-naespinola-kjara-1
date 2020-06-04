@@ -45,7 +45,17 @@
     </nav >
   </header>
   <div id="container"   class= " p-3 bg-light text-dark mb-5">
-    <main id="main_content"  class= " p-3 bg-light text-dark ">
+    <main class=  "col-sm-12 p-3"  id="main_content">
+      <% if notice.present? %>
+        <div class="row ml-0 mt-3" role="alert">
+          <div id="notice" class="alert alert-success"><%= notice %></div>
+        </div>
+      <% end %>
+      <% if alert.present? %>
+        <div class="row ml-0 mt-3" role="alert">
+          <div id="alert" class="alert alert-danger"><%= alert %></div>
+        </div>
+      <% end %>
       <%= yield %>
     </main>
   </div>

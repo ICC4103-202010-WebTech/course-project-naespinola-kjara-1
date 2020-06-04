@@ -1,5 +1,5 @@
 <%= form_with model: [@event, @dates_to_vote], local: true do |form| %>
-  <!-- errors_for @ticket_type %>-->
+  <%= errors_for dates_to_vote %>
   <div class="form-group">
     <%= form.label :date,class:"text-success font-weight-bold" %>
     <%= form.datetime_local_field  :date, class: "form-control" %>

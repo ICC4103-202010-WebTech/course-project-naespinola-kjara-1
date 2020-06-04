@@ -21,12 +21,18 @@ Rails.application.routes.draw do
     resources :dates_to_votes, shallow: true
   end
   resources :events do
+    resources :users
     resources :comments, shallow: true
+  end
+
+  resources :events do
+    resources :guests, shallow: true
   end
 
   namespace :admin do
     resources :organizations
   end
+
 
   resource :user, defaults: {format: :html}
   resources :messages, defaults: {format: :html}

@@ -4,7 +4,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations
   # GET /organizations.json
   def index
-    @organizations = Organization.joins(:users).where("users.id=1")
+    @organizations = Organization.joins(:users).where("users.id=#{current_user.id}")
 
   end
 

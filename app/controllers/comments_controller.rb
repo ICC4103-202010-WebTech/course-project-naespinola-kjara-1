@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @event = Event.find(params[:event_id])
-    #@user = User.find(params[:user_id])
+    #  @user = User.find(params[:user_id])
     @comment = Comment.new
 
 
@@ -29,10 +29,10 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @event = Event.find(params[:event_id])
-    # @user = User.find(params[:user_id])
+    #  @user = User.find(params[:user_id])
     @comment = Comment.new(comment_params)
     @comment.event = @event
-    #@comment.user = @user
+    # @comment.user = @user
 
 
 

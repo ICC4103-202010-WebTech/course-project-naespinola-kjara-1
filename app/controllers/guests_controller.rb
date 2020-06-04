@@ -5,7 +5,7 @@ class GuestsController < ApplicationController
   # GET /guests.json
   def index
     @guests = Guest.includes(:user,:event,:votes)
-    @event_guests1 = Event.joins(guests: :user).where("guests.user_id = 1")
+    @event_guests1 = Event.joins(guests: :user).where("guests.user_id =  #{current_user.id}")
   end
 
   # GET /guests/1
@@ -15,6 +15,7 @@ class GuestsController < ApplicationController
 
   # GET /guests/new
   def new
+    @event = Event.find(params[:event_id])
     @guest = Guest.new
   end
 
@@ -25,7 +26,9 @@ class GuestsController < ApplicationController
   # POST /guests
   # POST /guests.json
   def create
+    @event = Event.find(params[:event_id])
     @guest = Guest.new(guest_params)
+    @guest.event = @event
 
     respond_to do |format|
       if @guest.save
@@ -70,6 +73,6 @@ class GuestsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def guest_params
-      params.fetch(:guest, {})
+      params.fetch(:guest, {}).permit(:user_id, :event_id)
     end
 end

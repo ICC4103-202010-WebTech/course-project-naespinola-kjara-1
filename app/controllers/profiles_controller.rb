@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.includes(:user, :location).where("profiles.id=1")
+    @profiles = Profile.includes(:user, :location).where("profiles.id=#{current_user.id}")
   end
 
   # GET /profiles/1

@@ -1,5 +1,5 @@
 <%= form_with model: [@event, @user, @comment], local: true do |form| %>
-  <%= errors_for comment %>
+  <%= errors_for @comment %>
   <div class="form-group">
     <%= form.label :rich_text, class:"text-success font-weight-bold" %>
     <%= form.text_area :rich_text, class: "form-control" %>
@@ -11,17 +11,12 @@
 
   </div>
 
-  <div>
-    <% if action_name == 'edit' %>
-      <%= form.label "Delete"%>
-      <%= form.check_box :_destroy %>
-    <% end %>
-  </div>
 
 
 
   <div class="form-group">
     <%= form.submit class: ["btn", "btn-primary"] %>
     <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
+    <%= link_to 'Destroy', :back,class: ["btn", "btn-primary"] %>
   </div>
 <% end %>

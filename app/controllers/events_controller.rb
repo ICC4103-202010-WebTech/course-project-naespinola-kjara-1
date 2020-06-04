@@ -23,7 +23,7 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     @event.dates_to_votes.build
-    @event.guest.build
+    @event.guests.build
     @event.comments.build
 
 

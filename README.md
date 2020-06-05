@@ -30,4 +30,5 @@ For events: View file attachments, videos, images. Start event date vote, config
 
 The delete operation (comments, events, organizations).
 
+We used Factory Bot and FFaker to create data automatically, but we were never able to prove that this actually worked, because it threw us the error "NoMethodError: undefined method` create_list 'for main: Object "when we used the rake db: populate_fake_data command. But you can see the file test/factories.rb and lib/tasks/model_queries.rake that contains what we did about this.
 

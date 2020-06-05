@@ -1,5 +1,17 @@
 namespace :db do
-
+  task :populate_fake_data => :environment do
+    puts "Populating database"
+    create_list(:organization,10)
+    create_list(:user_with_events,10)
+    create_list(:user_with_comments,8)
+    create_list(:user_with_reports,2)
+    create_list(:user_with_guests,20)
+    create_list(:location,30)
+    create_list(:location_with_profiles,60)
+    create_list(:event_with_guests,10)
+    create_list(:event_with_dates_to_votes20)
+    create_list(:guest_with_votes,10)
+  end
   task :queries_demo => :environment do
 
     puts("Query 1: Get all events created by certain user")

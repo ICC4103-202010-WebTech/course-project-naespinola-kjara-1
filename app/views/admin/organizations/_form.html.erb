@@ -1,6 +1,6 @@
 <div class="row ml-0">
   <%= form_with(model: organization, local: true) do |form| %>
-    <!--errors_for organization -->
+    <%= errors_for organization %>
     <div class="form-group">
       <%= form.label :name %>
       <%= form.text_field :name, class: "form-control" %>

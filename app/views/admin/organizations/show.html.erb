@@ -1,11 +1,14 @@
-<p class="alert alert-success" role="alert" id="notice"><%= notice %></p>
 <h2 class="text-info"> 💫 <%= @organization.name %> </h2>
 <div id="container">
   <div class="row">
     <div class="col-3">
+      <div class="row mb-3 mt-3 ">
+      <div class="text-center figure-img img-fluid rounded">
+        <%= image_tag(@organization.image.thumb.url, class: "figure-img img-fluid rounded") %>
+      </div>
+    </div>
       <aside id="organization_links">
         <ul class="table-success" id="links">
-          <button type="button" class="list-group-item list-group-item-action p-2">Image the organization </button>
           <button type="button" class="list-group-item list-group-item-action p-2">Calendar </button>
 
           <select class="custom-select">
@@ -19,6 +22,12 @@
           <button type="button" class="list-group-item list-group-item-action p-2">Documents</button>
         </ul>
       </aside>
+      <div class="text-center mb-2">
+        <%= link_to " Edit ", edit_organization_path(@organization) , class: ["btn", "btn-primary"] %>
+        <%= link_to "New Organization", new_organization_path, class: ["btn", "btn-info"] %>
+        <%= link_to "Back", organizations_path, class: ["btn", "btn-primary"] %>
+
+      </div>
     </div>
     <div class="col">
       <dl id="organization_info">
@@ -33,10 +42,6 @@
     </div>
   </div>
   <br>
-  <div class="btn-group mb-3" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-outline-warning"><%= link_to 'New Organization', new_organization_path %></button>
-  <button type="button" class="btn btn-outline-warning"> <%= link_to 'Edit', edit_organization_path(@organization) %></button>
-    <button type="button" class="btn btn-outline-warning"><%= link_to 'Back', organizations_path %></button>
-  </div>
+
 </div>
 

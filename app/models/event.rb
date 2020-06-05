@@ -1,10 +1,10 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_one :homepage
-  has_many :guests, :dependent => :destroy
-  has_many :dates_to_votes, :dependent => :delete_all
-  has_many :reports, :dependent => :delete_all
-  has_many :comments, :dependent => :delete_all
+  has_many :guests, dependent:  :destroy
+  has_many :dates_to_votes, dependent: :destroy
+  has_many :reports, dependent: :destroy
+  has_many :comments, dependent:  :destroy
 
   has_one_attached :image
   mount_uploader :image, ImageUploader

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  devise_for :admins, controllers: { sessions: 'admins/sessions' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "pages#home"
 
@@ -28,9 +30,9 @@ Rails.application.routes.draw do
     resources :guests, shallow: true
   end
 
-  namespace :admin do
-    resources :organizations
-  end
+  # namespace :admin do
+  #  resources :organizations
+  #end
 
 
   resource :user, defaults: {format: :html}

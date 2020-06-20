@@ -9,7 +9,7 @@ namespace :db do
     create_list(:location,30)
     create_list(:location_with_profiles,60)
     create_list(:event_with_guests,10)
-    create_list(:event_with_dates_to_votes20)
+    create_list(:event_with_dates_to_votes,20)
     create_list(:guest_with_votes,10)
   end
   task :queries_demo => :environment do

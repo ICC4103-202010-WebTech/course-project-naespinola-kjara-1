@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  belongs_to :organization
+  belongs_to :organization, optional: true
   has_one :profile
   has_many :events
   has_many :comments

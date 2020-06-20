@@ -1,5 +1,5 @@
 class Comment < ApplicationRecord
-  belongs_to :user, optional: true
+  belongs_to :user
   belongs_to :event, optional: true
 
   has_many :received_comments, :class_name => 'RepliesToComment', :foreign_key => 'comment_receiver_id'

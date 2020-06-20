@@ -1,5 +1,5 @@
 class Organization < ApplicationRecord
-  has_many :users
+  has_many :users, dependent: :destroy
   has_one :homepage
 
   has_one_attached :image

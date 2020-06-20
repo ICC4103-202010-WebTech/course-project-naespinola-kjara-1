@@ -3,11 +3,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :organization, optional: true
-  has_one :profile
-  has_many :events
-  has_many :comments
-  has_many :reports
-  has_many :guests
+  has_one :profile, dependent: :destroy
+  has_many :events, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :reports, dependent: :destroy
+  has_many :guests, dependent: :destroy
   has_many :received_messages, :class_name => 'Message', :foreign_key => 'user_receiver_id'
   has_many :transmitted_messages, :class_name => 'Message', :foreign_key => 'user_transmitter_id'
 

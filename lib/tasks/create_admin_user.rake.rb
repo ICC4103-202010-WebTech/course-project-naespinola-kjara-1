@@ -15,7 +15,7 @@ namespace :admin do
       end
       break if passwd_confirm == passwd
     end
-    admin = Admin.new(:email => 'admin@voteeventdate.com', :password => passwd, :password_confirmation => passwd)
+    admin = Admin.new(:email => 'ved@voteeventdate.com', :password => passwd, :password_confirmation => passwd)
     admin.save
   end
 end

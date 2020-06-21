@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_001305) do
+ActiveRecord::Schema.define(version: 2020_06_21_193902) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -34,13 +34,15 @@ ActiveRecord::Schema.define(version: 2020_06_20_001305) do
   end
 
   create_table "admins", force: :cascade do |t|
+    t.string "name"
+    t.string "lastname"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
@@ -163,14 +165,20 @@ ActiveRecord::Schema.define(version: 2020_06_20_001305) do
   create_table "users", force: :cascade do |t|
     t.integer "organization_id", null: false
     t.string "username"
-    t.string "email"
     t.string "password"
     t.boolean "is_organization_admin"
     t.boolean "is_system_admin"
     t.boolean "in_blacklist"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["organization_id"], name: "index_users_on_organization_id"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   create_table "votes", force: :cascade do |t|

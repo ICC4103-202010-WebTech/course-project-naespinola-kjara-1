@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.includes(:user).where("events.user_id= #{current_user.id} ")
+    @events = Event.includes(:user).where("events.user_id= #{current_person.id} ")
     @events1 = Event.includes(:user).where("events.include_organization=true")
 
 

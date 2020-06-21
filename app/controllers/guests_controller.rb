@@ -5,7 +5,7 @@ class GuestsController < ApplicationController
   # GET /guests.json
   def index
     @guests = Guest.includes(:user,:event,:votes)
-    @event_guests1 = Event.joins(guests: :user).where("guests.user_id =  #{current_user.id}")
+    @event_guests1 = Event.joins(guests: :user).where("guests.user_id =  #{current_person.id}")
   end
 
   # GET /guests/1

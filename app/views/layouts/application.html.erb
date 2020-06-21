@@ -24,12 +24,14 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="<%= root_path %>" >Vote Event Date ~VED~ </a>
           </li>
+          <% if user_signed_in?%>
           <li class="nav-item">
             <a class="nav-link text-white" href="<%= user_profiles_path%>" >Profile </a>
           </li>
           <li class="nav-item mailbox">
             <a class="nav-link text-white" href="<%= user_messages_path%>">Mailbox </a>
           </li>
+          <%end %>
         </ul>
         <%= form_tag(search_page_path, :method => "get",
                      class: 'navbar-form navbar-left') do %>
@@ -38,7 +40,20 @@
             <div class="input-group-btn my-2 my-sm-0">
               <%= button_tag "Search", :class => 'btn btn-outline-success   glyphicon glyphicon-search',:name => nil%>
             </div>
+            <br>
+
+            <% if admin_signed_in? %>
+              <%= link_to "Sign Out", destroy_admin_session_path, method: :delete , class: ["btn btn-outline-info"]%>
+
+            <% elsif user_signed_in? %>
+              <%= link_to "Sign In", user_session_path%> ||<%=link_to "Sign Out", destroy_user_session_path, method: :delete%>
+            <%else %>
+              <%= link_to "Sign In", user_session_path, class: ["btn btn-outline-info"]%>
+              || <%= link_to "Sign Up", new_user_registration_path, class: ["btn btn-outline-info"]%>
+
+            <%end %>
           </div>
+
         <% end %>
 
       </div>

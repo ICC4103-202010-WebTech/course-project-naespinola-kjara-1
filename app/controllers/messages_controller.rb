@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    id_user = current_user.id
+    id_user = current_person.id
     message = Message.includes(:user_receiver,:user_transmitter).where("messages.user_receiver_id=#{id_user}")
     @transmitter= Message.includes(:user_receiver,:user_transmitter).where("messages.user_receiver_id=#{id_user}").select(:user_transmitter)
     #@messages = Message.select('messages.*, users.*').joins("LEFT JOIN users ON 1 = messages.user_receiver_id").joins("LEFT JOIN messages ON users.id = messages.user_transmitter_id")

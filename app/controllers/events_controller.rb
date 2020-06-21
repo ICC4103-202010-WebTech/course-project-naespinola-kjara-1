@@ -103,7 +103,7 @@ class EventsController < ApplicationController
       params.fetch(:event, {}).permit(:title, :description, :private, :include_organization, :image,
                                       :videos, :documents, :location, :user_id,:pictures,
                                       users_attributes: [:organization_id, :username, :email, :password, :is_organization_admin,
-                                                         :is_system_admin, :in_blacklist],
+                                                         :in_blacklist],
                                        comments_attributes: [:id,:user_id, :rich_text,:image],
                                        guests_attributes: [:id,:user_id, :_destroy],
                                        dates_to_votes_attributes: [:id, :date, :_destroy])

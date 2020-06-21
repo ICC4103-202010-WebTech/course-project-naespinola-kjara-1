@@ -11,13 +11,19 @@ o1 = Organization.create(name: "Snow", image:"",
 o2 = Organization.create(name: "Autumn fall", image:"",
                          rich_text: " ", description: "Hello members, welcome everyone!!", videos: "", documents: "", pictures:"")
 
-u1 = User.create(organization:o1, username: "user1", email: "user1@gmail.com", password: "1234567k", is_organization_admin: false, is_system_admin: true, in_blacklist:false)
-u2 = User.create(organization:o1, username: "user2", email: "user2@gmail.com", password: "winter123", is_organization_admin: true, is_system_admin: false, in_blacklist:false)
+u1 = User.create( username: "user1", email: "user1@gmail.com", password: "1234567k",  in_blacklist:false)
+u2 = User.create( username: "user2", email: "user2@gmail.com", password: "winter123",  in_blacklist:false)
 
-u3 = User.create(organization: o1, username: "user3", email: "user3@gmail.com", password: "summer78", is_organization_admin: false, is_system_admin: false, in_blacklist:false)
-u4 = User.create(organization: o1, username: "user4", email: "user4@gmail.com", password: "black560", is_organization_admin: false, is_system_admin: false, in_blacklist:true)
-u5 = User.create(organization: o2, username: "user5", email: "user5@gmail.com", password: "autumn5632", is_organization_admin: false, is_system_admin: false, in_blacklist:false)
-u6 = User.create(organization: o2, username: "user6", email: "user6@gmail.com", password: "jaja12345", is_organization_admin: true, is_system_admin: true, in_blacklist:false)
+u3 = User.create(username: "user3", email: "user3@gmail.com", password: "summer78", in_blacklist:false)
+u4 = User.create(username: "user4", email: "user4@gmail.com", password: "black560", in_blacklist:true)
+u5 = User.create( username: "user5", email: "user5@gmail.com", password: "autumn5632", in_blacklist:false)
+u6 = User.create(username: "user6", email: "user6@gmail.com", password: "jaja12345", in_blacklist:false)
+
+
+m1 = Member.create(user: u1, organization: o1, is_admin_org:true)
+m2 = Member.create(user: u2, organization: o1, is_admin_org:false)
+m3 = Member.create(user: u3, organization: o2, is_admin_org:false)
+m4 = Member.create(user: u4, organization: o2, is_admin_org:true)
 
 l1 = Location.create(country: "Chile", region: "Metropolitana")
 l2 = Location.create(country: "Argentina", region: "Buenos Aires")

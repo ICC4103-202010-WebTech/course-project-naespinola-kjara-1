@@ -1,11 +1,9 @@
 class Organization < ApplicationRecord
-  has_many :users, dependent: :destroy
   has_one :homepage
 
   has_one_attached :image
   mount_uploader :image, ImageUploader
-
-  accepts_nested_attributes_for :users
+  
   accepts_nested_attributes_for :homepage
 
   validates :name, presence: true

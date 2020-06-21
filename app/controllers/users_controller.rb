@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_save :default_values
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -52,11 +52,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def default_values
-    self.is_organization_admin||= 0
-    self.is_system_admin||= 0
-    self.in_blacklist||= 0
-  end
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
@@ -75,6 +71,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.fetch(:user, {}).permit(:username, :email, :password, :is_organization_admin, :is_system_admin, :in_blacklist)
+      params.fetch(:user, {}).permit(:username, :email, :password, :is_organization_admin, :in_blacklist)
     end
 end

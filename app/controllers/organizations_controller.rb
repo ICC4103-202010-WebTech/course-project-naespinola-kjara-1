@@ -76,7 +76,7 @@ class OrganizationsController < ApplicationController
     def organization_params
       params.fetch(:organization, {}).permit(:name, :image, :rich_text, :description, :videos, :documents,:pictures,
                                              {users_attributes: [:organization_id, :username, :email, :password, :is_organization_admin,
-                                                                 :is_system_admin, :in_blacklist],
+                                                                 :in_blacklist],
                                               homepage_attributes: [:organization_id, :event_id]})
     end
 end

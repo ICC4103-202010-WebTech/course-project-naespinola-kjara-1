@@ -7,10 +7,7 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.boolean :private
       t.boolean :include_organization
       t.string :image
-      t.string :videos
-      t.string :documents
       t.string :location
-      t.string :pictures
 
       t.timestamps
     end

@@ -36,101 +36,122 @@
       </div>
     </div>
 
-<div class="col ml-5">
-<table class="table table-striped" >
-  <thead class="table-success">
-  <th>
-    📍 Location
-  </th>
-  </thead>
-  <tbody>
-  <tr>
-    <td>
-      <%= @event.location %>
-    </td>
-  </tr>
-  </tbody>
-</table>
-    <table class="table table-striped" >
-      <thead class="table-success">
-      <th>
-      Creation Date
-      </th>
-      </thead>
-      <tbody>
-      <tr>
-        <td>
-          <%= @event.created_at %>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <table class="table table-striped" >
-      <thead class="table-success">
-      <th>
-        Description
-      </thead>
-      <tbody>
-      <tr>
-        <td>
-          <%= @event.description%>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <table class="table table-striped" >
-      <thead class="table-success">
-      <th>
-        Documents
-      </thead>
-      <tbody>
-      <tr>
-        <td>
-          Videos <%= @event.videos%>
-           .pdf <%= @event.documents%>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-    <div  class="table-success" >
+  <div class="col ml-5">
+  <table class="table table-striped" >
+    <thead class="table-success">
+    <th>
+      📍 Location
+    </th>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <%= @event.location %>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+      <table class="table table-striped" >
+        <thead class="table-success">
+        <th>
+        Creation Date
+        </th>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <%= @event.created_at %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <table class="table table-striped" >
+        <thead class="table-success">
+        <th>
+          Description
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            <%= @event.description%>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <table class="table table-striped" >
+        <thead class="table-success">
+        <th>
+          Documents
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+            Videos <%= @event.videos%>
+             .pdf <%= @event.documents%>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div  class="table-success" >
 
 
-    <div   class="font-weight-bolder">
-      <p class="text-dark" >
-       Wall Of Comments
-      </p>
+      <div   class="font-weight-bolder">
+        <p class="text-dark" >
+         Wall Of Comments
+        </p>
 
+      </div>
+      </div>
+
+      <div class="list-group">
+        <% @event_comments.each do |event_comment| %>
+        <a href="#" class="list-group-item list-group-item-action">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1"><%= event_comment.user.username%></h5>
+            <small class="text-muted">🌙 Created at: <%= event_comment.created_at%></small>
+          </div>
+          <p class="mb-1"><%= event_comment.rich_text%></p>
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <%= link_to "Edit", edit_comment_path(event_comment),class: ["btn", "btn-outline-success"]%>
+            <%= link_to "Reply ", new_event_comment_path(event_comment), class: ["btn", "btn-outline-success"] %>
+
+          </div>
+
+        <% end %>
+        </a>
+      </div>
+    <div class="row ml-0 mt-2 mb-3">
+      <%= link_to "Add Comment", new_event_comment_path(@event), class: ["btn", "btn-info"] %>
     </div>
-    </div>
 
-    <div class="list-group">
-      <% @event_comments.each do |event_comment| %>
-      <a href="#" class="list-group-item list-group-item-action">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1"><%= event_comment.user.username%></h5>
-          <small class="text-muted">🌙 Created at: <%= event_comment.created_at%></small>
-        </div>
-        <p class="mb-1"><%= event_comment.rich_text%></p>
-        <div class="btn-group" role="group" aria-label="Basic example">
-          <%= link_to "Edit", edit_comment_path(event_comment),class: ["btn", "btn-outline-success"]%>
-          <%= link_to "Reply ", new_event_comment_path(event_comment), class: ["btn", "btn-outline-success"] %>
+  </div>
 
-        </div>
-
-      <% end %>
-      </a>
-    </div>
-  <div class="row ml-0 mt-2 mb-3">
-    <%= link_to "Add Comment", new_event_comment_path(@event), class: ["btn", "btn-info"] %>
   </div>
   <div class="row ml-0 mt-2 mb-3">
-    <input type="checkbox" id="cbox1" ><label class="input-group-text mr-3" for="cbox1">Show images</label>
-    <input type="checkbox" id="cbox2" ><label class="input-group-text mr-3" for="cbox2">Show videos</label>
-    <input type="checkbox" id="cbox3" ><label class="input-group-text mr-3" for="cbox3">Show documents</label>
+    <div class="row ml-0 mt-2 mb-3">
+      <header>
+        Images:
+      </header>
+      <div>
+        <% (0...@event.pictures.count).each do |image| %>
+        <%= image_tag(@event.thumbnail(image)) %>
+        <% end %>
+      </div>
+    </div>
+
+    <div>
+      <header>
+        Documents:
+      </header>
+      <div>
+        <% (0...@event.documents.count).each do |num| %>
+          <%= link_to 'Document', @event.documents[num] %>
+        <% end %>
+      </div>
+    </div>
+
 
   </div>
-  </div>
-</div>
 
 
 <br>

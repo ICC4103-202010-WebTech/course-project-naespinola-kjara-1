@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 o1 = Organization.create(name: "Snow", image:"",
-                         rich_text: " ", description: "Hello members", videos: "", documents: "" , pictures: "")
+                         rich_text: " ", description: "Hello members" )
 o2 = Organization.create(name: "Autumn fall", image:"",
-                         rich_text: " ", description: "Hello members, welcome everyone!!", videos: "", documents: "", pictures:"")
+                         rich_text: " ", description: "Hello members, welcome everyone!!")
 
 u1 = User.create( username: "user1", email: "user1@gmail.com", password: "1234567k",  in_blacklist:false)
 u2 = User.create( username: "user2", email: "user2@gmail.com", password: "winter123",  in_blacklist:false)
@@ -51,20 +51,18 @@ msm3 = Message.create(user_receiver: u3, user_transmitter: u4, text_message: "hi
 msm4 = Message.create(user_receiver: u4, user_transmitter: u1, text_message: "hi4")
 
 e1 = Event.create(user: u1, title: "Winter is comming", description: "The winter is the better weather of the year so welcome to gala 2020!!", private: false, include_organization: true,
-                  image: "", videos: "", documents: "", location: "Las Vegas", pictures:"")
+                  image: "", location: "Las Vegas")
 e2 = Event.create(user: u2, title: "Party Somewhere", description: "Cool party", private: true, include_organization: true,
-                  image: "", videos: "", documents: "", location:"London", pictures:"")
+                  image: "", location:"London")
 e3 = Event.create(user: u3, title: "Welcome to the jungle", description: "Hello everyone gala 2020", private: false, include_organization: false,
-                  image:"", videos: "", documents: "", location:"Park, New York",pictures:"")
+                  image:"", location:"Park, New York")
 e4 = Event.create(user: u1, title: "Less is more", description: "Hello everyone 30th birthday celebration", private: true, include_organization: false,
-                  image: "", videos: "", documents: "", location:"Santiago",pictures:"")
+                  image: "", location:"Santiago")
 e5 = Event.create(user: u6, title: "The Sky", description: "Hello everyone 30th birthday celebration", private: true, include_organization: true ,
-                  image: "",
-                  videos: "", documents: "", location:"Coquimbo",pictures:"")
+                  image: "", location:"Coquimbo")
 
 e6 = Event.create(user: u5, title: "One more year", description: "Hello everyone 60th birthday celebration", private: false, include_organization: true ,
-                  image: "",
-                  videos: "", documents: "", location:"Antofagasta",pictures:"")
+                  image: "", location:"Antofagasta")
 
 h1 = Homepage.create(organization: o1, event:e1)
 

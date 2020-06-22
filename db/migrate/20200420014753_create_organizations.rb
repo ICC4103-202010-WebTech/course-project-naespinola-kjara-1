@@ -5,9 +5,6 @@ class CreateOrganizations < ActiveRecord::Migration[6.0]
       t.string :image
       t.string :rich_text
       t.string :description
-      t.string :videos
-      t.string :documents
-      t.string :pictures
 
       t.timestamps
     end

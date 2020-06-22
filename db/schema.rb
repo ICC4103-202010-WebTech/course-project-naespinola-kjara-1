@@ -73,10 +73,7 @@ ActiveRecord::Schema.define(version: 2020_06_21_230019) do
     t.boolean "private"
     t.boolean "include_organization"
     t.string "image"
-    t.string "videos"
-    t.string "documents"
     t.string "location"
-    t.string "pictures"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_events_on_user_id"
@@ -132,9 +129,6 @@ ActiveRecord::Schema.define(version: 2020_06_21_230019) do
     t.string "image"
     t.string "rich_text"
     t.string "description"
-    t.string "videos"
-    t.string "documents"
-    t.string "pictures"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -9,9 +9,14 @@ class Event < ApplicationRecord
   has_one_attached :image
   mount_uploader :image, ImageUploader
   has_many_attached :documents
-  mount_uploader :documents, DocumentUploader
+  #mount_uploader :documents, DocumentUploader
   has_many_attached :videos
-  mount_uploader :videos, VideoUploader
+  #mount_uploader :videos, VideoUploader
+
+  has_many_attached :pictures
+  def thumbnail input
+    self.pictures[input].variant(resize: '300x300').processed
+  end
 
 
 

@@ -1,0 +1,6 @@
+<div class="row event-list">
+  <% users.each do |user| %>
+    <%= render partial: "users/user_tile", locals: { user: user } %>
+  <% end %>
+</div>
+

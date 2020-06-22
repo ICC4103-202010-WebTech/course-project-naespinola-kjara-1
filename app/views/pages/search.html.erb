@@ -1,34 +1,42 @@
-<h3 class="text-info text-center mr-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  🔍 Search Result</h3>
-<div class=" text-success font-italic">
-    <div  class="text-center">
-      <% @results_username.each do |result| %>
-        <%= result.username %><br>
-      <% end %>
-
-      <% @results_name.each do |result| %>
-        <%= result.name %><br>
-      <% end %>
-
-      <% @results_organization.each do |result| %>
-        <%= result.name %><br>
-      <% end %>
-      <% @results_event.each do |result| %>
-        <%= result.title %><br>
-        <%= result.description%><br>
-      <% end %>
-
-      <% @results_event_creator.each do |result| %>
-        <%= result.title %><br>
-      <% end %>
-
-      <%  @results_event_org.each do |result| %>
-        <%= result.title %><br>
-      <% end %>
-
-    </div>
+<h3 class="text-info font-weight-bold mr-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  🔍 Search Result</h3>
+<% if @events.length > 0  %>
+  <div class="row ml-0 mt-2">
+    <p class="text-success font-weight-bold"><%=@events.length %> matches found.</p>
   </div>
+  <%=render partial: "events/event_list", locals: { events: @events } %>
+
+  <% elsif @organizations.length > 0  %>
+  <div class="row ml-0 mt-2">
+    <p class="text-success font-weight-bold"><%=@organizations.length %> matches found.</p>
+  </div>
+  <%=render partial: "organizations/organization_list", locals: { organizations: @organizations } %>
+
+<% elsif @users.length > 0  %>
+  <div class="row ml-0 mt-2">
+    <p class="text-success font-weight-bold"><%=@users.length %> matches found.</p>
+  </div>
+  <%=render partial: "users/user_list", locals: { users: @users} %>
+
+<% else%>
+  <div class="row ml-0 mt-2">
+    <p class="text-success font-weight-bold">No matches found.</p>
+  </div>
+<% end %>
 
 
 
+
+<% if @events_by_creator.length > 0  %>
+  <p class="text-success font-weight-bold"><%=@events_by_creator.length %> matches found (events) .</p>
+
+  <div class="row ml-0 mt-2">
+ <% @events_by_creator.each do |result| %>
+     <p class="text-success font-weight-bold"> • <%= link_to result.title , result   %></p>
+
+
+</div>
+<%=render partial: "events/event_list", locals: { event: @events_by_creator} %>
+<%end %>
+<% end %>
 
 

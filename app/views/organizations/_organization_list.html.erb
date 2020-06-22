@@ -1,0 +1,5 @@
+<div class="row event-list">
+  <% organizations.each do |organization| %>
+    <%= render partial: 'organizations/organization_tile', locals: { organization: organization } %>
+  <% end %>
+</div>

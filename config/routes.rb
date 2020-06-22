@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/search'
   devise_for :users
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

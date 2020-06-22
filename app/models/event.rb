@@ -5,14 +5,12 @@ class Event < ApplicationRecord
   has_many :dates_to_votes, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :comments, dependent:  :destroy
+  belongs_to :organization, optional: true
 
   has_one_attached :image
   mount_uploader :image, ImageUploader
   has_many_attached :documents
-  #mount_uploader :documents, DocumentUploader
   has_many_attached :videos
-  #mount_uploader :videos, VideoUploader
-
   has_many_attached :pictures
   def thumbnail input
     self.pictures[input].variant(resize: '300x300').processed

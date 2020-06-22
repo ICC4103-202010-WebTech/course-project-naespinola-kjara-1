@@ -14,7 +14,7 @@
           <select class="custom-select">
             <option selected>Members</option>
             <% @events1.each do |events| %>
-            <option value="i"><%=  events.user.username %></option>
+              <option value="i"><%=  events.user.username %></option>
             <% end %>
           </select>
 
@@ -34,6 +34,61 @@
         <% end %>
       </div>
     </div>
+  </div>
+  <div class="row ml-0 mt-2 mb-3">
+
+    <table class="table table-striped" >
+      <thead class="table-success">
+      <th>
+        Images:
+      </th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <% (0...@organization.pictures.count).each do |image| %>
+            <%= image_tag(@organization.thumbnail(image)) %>
+          <% end %>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-striped" >
+      <thead class="table-success">
+      <th>
+        Documents:
+      </th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <% (0...@organization.documents.count).each do |num| %>
+            <%= link_to 'Document', @organization.documents[num] %>
+            <div></div>
+          <% end %>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <table class="table table-striped" >
+      <thead class="table-success">
+      <th>
+        Videos:
+      </th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <% (0...@organization.videos.count).each do |num| %>
+            <%= link_to 'Video', @organization.videos[num] %>
+            <div></div>
+          <% end %>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
   <br>
 </div>

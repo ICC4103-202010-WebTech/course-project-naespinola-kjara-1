@@ -18,13 +18,13 @@ class Organization < ApplicationRecord
       message: 'must be a url for gif, jpg, or png image.'
   }
 
-  validates :documents, allow_blank: true, format: {
-      with: %r{\.(pdf)\Z}i,
-      message: 'must be a url for pdf document.'
-  }
-
-  validates :videos, allow_blank: true, format: {
-      with: %r{\.(mp4|m4v|mov)\Z}i,
-      message: 'must be a url for mp4,m4v or mov video.'
-  }
+#  validates :documents, allow_blank: true, format: {
+#      with: %r{\.(pdf)\Z}i,
+#      message: 'must be a url for pdf document.'
+#  }
+#
+#  validates :videos, allow_blank: true, format: {
+#      with: %r{\.(mp4|m4v|mov)\Z}i,
+#      message: 'must be a url for mp4,m4v or mov video.'
+#  }
 end

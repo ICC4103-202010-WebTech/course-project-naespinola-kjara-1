@@ -1,9 +1,11 @@
 class Organization < ApplicationRecord
+
   has_one :homepage
 
   has_one_attached :image
   mount_uploader :image, ImageUploader
-  
+
+
   accepts_nested_attributes_for :homepage
 
   validates :name, presence: true

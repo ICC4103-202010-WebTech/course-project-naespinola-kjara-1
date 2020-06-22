@@ -4,16 +4,18 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.includes(:user, :location).where("profiles.id=#{current_person.id}")
+    @profiles = Profile.includes(:user, :location).where("user_id=#{current_person.id}")
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+
   end
 
   # GET /profiles/new
   def new
+    @user = User.find(params[:user_id])
     @profile = Profile.new
   end
 
@@ -25,7 +27,10 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
+    @user = User.find(params[:user_id])
     @profile = Profile.new(profile_params)
+    @profile.user = @user
+
 
     respond_to do |format|
       if @profile.save
@@ -70,8 +75,7 @@ class ProfilesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def profile_params
-      params.fetch(:profile, {}).permit({user_attributes: [:organization_id, :username, :email, :password, :is_organization_admin,
-                                                            :in_blacklist],
-                                         location_attributes: [:country, :region]}, :image, :document, :video, :short_bio, :name, :last_name)
+      params.fetch(:profile, {}).permit({
+                                         location_attributes: [:country, :region]}, :user_id ,:image, :document, :video, :short_bio, :name, :last_name)
     end
 end

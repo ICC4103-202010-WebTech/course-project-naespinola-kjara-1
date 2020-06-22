@@ -15,24 +15,18 @@ class PagesController < ApplicationController
                           "%#{User.sanitize_sql_like(@parameter)}%",
                           "%#{User.sanitize_sql_like(@parameter)}%")
 
-
-
       @organizations = Organization.where("name LIKE ? ",
                                          "%#{Organization.sanitize_sql_like(@parameter)}%")
-
 
       @events = Event.where("title LIKE ? or description LIKE ?",
                             "%#{Event.sanitize_sql_like(@parameter)}%",
                             "%#{Event.sanitize_sql_like(@parameter)}%")
 
-      #   @events_by_creator  = Event.joins(:user).where("events.user_id=:users.id LIKE ? and users.username LIKE ?",
-      #                                            "%#{Event.sanitize_sql_like(@parameter)}%",
-      #                                            "%#{User.sanitize_sql_like(@parameter)}%")
+      @events_by_creator = Event.joins(:user).where("events.user_id=users.id and lower(users.username) LIKE :search", search: "%#{@parameter}%")
 
-      #  @results_event_org = Event.joins(user: :organization).where("events.include_organization=1 and users.organization_id=organizations.id and lower(organizations.name) LIKE :search", search: "%#{@parameter}%")
+      @events_by_org = Event.joins(:organization).where("events.organization_id= organizations.id and lower(organizations.name) LIKE :search", search: "%#{@parameter}%")
 
-         @events_by_creator = Event.joins(:user).where("events.user_id=users.id and lower(users.username) LIKE :search", search: "%#{@parameter}%")
+
     end
   end
-
 end

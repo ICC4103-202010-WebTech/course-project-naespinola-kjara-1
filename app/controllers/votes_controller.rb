@@ -4,7 +4,7 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.json
   def index
-    @votes = Vote.joins(dates_to_vote: :event).joins(:guest).where("guests.user_id=1")
+    @votes = Vote.joins(dates_to_vote: :event).joins(:guest).where("guests.user_id= #{current_person.id}")
 
   end
 

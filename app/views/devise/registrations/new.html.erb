@@ -26,6 +26,22 @@
       <%= f.label :password_confirmation, class:"text-success font-weight-bold" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
     </div>
+    <div class="form-group">
+      <%= f.label :name, class:"text-success font-weight-bold"%>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :last_name, class:"text-success font-weight-bold"%>
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :short_bio, class:"text-success font-weight-bold" %>
+      <%= f.text_area :short_bio, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :location, class:"text-success font-weight-bold" %>
+      <%= f.text_field :location, class: "form-control" %>
+    </div>
 
 
       <div class="form-group actions">

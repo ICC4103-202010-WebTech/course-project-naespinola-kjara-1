@@ -3,6 +3,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  has_one_attached :image
+  mount_uploader :image, ImageUploader
 
   has_one :profile, dependent: :destroy
   has_many :events, dependent: :destroy
@@ -17,6 +19,11 @@ class User < ApplicationRecord
   validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :password, presence: true,  :length => { :minimum => 6 }
   validates :in_blacklist, inclusion: { in: [true, false] }
+
+  validates :image, allow_blank: true, format: {
+      with: %r{\.(gif|jpg|png)\Z}i,
+      message: 'must be a url for gif, jpg, or png image.'
+  }
 
 
 

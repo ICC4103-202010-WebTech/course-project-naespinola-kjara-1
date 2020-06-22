@@ -15,7 +15,6 @@ Rails.application.routes.draw do
 
 
   resource :user do
-    resources :profiles, shallow: true
     resources :messages, shallow: true
   end
 
@@ -37,7 +36,6 @@ Rails.application.routes.draw do
 
   resource :user, defaults: {format: :html}
   resources :messages, defaults: {format: :html}
-  resources :profiles, defaults: {format: :html}
   resources :events, defaults: {format: :html} 
   resources :organizations, defaults: {format: :html}
   resources :guests, defaults: {format: :html}

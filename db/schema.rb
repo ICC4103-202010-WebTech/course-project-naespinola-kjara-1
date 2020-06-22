@@ -133,21 +133,6 @@ ActiveRecord::Schema.define(version: 2020_06_21_230019) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "location_id", null: false
-    t.string "image"
-    t.string "document"
-    t.string "video"
-    t.string "short_bio"
-    t.string "name"
-    t.string "last_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["location_id"], name: "index_profiles_on_location_id"
-    t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
-
   create_table "replies_to_comments", force: :cascade do |t|
     t.integer "comment_receiver_id"
     t.integer "comment_transmitter_id"
@@ -170,6 +155,11 @@ ActiveRecord::Schema.define(version: 2020_06_21_230019) do
     t.string "username"
     t.string "password"
     t.boolean "in_blacklist", default: false
+    t.string "name"
+    t.string "last_name"
+    t.string "image", default: ""
+    t.string "short_bio"
+    t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
@@ -203,8 +193,6 @@ ActiveRecord::Schema.define(version: 2020_06_21_230019) do
   add_foreign_key "members", "users"
   add_foreign_key "messages", "users", column: "user_receiver_id"
   add_foreign_key "messages", "users", column: "user_transmitter_id"
-  add_foreign_key "profiles", "locations"
-  add_foreign_key "profiles", "users"
   add_foreign_key "replies_to_comments", "comments", column: "comment_receiver_id"
   add_foreign_key "replies_to_comments", "comments", column: "comment_transmitter_id"
   add_foreign_key "reports", "events"

@@ -26,14 +26,11 @@
           </li>
           <% if user_signed_in?%>
           <li class="nav-item">
-            <a class="nav-link text-white" href="<%= user_profiles_path%>" >Profile </a>
+            <a class="nav-link text-white" href="<%= user_path%>" >Profile </a>
           </li>
           <li class="nav-item mailbox">
             <a class="nav-link text-white" href="<%= user_messages_path%>">Mailbox </a>
           </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="<%= user_path %>" >User</a>
-            </li>
           <%end %>
         </ul>
         <%= form_tag(search_page_path, :method => "get",

@@ -11,13 +11,27 @@ o1 = Organization.create(name: "Snow", image:"",
 o2 = Organization.create(name: "Autumn fall", image:"",
                          rich_text: " ", description: "Hello members, welcome everyone!!")
 
-u1 = User.create( username: "user1", email: "user1@gmail.com", password: "1234567k",  in_blacklist:false)
-u2 = User.create( username: "user2", email: "user2@gmail.com", password: "winter123",  in_blacklist:false)
+u1 = User.create( username: "user1", email: "user1@gmail.com", password: "1234567k",  in_blacklist:false,
+                  name: "Ana", last_name: "Polo", image: "",
+                  short_bio: "I live in Miami and love justice.", location:"Chile")
 
-u3 = User.create(username: "user3", email: "user3@gmail.com", password: "summer78", in_blacklist:false)
-u4 = User.create(username: "user4", email: "user4@gmail.com", password: "black560", in_blacklist:true)
-u5 = User.create( username: "user5", email: "user5@gmail.com", password: "autumn5632", in_blacklist:false)
-u6 = User.create(username: "user6", email: "user6@gmail.com", password: "jaja12345", in_blacklist:false)
+u2 = User.create( username: "user2", email: "user2@gmail.com", password: "winter123",  in_blacklist:false,
+                  name: "Sam", last_name: "Smith", image: "",
+                  short_bio: "Hello everyone, i love singing!", location: "Argentina")
+
+u3 = User.create(username: "user3", email: "user3@gmail.com", password: "summer78", in_blacklist:false,
+                 name: "Pepito", last_name: "Torres", image: "",
+                 short_bio: "I don't sing to be famous.",location: "Arica y Parinacota")
+
+u4 = User.create(username: "user4", email: "user4@gmail.com", password: "black560", in_blacklist:true,
+                 name: "Pepita", last_name: "Sol", image: "",
+                 short_bio: "Hi!", location: "Región Norte - Acre")
+u5 = User.create( username: "user5", email: "user5@gmail.com", password: "autumn5632", in_blacklist:false,
+                  name: "Rick", last_name: "Sánchez",image: "",
+                  short_bio: "Hello everyone!!",location: "Biobío")
+u6 = User.create(username: "user6", email: "user6@gmail.com", password: "jaja12345", in_blacklist:false,
+                 name: "Elmer", last_name: "Figueroa", image: "",
+                 short_bio: "Hello everyone, a dance?",location: "Buenos Aires" )
 
 
 m1 = Member.create(user: u1, organization: o1, is_admin_org:true)
@@ -32,18 +46,8 @@ l4 = Location.create(country: "Chile", region: "Arica y Parinacota")
 l5 = Location.create(country: "Chile", region: "Atacama")
 l6 = Location.create(country: "Chile", region: "Biobío")
 
-p1 = Profile.create(user: u1, location: l1, image: "",
-                    document: "",video: "", short_bio: "I live in Miami and love justice.", name: "Ana", last_name: "Polo")
-p2 = Profile.create(user: u2, location: l2,  image: "",
-                    document: "" ,video: "", short_bio: "Hello everyone, i love singing!", name: "Sam", last_name: "Smith")
-p3 = Profile.create(user: u3, location: l3,  image: "",
-                    document: "",video: "", short_bio: "I don't sing to be famous.", name: "Pepito", last_name: "Torres")
-p4 = Profile.create(user: u4, location: l4, image: "",
-                    document: "",video: "", short_bio: "Hi!", name: "Pepita", last_name: "Sol")
-p5 = Profile.create(user: u5, location: l5, image: "",
-                    document: "",video: "", short_bio: "Hello everyone!!", name: "Rick", last_name: "Sánchez")
-p6 = Profile.create(user: u6, location: l6, image: "",
-                    document: "",video: "", short_bio: "Hello everyone, a dance?", name: "Elmer", last_name: "Figueroa")
+
+
 
 msm1 = Message.create(user_receiver: u1, user_transmitter: u2, text_message: "hi1")
 msm2 = Message.create(user_receiver: u2, user_transmitter: u3, text_message: "hi2")

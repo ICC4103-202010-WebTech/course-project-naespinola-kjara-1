@@ -79,10 +79,13 @@ class API::V1::EventsController < APIController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.fetch(:event, {}).permit(:title, :description, :private, :include_organization, :image,
-                                      :videos, :documents, :location, :user_id,
-                                      {user_attributes: [:organization_id, :username, :email, :password, :is_organization_admin,
-                                                         :is_system_admin, :in_blacklist],
-                                       comment_attributes: [:user_id, :rich_text,:image]})
+      params.fetch(:event, {}).permit(:title, :description, :private, :image, :organization_id,
+                                      :location, :user_id, videos: [], documents: [], pictures: [],
+                                      users_attributes: [:username, :email, :password,
+                                                         :in_blacklist],
+                                      comments_attributes: [:id,:user_id, :rich_text,:image],
+                                      guests_attributes: [:id,:user_id, :_destroy],
+                                      dates_to_votes_attributes: [:id, :date, :_destroy],
+                                      organizations_attributes: [:name, :image, :rich_text, :description])
     end
 end

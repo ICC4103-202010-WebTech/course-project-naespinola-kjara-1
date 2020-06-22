@@ -54,18 +54,18 @@ msm2 = Message.create(user_receiver: u2, user_transmitter: u3, text_message: "hi
 msm3 = Message.create(user_receiver: u3, user_transmitter: u4, text_message: "hi3")
 msm4 = Message.create(user_receiver: u4, user_transmitter: u1, text_message: "hi4")
 
-e1 = Event.create(user: u1, title: "Winter is comming", description: "The winter is the better weather of the year so welcome to gala 2020!!", private: false, include_organization: true,
-                  image: "", location: "Las Vegas")
-e2 = Event.create(user: u2, title: "Party Somewhere", description: "Cool party", private: true, include_organization: true,
+e1 = Event.create(user: u1, title: "Winter is comming", description: "The winter is the better weather of the year so welcome to gala 2020!!", private: false, organization: o1,
+                 image: "", location: "Las Vegas")
+e2 = Event.create(user: u2, title: "Party Somewhere", description: "Cool party", private: true, organization: o2,
                   image: "", location:"London")
-e3 = Event.create(user: u3, title: "Welcome to the jungle", description: "Hello everyone gala 2020", private: false, include_organization: false,
+e3 = Event.create(user: u3, title: "Welcome to the jungle", description: "Hello everyone gala 2020", private: false, organization: o1,
                   image:"", location:"Park, New York")
-e4 = Event.create(user: u1, title: "Less is more", description: "Hello everyone 30th birthday celebration", private: true, include_organization: false,
+e4 = Event.create(user: u1, title: "Less is more", description: "Hello everyone 30th birthday celebration", private: true, organization: o2,
                   image: "", location:"Santiago")
-e5 = Event.create(user: u6, title: "The Sky", description: "Hello everyone 30th birthday celebration", private: true, include_organization: true ,
+e5 = Event.create(user: u6, title: "The Sky", description: "Hello everyone 30th birthday celebration", private: true, organization: o1,
                   image: "", location:"Coquimbo")
 
-e6 = Event.create(user: u5, title: "One more year", description: "Hello everyone 60th birthday celebration", private: false, include_organization: true ,
+e6 = Event.create(user: u5, title: "One more year", description: "Hello everyone 60th birthday celebration", private: false, organization: o2,
                   image: "", location:"Antofagasta")
 
 h1 = Homepage.create(organization: o1, event:e1)

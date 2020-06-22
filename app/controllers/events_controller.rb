@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.includes(:user).where("events.user_id= #{current_person.id} ")
-    @events1 = Event.includes(:user).where("events.include_organization=true")
+      #@events1 = Event.includes(:user).where("events.include_organization=true")
 
 
   end
@@ -100,12 +100,13 @@ class EventsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def event_params
-      params.fetch(:event, {}).permit(:title, :description, :private, :include_organization, :image,
+      params.fetch(:event, {}).permit(:title, :description, :private, :image, :organization_id,
                                       :location, :user_id, videos: [], documents: [], pictures: [],
                                       users_attributes: [:username, :email, :password,
                                                          :in_blacklist],
                                        comments_attributes: [:id,:user_id, :rich_text,:image],
                                        guests_attributes: [:id,:user_id, :_destroy],
-                                       dates_to_votes_attributes: [:id, :date, :_destroy])
+                                       dates_to_votes_attributes: [:id, :date, :_destroy],
+                                      organizations_attributes: [:name, :image, :rich_text, :description])
     end
 end

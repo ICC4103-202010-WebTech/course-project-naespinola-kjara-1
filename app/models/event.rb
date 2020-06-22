@@ -27,5 +27,4 @@ class Event < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :private, inclusion: { in: [true, false] }
-  validates :include_organization, inclusion: { in: [true, false] }
 end

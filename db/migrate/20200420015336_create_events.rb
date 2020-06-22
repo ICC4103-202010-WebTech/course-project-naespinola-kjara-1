@@ -5,7 +5,6 @@ class CreateEvents < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :description
       t.boolean :private
-      t.boolean :include_organization
       t.string :image
       t.string :location
 

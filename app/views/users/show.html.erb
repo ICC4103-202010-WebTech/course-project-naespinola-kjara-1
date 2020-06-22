@@ -1,4 +1,50 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  <h2 class="text-info">🌼 Welcome! <%= @user.name %> </h2>
+  <div id="container" >
+    <div class="row">
+      <div  class="col-3">
+
+        <aside id="profile_links">
+
+          <ul class="table-success" id="links">
+            <button type="button" class="list-group-item list-group-item-action p-2"><%= link_to "Created events",  events_path%></button>
+            <button type="button" class="list-group-item list-group-item-action p-2"><%= link_to "Organization", organizations_path %></button>
+            <button type="button" class="list-group-item list-group-item-action p-2"><%= link_to "Vote",  votes_path%></button>
+            <button type="button" class="list-group-item list-group-item-action p-2"><%= link_to "My invitations to events", guests_path %></button>
+            <button type="button" class="list-group-item list-group-item-action p-2">Change password</button>
+          </ul>
+        </aside>
+        <div class="text-center mb-2">
+          <%= link_to " Edit ", edit_user_path, class: ["btn", "btn-info"] %>
+
+        </div>
+      </div>
+      <div class="col">
+        <div class="text-center ">
+          <%= image_tag(@user.image.thumb.url) %>
+
+        </div>
+        <br>
+
+        <dl id="profile_info">
+          <dt class="text-success">Username</dt>
+          <dd>• <%= @user.username %> </dd>
+          <dt class="text-success">Full name</dt>
+          <dd>• <%= @user.name %> <%= @user.last_name %></dd>
+          <dt class="text-success">Location</dt>
+          <dd>• <%= @user.location%> </dd>
+          <dt class="text-success">Bio</dt>
+          <dd>• <%= @user.short_bio %> </dd>
+        </dl>
+
+
+      </div>
+    </div>
+
+    <br>
+
+
+  </div>
+
+
+

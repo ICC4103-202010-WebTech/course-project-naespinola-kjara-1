@@ -1,17 +1,37 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="row ml-0">
+  <%= form_with model: user, local: true do |form| %>
+    <%= errors_for @user %>
+    <div class="form-group">
+      <%= form.label :username, class:"text-success font-weight-bold"%>
+      <%= form.text_field :username, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :name, class:"text-success font-weight-bold"%>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :last_name, class:"text-success font-weight-bold"%>
+      <%= form.text_field :last_name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :location, class:"text-success font-weight-bold"%>
+      <%= form.text_field :location, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :short_bio, class:"text-success font-weight-bold" %>
+      <%= form.text_area :short_bio, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= form.label :image, class:"text-success font-weight-bold" %>
+      <%= form.file_field :image %>
+    </div>
 
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+
+
+
+    <div class="form-group mt-2">
+      <%= form.submit submit_btn_text, class: ["btn", "btn-primary"] %>
+      <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

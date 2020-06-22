@@ -1,6 +1,13 @@
-<h1>Editing User</h1>
+<div class="row ml-0 mt-3">
+  <h2 class="text-info">Edit "<%=@user.email%>" </h2>
+</div>
+<div class="row ml-0 mt-2">
+  <p class="text-success">Please enter the required information to edit the "<%=@user.email%>" profile:</p>
+</div>
+<%= render partial: "form",
+           locals: {
+               user: @user,
+               submit_btn_text: "Update",
 
-<%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+           } %>

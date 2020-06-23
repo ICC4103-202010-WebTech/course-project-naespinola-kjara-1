@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'participants/participants'
   get 'search/search'
   devise_for :users
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
@@ -42,5 +43,8 @@ Rails.application.routes.draw do
   resources :guests, defaults: {format: :html}
   resources :votes, defaults:{format: :html}
 
+  #resources :participants, defaults: {format: :html}
   get '/search' => 'pages#search', :as => 'search_page'
+
+  match 'participants', to: "participants#participants", via: [:post, :get]
 end

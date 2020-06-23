@@ -24,8 +24,7 @@
 <% end %>
 
 <% if @events_by_creator.length > 0  %>
-  <p class="text-success font-weight-bold"><%=@events_by_creator.length %> matches found (events) .</p>
-
+  <p class="text-success font-weight-bold"> Matches found (events) .</p>
   <div class="row ml-0 mt-2">
  <% @events_by_creator.each do |result| %>
      <p class="text-success font-weight-bold"> • <%= link_to result.title , result   %></p>
@@ -37,7 +36,6 @@
 
 <% if @events_by_org.length > 0  %>
   <p class="text-success font-weight-bold">Matches found (events) .</p>
-
   <div class="row ml-0 mt-2">
     <% @events_by_org.each do |result| %>
       <p class="text-success font-weight-bold"> • <%= link_to result.title , result   %></p>

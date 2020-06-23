@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    #ra @user = User.all
     # @user = User.all.where("users.id=#{params[:id]} ")
       # @user = User.select("users.id= #{params[:id]}")
 

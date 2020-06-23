@@ -2,6 +2,13 @@
   <div class="row ml-0 mt-3">
     <h2 class="text-info">Upcoming Events</h2>
   </div>
+  <div>
+    <div class="row ml-0 mt-2 mb-3">
+      <%= link_to "Create Event", new_event_path(@members), class: ["btn", "btn-primary"] %>
+      &nbsp;
+    </div>
+  </div>
+
   <div class="row">
     <% @events.each do |event| %>
       <%= render partial: 'events/event_tile', locals: { event: event } %>

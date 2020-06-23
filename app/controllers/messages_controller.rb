@@ -34,7 +34,9 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    @message = Message.new(message_params)
+    #@message = Message.new(message_params)
+    #@post = current_user.posts.new(params[:post])
+    @message = current_person.transmitted_messages.new(params[:received_messages])
 
     respond_to do |format|
       if @message.save

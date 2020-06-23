@@ -6,14 +6,11 @@ class EventsController < ApplicationController
   def index
     @events = Event.includes(:user).where("events.user_id= #{current_person.id} ")
       #@events1 = Event.includes(:user).where("events.include_organization=true")
-
-
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
-
     @event_guests = Guest.includes(:user, :event).where("guests.event_id= #{params[:id]}")
     @event_dates_to_votes = DatesToVote.joins(:event).where("dates_to_votes.event_id = #{params[:id]}")
     @event_comments = Comment.joins(:event,:user).where("comments.event_id =#{params[:id]}")
@@ -25,21 +22,21 @@ class EventsController < ApplicationController
     @event.dates_to_votes.build
     @event.guests.build
     @event.comments.build
-
-
+    @user = current_person.organizations
   end
 
   # GET /events/1/edit
   def edit
+    @user = current_person.organizations
   end
 
 
   # POST /events
   # POST /events.json
   def create
-    @event = Event.new(event_params)
+    #@event = Event.new(event_params)
+    @event = current_person.events.new(event_params)
 
-    puts(@event)
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

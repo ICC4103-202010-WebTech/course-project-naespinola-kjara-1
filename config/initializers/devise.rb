@@ -302,7 +302,7 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
-
+  config.omniauth :google_oauth2, "744515753251-69jo3v7glckjnulj7u81itgfd1d8kvo7.apps.googleusercontent.com", "sXzhC5KGGmZIAdqCO-ddSfOJ", { }
   # ==> Configuration for :registerable
 
   # When set to false, does not sign a user in automatically after their password is

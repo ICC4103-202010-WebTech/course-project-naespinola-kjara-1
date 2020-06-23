@@ -1,5 +1,7 @@
 class ParticipantsController < ApplicationController
   def participants
-    @user = User.where("id= #{params[:id]}")
+    @members = Member.joins(:organization).where("members.user_id = #{params[:id]}")
+
+
   end
 end

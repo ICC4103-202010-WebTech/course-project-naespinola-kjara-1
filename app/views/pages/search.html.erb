@@ -27,21 +27,25 @@
   <p class="text-success font-weight-bold"> Matches found (events) .</p>
   <div class="row ml-0 mt-2">
  <% @events_by_creator.each do |result| %>
-     <p class="text-success font-weight-bold"> • <%= link_to result.title , result   %></p>
+     <p class="text-success font-weight-bold"> •  <%= link_to result.title , result   %>  •  </p>
+    <% end %>
 </div>
-<%=render partial: "events/event_list", locals: { event: @events_by_creator} %>
+
 <%end %>
-<% end %>
+<%=render partial: "events/event_list", locals: { event: @events_by_creator} %>
+
 
 
 <% if @events_by_org.length > 0  %>
   <p class="text-success font-weight-bold">Matches found (events) .</p>
   <div class="row ml-0 mt-2">
     <% @events_by_org.each do |result| %>
-      <p class="text-success font-weight-bold"> • <%= link_to result.title , result   %></p>
-      </div>
-      <%=render partial: "events/event_list", locals: { event: @events_by_org} %>
+      <p class="text-success font-weight-bold"> •   <%= link_to result.title , result   %> • </p>
     <%end %>
+      </div>
+
+      <%=render partial: "events/event_list", locals: { event: @events_by_org} %>
+
 <% end %>
 
 

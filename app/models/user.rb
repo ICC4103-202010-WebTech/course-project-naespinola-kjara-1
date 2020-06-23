@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_many :received_messages, :class_name => 'Message', :foreign_key => 'user_receiver_id'
   has_many :transmitted_messages, :class_name => 'Message', :foreign_key => 'user_transmitter_id'
 
+  has_many :members
   has_many :organizations, through: :members
 
   #validates :username, presence: true, uniqueness: true

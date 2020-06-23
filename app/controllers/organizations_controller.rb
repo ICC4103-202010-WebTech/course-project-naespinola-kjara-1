@@ -15,6 +15,7 @@ class OrganizationsController < ApplicationController
     #    where("events.include_organization = #{current_person.id}")
     #@events2 = Event.joins(user: :organization).where("events.private = 0").where("users.organization_id = #{params[:id]}").
     #    where("events.include_organization = #{current_person.id}")
+
   end
 
   # GET /organizations/new

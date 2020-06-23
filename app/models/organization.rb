@@ -2,6 +2,7 @@ class Organization < ApplicationRecord
 
   has_one :homepage
   has_many :members
+  has_many :users, through: :members
   has_many :events
 
   has_one_attached :image

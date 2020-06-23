@@ -13,8 +13,8 @@
 
           <select class="custom-select">
             <option selected>Members</option>
-            <% @events1.each do |events| %>
-              <option value="i"><%=  events.user.username %></option>
+            <% @members.each do |mem| %>
+              <option value="i"><%=  mem.username %></option>
             <% end %>
           </select>
 
@@ -29,7 +29,7 @@
         <dd>• <%= @organization.description %> <%= @organization.rich_text%></dd>
       </dl>
       <div class="row">
-        <% @events2.each do |event| %>
+        <% @events1.each do |event| %>
           <%= render partial: 'events/event_tile', locals: { event: event } %>
         <% end %>
       </div>

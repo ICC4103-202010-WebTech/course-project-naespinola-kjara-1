@@ -11,11 +11,8 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    #@events1 = Event.joins(user: :organization).where("users.organization_id = #{params[:id]}").
-    #    where("events.include_organization = #{current_person.id}")
-    #@events2 = Event.joins(user: :organization).where("events.private = 0").where("users.organization_id = #{params[:id]}").
-    #    where("events.include_organization = #{current_person.id}")
-
+    @members =  @organization.users
+    @events1 = Event.where("organization_id = #{params[:id]} and private = 0")
   end
 
   # GET /organizations/new
@@ -76,8 +73,9 @@ class OrganizationsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def organization_params
       params.fetch(:organization, {}).permit(:name, :image, :rich_text, :description,
-                                             {users_attributes: [:username, :email, :password,
+                                             videos: [], documents: [], pictures: [],
+                                             users_attributes: [:username, :email, :password,
                                                                  :in_blacklist],
-                                              homepage_attributes: [:organization_id, :event_id]})
+                                              homepage_attributes: [:organization_id, :event_id])
     end
 end

@@ -7,6 +7,13 @@ class Organization < ApplicationRecord
 
   has_one_attached :image
   mount_uploader :image, ImageUploader
+  has_many_attached :documents
+  has_many_attached :videos
+  has_many_attached :pictures
+
+  def thumbnail input
+    self.pictures[input].variant(resize: '300x300').processed
+  end
 
 
   accepts_nested_attributes_for :homepage

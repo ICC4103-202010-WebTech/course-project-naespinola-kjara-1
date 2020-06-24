@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 2020_06_23_210223) do
     t.integer "user_id", null: false
     t.integer "event_id", null: false
     t.string "rich_text"
-    t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_comments_on_event_id"

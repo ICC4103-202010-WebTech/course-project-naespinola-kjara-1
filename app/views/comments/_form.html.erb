@@ -4,7 +4,10 @@
     <%= form.label :rich_text, class:"text-success font-weight-bold" %>
     <%= form.text_area :rich_text, class: "form-control" %>
      </div>
-
+  <div class="field">
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true %>
+  </div>
   <div class="form-group">
     <%= form.submit class: ["btn", "btn-primary"] %>
     <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>

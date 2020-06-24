@@ -95,6 +95,11 @@
             <small class="text-muted">🌙 Created at: <%= event_comment.created_at%></small>
           </div>
           <p class="mb-1"><%= event_comment.rich_text%></p>
+          <div>
+            <% (0...event_comment.images.count).each do |image| %>
+              <%= link_to image_tag(event_comment.thumbnail(image)), event_comment.images[image] %>
+            <% end %>
+          </div>
           <div class="btn-group" role="group" aria-label="Basic example">
             <%= link_to "Edit", edit_comment_path(event_comment),class: ["btn", "btn-outline-success"]%>
             <%= link_to "Reply ", new_event_comment_path(event_comment), class: ["btn", "btn-outline-success"] %>

@@ -80,7 +80,7 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.fetch(:comment, {}).permit(:user_id,:event_id, :rich_text, :image, 
+      params.fetch(:comment, {}).permit(:user_id,:event_id, :rich_text, images: [],
                                         users_attributes: [:username, :email, :password,
                                                           :in_blacklist])
     end

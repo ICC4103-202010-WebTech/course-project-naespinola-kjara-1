@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
+    @comment_to_reply
   end
 
   # GET /comments/new
@@ -29,13 +30,8 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @event = Event.find(params[:event_id])
-    #  @user = User.find(params[:user_id])
-    @comment = Comment.new(comment_params)
+    @comment = current_person.comments.new(comment_params)
     @comment.event = @event
-    # @comment.user = @user
-
-
-
 
     respond_to do |format|
       if @comment.save

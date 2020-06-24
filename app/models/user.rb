@@ -43,7 +43,7 @@ class User < ApplicationRecord
             provider:access_token.provider,
             email: data["email"],
             uid: access_token.uid ,
-            password: Devise.friendly_token[0,20],
+            password: "1234567",
             )
       end
     end

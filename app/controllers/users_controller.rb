@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @user = User.find_by(id: current_person.id)
     #ra @user = User.all
     # @user = User.where("users.id=#{params[:id]} ")
       # @user = User.select("users.id= #{params[:id]}")

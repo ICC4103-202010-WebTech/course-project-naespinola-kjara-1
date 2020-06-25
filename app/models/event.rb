@@ -1,7 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :organization, optional: true
-  has_one :homepage
+  has_one :homepage, dependent: :destroy
   has_many :guests, dependent:  :destroy
   has_many :dates_to_votes, dependent: :destroy
   has_many :reports, dependent: :destroy

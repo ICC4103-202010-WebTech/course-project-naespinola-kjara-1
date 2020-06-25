@@ -6,6 +6,11 @@
         <div class="text-center figure-img img-fluid rounded">
           <%= image_tag(@organization.image.thumb.url, class: "figure-img img-fluid rounded") %>
         </div>
+        <div class="text-center mb-2">
+
+          <%= link_to  "Delete", organization_path(@organization.id), method: :delete, class: ["btn", "btn-primary"] %>
+
+        </div>
       </div>
       <aside id="organization_links">
         <ul class="table-success" id="links">

@@ -11,6 +11,6 @@
   <div class="form-group">
     <%= form.submit class: ["btn", "btn-primary"] %>
     <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
-    <%= link_to 'Destroy', :back,class: ["btn", "btn-primary"] %>
+    <%= link_to 'Destroy', comment_path(@comment.id) , method: :delete,class: ["btn", "btn-primary"] %>
   </div>
 <% end %>

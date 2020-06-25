@@ -1,6 +1,6 @@
 class Organization < ApplicationRecord
 
-  has_one :homepage
+  has_one :homepage, dependent: :destroy
   has_many :members, dependent:  :destroy
   has_many :users, through: :members
   has_many :events, dependent:  :destroy

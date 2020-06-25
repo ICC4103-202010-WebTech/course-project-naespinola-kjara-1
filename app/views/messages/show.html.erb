@@ -1,4 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Chatting with <%= @message.with(current_person).name %></h1>
+
+<div id="conversation-main">
+  <div id="conversation-body">
+    <%= render @message.personal_messages %>
+  </div>
+
+  <%= form_for @personal_message do |f| %>
+    <%= hidden_field_tag 'message_id', @message.id %>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+
+    <%= f.submit %>
+  <% end %>
+</div>
+
 <%= link_to 'Edit', edit_message_path(@message) %> |
 <%= link_to 'Back', messages_path %>

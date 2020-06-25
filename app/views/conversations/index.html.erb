@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your conversations</h1>
+
+
+<div>
+  Chatting with <%= @conversation.with(@current_person).name %>
+  <br>
+  <em><%= @conversation.personal_messages.last.body.truncate(50) %></em>
+  <br>
+  <%= link_to 'View conversation', conversation_path(conversation) %>
+  <hr>
+</div>
+
+
+<br>
+
+<%= link_to 'New Conversation', new_conversation_path %>

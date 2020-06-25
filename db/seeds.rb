@@ -49,10 +49,10 @@ l6 = Location.create(country: "Chile", region: "Biobío")
 
 
 
-msm1 = Message.create(user_receiver: u1, user_transmitter: u2, text_message: "hi1")
-msm2 = Message.create(user_receiver: u2, user_transmitter: u3, text_message: "hi2")
-msm3 = Message.create(user_receiver: u3, user_transmitter: u4, text_message: "hi3")
-msm4 = Message.create(user_receiver: u4, user_transmitter: u1, text_message: "hi4")
+msm1 = Message.create(user_receiver: u1, user_transmitter: u2)
+msm2 = Message.create(user_receiver: u2, user_transmitter: u3)
+msm3 = Message.create(user_receiver: u3, user_transmitter: u4)
+msm4 = Message.create(user_receiver: u4, user_transmitter: u1)
 
 e1 = Event.create(user: u1, title: "Winter is comming", description: "The winter is the better weather of the year so welcome to gala 2020!!", private: false, organization: o1,
                  image: "", location: "Las Vegas")

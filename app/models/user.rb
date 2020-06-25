@@ -14,9 +14,17 @@ class User < ApplicationRecord
   has_many :guests, dependent: :destroy
   has_many :received_messages, :class_name => 'Message', :foreign_key => 'user_receiver_id'
   has_many :transmitted_messages, :class_name => 'Message', :foreign_key => 'user_transmitter_id'
+  has_many :personal_messages, dependent: :destroy
 
   has_many :members
   has_many :organizations, through: :members
+
+  has_many :authored_conversations, class_name: 'Conversation', foreign_key: 'author_id'
+  has_many :received_conversations, class_name: 'Conversation', foreign_key: 'received_id'
+
+  def name
+    email.split('@')[0]
+  end
 
   #validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true

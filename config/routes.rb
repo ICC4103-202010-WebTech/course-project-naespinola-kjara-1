@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
-
-
   devise_for :users, :controllers =>{ :omniauth_callbacks => "omniauth_callbacks" }
 
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root "pages#home"
+  root 'conversations#index'
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
@@ -15,8 +13,6 @@ Rails.application.routes.draw do
       end
     end
   end
-
-
 
   resource :user do
     resources :messages, shallow: true
@@ -36,6 +32,10 @@ Rails.application.routes.draw do
   # namespace :admin do
   #  resources :organizations
   #end
+
+  resources :conversations, only: [:index, :show]
+  resources :users, only: [:index]
+  resources :personal_messages, only: [:new, :create]
 
 
   resource :user, defaults: {format: :html}

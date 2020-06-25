@@ -33,6 +33,10 @@ Rails.application.routes.draw do
     resources :guests, shallow: true
   end
 
+  resources :events do
+    resources :reports, shallow: true
+  end
+
   # namespace :admin do
   #  resources :organizations
   #end

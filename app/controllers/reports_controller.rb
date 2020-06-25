@@ -14,6 +14,7 @@ class ReportsController < ApplicationController
 
   # GET /reports/new
   def new
+    @event = Event.find(params[:event_id])
     @report = Report.new
   end
 
@@ -24,7 +25,12 @@ class ReportsController < ApplicationController
   # POST /reports
   # POST /reports.json
   def create
-    @report = Report.new(report_params)
+    @event = Event.find(params[:event_id])
+    @report = current_person.reports.new(report_params)
+    @report.event = @event
+
+
+
 
     respond_to do |format|
       if @report.save
@@ -69,6 +75,6 @@ class ReportsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def report_params
-      params.fetch(:report, {})
+      params.fetch(:report, {}).permit(:user_id, :event_id)
     end
 end

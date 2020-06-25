@@ -1,17 +1,18 @@
 class Event < ApplicationRecord
   belongs_to :user, optional: true
+  belongs_to :organization, optional: true
   has_one :homepage
   has_many :guests, dependent:  :destroy
   has_many :dates_to_votes, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :comments, dependent:  :destroy
-  belongs_to :organization, optional: true
 
-  has_one_attached :image
+
+  has_one_attached :image, dependent:  :destroy
   mount_uploader :image, ImageUploader
-  has_many_attached :documents
-  has_many_attached :videos
-  has_many_attached :pictures
+  has_many_attached :documents, dependent:  :destroy
+  has_many_attached :videos, dependent:  :destroy
+  has_many_attached :pictures, dependent:  :destroy
   def thumbnail input
     self.pictures[input].variant(resize: '300x300').processed
   end
@@ -22,7 +23,7 @@ class Event < ApplicationRecord
   accepts_nested_attributes_for :comments
   accepts_nested_attributes_for :dates_to_votes, allow_destroy: true
   accepts_nested_attributes_for :guests, allow_destroy: true
-
+  accepts_nested_attributes_for :reports
 
   validates :title, presence: true
   validates :description, presence: true

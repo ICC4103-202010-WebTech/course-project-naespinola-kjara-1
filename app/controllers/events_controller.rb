@@ -14,6 +14,7 @@ class EventsController < ApplicationController
     @event_guests = Guest.includes(:user, :event).where("guests.event_id= #{params[:id]}")
     @event_dates_to_votes = DatesToVote.joins(:event).where("dates_to_votes.event_id = #{params[:id]}")
     @event_comments = Comment.joins(:event,:user).where("comments.event_id =#{params[:id]}")
+    @reports = Report.joins(:user,:event).where("reports.event_id =#{params[:id]}")
   end
 
   # GET /events/new
@@ -104,6 +105,7 @@ class EventsController < ApplicationController
                                        comments_attributes: [:id,:user_id, :rich_text,:image],
                                        guests_attributes: [:id,:user_id, :_destroy],
                                        dates_to_votes_attributes: [:id, :date, :_destroy],
-                                      organizations_attributes: [:name, :image, :rich_text, :description])
+                                      organizations_attributes: [:name, :image, :rich_text, :description],
+                                      reports_attributes: [:id, :user_id, :event_id])
     end
 end

@@ -1,15 +1,15 @@
 class Organization < ApplicationRecord
 
   has_one :homepage
-  has_many :members
+  has_many :members, dependent:  :destroy
   has_many :users, through: :members
-  has_many :events
+  has_many :events, dependent:  :destroy
 
-  has_one_attached :image
+  has_one_attached :image, dependent:  :destroy
   mount_uploader :image, ImageUploader
-  has_many_attached :documents
-  has_many_attached :videos
-  has_many_attached :pictures
+  has_many_attached :documents, dependent:  :destroy
+  has_many_attached :videos, dependent:  :destroy
+  has_many_attached :pictures, dependent:  :destroy
 
   def thumbnail input
     self.pictures[input].variant(resize: '300x300').processed

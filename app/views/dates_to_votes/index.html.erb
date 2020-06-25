@@ -1,25 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Dates To Votes</h1>
+<h2 class="text-info"> 🗓️ Vote  </h2>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div id="container">
+  <div class="row">
+    <div class="col-3">
 
-  <tbody>
-    <% @dates_to_votes.each do |dates_to_vote| %>
-      <tr>
-        <td><%= link_to 'Show', dates_to_vote %></td>
-        <td><%= link_to 'Edit', edit_dates_to_vote_path(dates_to_vote) %></td>
-        <td><%= link_to 'Destroy', dates_to_vote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <br>
+      <br>
+      <ul id="links">
+        <%= link_to "Vote!", new_user_vote_path(current_user), class: ["btn", "btn-info"] %>
+      </ul>
+    </div>
+    <div class="col">
 
+
+      <table class="table table-striped" id="all_dates">
+        <thead class="table-success">
+        <th>
+          N
+        </th>
+        <th>
+          Created at
+        </th>
+        <th>
+          Date
+        </th>
+        <th>
+          Event
+        </th>
+        </thead>
+        <tbody>
+        <% @dates_to_votes.each_with_index do |dates_to_vote,i| %>
+          <tr>
+            <td><%= i+1 %></td>
+            <td><%= dates_to_vote.created_at%></td>
+            <td><%=dates_to_vote.date %> </td>
+            <td><%=dates_to_vote.event.title %> </td>
+        <%end %>
+        </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </div>
+</div>
+</div>
 <br>
-
-<%= link_to 'New Dates To Vote', new_dates_to_vote_path %>

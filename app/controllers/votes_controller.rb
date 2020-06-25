@@ -18,7 +18,7 @@ class VotesController < ApplicationController
 
   # GET /votes/new
   def new
-    #@event = Event.find(params[:event_id])
+    @dates_to_vote = DatesToVote.find(params[:dates_to_vote_id])
     @vote = Vote.new
 
   end
@@ -30,7 +30,13 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    @vote = Vote.new(vote_params)
+    @dates_to_vote = DatesToVote.find(params[:dates_to_vote_id])
+    @vote = current_person.votes.new(vote_params)
+    @vote.dates_to_vote = @dates_to_vote
+
+
+    #  @vote.dates_to_vote = @guest
+
 
     respond_to do |format|
       if @vote.save
@@ -75,6 +81,7 @@ class VotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def vote_params
-      params.fetch(:vote, {})
+      params.fetch(:vote, {}).permit(:event_id, :dates_to_vote_id,
+                                     dates_to_votes_attributes: [:event_id, :date])
     end
 end

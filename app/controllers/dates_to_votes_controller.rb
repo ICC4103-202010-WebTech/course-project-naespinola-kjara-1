@@ -10,7 +10,9 @@ class DatesToVotesController < ApplicationController
   # GET /dates_to_votes/1
   # GET /dates_to_votes/1.json
   def show
+    @dates_to_votes = DatesToVote.joins(event: :user).where("users.id= #{current_person.id}")
   end
+
 
   # GET /dates_to_votes/new
   def new

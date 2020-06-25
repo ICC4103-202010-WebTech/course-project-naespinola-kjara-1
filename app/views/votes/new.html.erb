@@ -1,5 +1,9 @@
-<h1>New Vote</h1>
-
-<%= render 'form', vote: @vote %>
-
-<%= link_to 'Back', votes_path %>
+<div class="row ml-0 mt-3">
+  <h2 class="text-info">Adding a vote</h2>
+</div>
+<div class="row ml-0 mt-2">
+  <p class="text-success" >Please confirm the vote date:</p>
+</div>
+<div class="row ml-0 mt-2">
+  <%= render 'form', locals: { dates_to_vote: @dates_to_vote, vote: @vote } %>
+</div>

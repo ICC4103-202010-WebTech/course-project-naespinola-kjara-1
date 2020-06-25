@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_210223) do
+ActiveRecord::Schema.define(version: 2020_06_25_194050) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -179,12 +179,12 @@ ActiveRecord::Schema.define(version: 2020_06_23_210223) do
   end
 
   create_table "votes", force: :cascade do |t|
-    t.integer "guest_id", null: false
     t.integer "dates_to_vote_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
     t.index ["dates_to_vote_id"], name: "index_votes_on_dates_to_vote_id"
-    t.index ["guest_id"], name: "index_votes_on_guest_id"
+    t.index ["user_id"], name: "index_votes_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -206,5 +206,5 @@ ActiveRecord::Schema.define(version: 2020_06_23_210223) do
   add_foreign_key "reports", "events"
   add_foreign_key "reports", "users"
   add_foreign_key "votes", "dates_to_votes"
-  add_foreign_key "votes", "guests"
+  add_foreign_key "votes", "users"
 end

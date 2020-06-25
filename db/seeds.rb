@@ -81,10 +81,10 @@ dtv2 = DatesToVote.create(event: e2, date: DateTime.parse("2020-04-07 19:00:00 U
 dtv3 = DatesToVote.create(event: e3, date: DateTime.parse("2020-04-14 19:00:00 UTC-4"))
 dtv4 = DatesToVote.create(event: e4, date: DateTime.parse("2020-04-17 19:00:00 UTC-4"))
 
-v1 = Vote.create(guest: g1, dates_to_vote: dtv1)
-v2 = Vote.create(guest: g2, dates_to_vote: dtv2)
-v3 = Vote.create(guest: g3, dates_to_vote: dtv3)
-v4 = Vote.create(guest: g5, dates_to_vote: dtv4)
+v1 = Vote.create(dates_to_vote: dtv1,user: u1)
+v2 = Vote.create(dates_to_vote: dtv2,user: u2)
+v3 = Vote.create(dates_to_vote: dtv3,user: u3)
+v4 = Vote.create(dates_to_vote: dtv4,user: u1)
 
 r1 = Report.create(user: u1, event: e1)
 

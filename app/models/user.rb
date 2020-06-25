@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one_attached :image, dependent: :destroy
   mount_uploader :image, ImageUploader
 
-
+  has_many :votes, dependent:  :destroy
   has_many :events, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy

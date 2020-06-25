@@ -1,50 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<h2 class="text-info"> 🗓️ Vote  </h2>
-
-<div id="container">
-  <div class="row">
-    <div class="col-3">
-
-      <br>
-      <br>
-      <ul id="links">
-        <%= link_to "Vote!", new_user_vote_path(current_user), class: ["btn", "btn-info"] %>
-      </ul>
-    </div>
-    <div class="col">
-
-
-      <table class="table table-striped" id="all_dates">
-        <thead class="table-success">
-        <th>
-          N
-        </th>
-        <th>
-          Created at
-        </th>
-        <th>
-          Date
-        </th>
-        <th>
-          Event
-        </th>
-        </thead>
-        <tbody>
-        <% @dates_to_votes.each_with_index do |dates_to_vote,i| %>
-          <tr>
-            <td><%= i+1 %></td>
-            <td><%= dates_to_vote.created_at%></td>
-            <td><%=dates_to_vote.date %> </td>
-            <td><%=dates_to_vote.event.title %> </td>
-        <%end %>
-        </tr>
-        </tbody>
-      </table>
-
-
-    </div>
-  </div>
+<div class="row ml-0 mt-3">
+  <h2 class="text-info"> 🗓️ Vote</h2>
 </div>
+<div class="row ml-0 mt-2">
+
 </div>
-<br>
+<div class="row ml-0 mt-2 mb-3">
+
+</div>
+<div class="row">
+  <% @dates_to_votes.each do |dates_to_vote| %>
+    <%= render partial: 'dates_to_votes/dates_to_vote_tile', locals: { dates_to_vote: dates_to_vote} %>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+

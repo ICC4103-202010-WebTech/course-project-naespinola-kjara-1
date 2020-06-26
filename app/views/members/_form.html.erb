@@ -1,7 +1,7 @@
 <%= form_with model: [@organization, @member], local: true do |form| %>
   <%= errors_for @member %>
   <div class="form-group">
-    <%= form.label :user_id , class:"text-success font-weight-bold"%>
+    <%= form.label :user_id , class:"text-success font-weight-bold"%><br>
     <%= form.collection_select(:user_id, @not_member, :id, :username, {}, { class: 'select' }) %>
 
   </div>

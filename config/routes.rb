@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root "pages#home"
   devise_for :users, :controllers =>{ :omniauth_callbacks => "omniauth_callbacks" }
 
@@ -65,9 +66,12 @@ Rails.application.routes.draw do
   resources :dates_to_votes, defaults:{format: :html}
   resources :comments, defaults:{format: :html}
   resources :mailbox, defaults:{format: :html}
+  resources :tos, defaults:{format: :html}
 
   #resources :participants, defaults: {format: :html}
   get '/search' => 'pages#search', :as => 'search_page'
   get '/mailbox', to:'mailbox#show'
+
+
   match 'participants', to: "participants#participants", via: [:post, :get]
 end

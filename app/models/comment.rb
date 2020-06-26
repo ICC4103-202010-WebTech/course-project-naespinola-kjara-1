@@ -2,6 +2,7 @@ class Comment < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :event, optional: true
 
+
   has_many_attached :images, dependent:  :destroy
   def thumbnail input
     self.images[input].variant(resize: '100x100').processed

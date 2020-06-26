@@ -15,7 +15,7 @@
             <button type="button" class="btn btn-sm btn-outline-secondary">User role</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Last access</button>
             <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Change your password",  user_password_path%></button>
-            <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Delete",  user_path,  method: :delete%></button>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><%= button_to "Delete",  user_path(user.id),  method: :delete%></button>
           <%end %>
         </div>
           </div>

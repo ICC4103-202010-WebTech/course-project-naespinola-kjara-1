@@ -1,0 +1,5 @@
+<div class="row event-list">
+  <% comments.each do |comment| %>
+    <%= render partial: "comments/comment_tile", locals: { comment: comment} %>
+  <% end %>
+</div>

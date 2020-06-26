@@ -68,5 +68,5 @@ gem 'omniauth'
 gem "omniauth-google-oauth2"
 
 # Add CanCanCan for user authorization
-gem 'cancancan', '~> 3.1'
+gem 'cancancan'
 

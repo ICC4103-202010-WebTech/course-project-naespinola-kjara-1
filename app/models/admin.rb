@@ -5,4 +5,5 @@ class Admin < ApplicationRecord
   # :registerable -- admins  are not registerable!
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
+
 end

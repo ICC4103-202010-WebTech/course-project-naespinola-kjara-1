@@ -1,0 +1,18 @@
+<div class="col-md-4">
+  <div class="card mb-4 shadow-sm">
+    <div class="card-body">
+      <p class="card-text text-success "><%= comment.user.username%></p>
+      <p class="card-text  text-success"><%= comment.rich_text %> </p>
+      <p class="card-text text-success"><%= comment.event.title%> </p>
+
+
+      <div class="d-flex justify-content-between align-items-center">
+        <div class="btn-group">
+          <%if admin_signed_in?  %>
+            <button type="button" class="btn btn-sm btn-outline-secondary"><%= button_to "Delete", comment_path(comment.id),  method: :delete%></button>
+          <%end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

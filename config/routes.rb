@@ -2,6 +2,13 @@ Rails.application.routes.draw do
 
 
 
+  get 'member/index'
+  get 'member/show'
+  get 'member/new'
+  get 'member/edit'
+  get 'member/create'
+  get 'member/update'
+  get 'member/destroy'
   devise_for :users, :controllers =>{ :omniauth_callbacks => "omniauth_callbacks" }
 
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
@@ -37,6 +44,10 @@ Rails.application.routes.draw do
     resources :guests, shallow: true
   end
 
+  resources :organizations do
+    resources :members , shallow: true
+  end
+
   resources :events do
     resources :reports, shallow: true
   end
@@ -53,6 +64,7 @@ Rails.application.routes.draw do
   resources :guests, defaults: {format: :html}
   resources :votes, defaults:{format: :html}
   resources :dates_to_votes, defaults:{format: :html}
+  resources :comments, defaults:{format: :html}
 
   #resources :participants, defaults: {format: :html}
   get '/search' => 'pages#search', :as => 'search_page'

@@ -2,8 +2,9 @@ class Organization < ApplicationRecord
 
   has_one :homepage, dependent: :destroy
   has_many :members, dependent:  :destroy
-  has_many :users, through: :members
+  has_many :users
   has_many :events, dependent:  :destroy
+  has_many :members, dependent: :destroy
 
   has_one_attached :image, dependent:  :destroy
   mount_uploader :image, ImageUploader

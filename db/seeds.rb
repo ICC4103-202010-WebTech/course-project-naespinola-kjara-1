@@ -84,6 +84,8 @@ v4 = Vote.create(guest: g5, dates_to_vote: dtv4)
 
 r1 = Report.create(user: u1, event: e1)
 
+con = Conversation.create(sender_id: 1, recipient_id: 2)
+m1 = Message.create(body: "hello", conversation: con, user: u1, read: false)
 
 c1 = Comment.create(user: u1, event: e1, rich_text: "hello world")
 c2 = Comment.create(user: u2, event: e2, rich_text: "hello friends")

@@ -1,12 +1,11 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
-  before_action do
-    @conversation = Conversation.find(1) # hardcodeado con id 1
-  end
+
 
   # GET /messages
   # GET /messages.json
   def index
+    @conversation = Conversation.find(params[:conversation_id])
     @messages = @conversation.messages
     if @messages.length > 10
       @over_ten = true
@@ -21,7 +20,6 @@ class MessagesController < ApplicationController
         @messages.last.read = true;
       end
     end
-    @message = @conversation.messages.new
     @current_person = current_person.id
   end
 
@@ -32,6 +30,8 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
+    @current_person = current_person.id
+    @conversation = Conversation.find(params[:conversation_id])
     @message = @conversation.messages.new
   end
 
@@ -43,7 +43,9 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     #@message = Message.new(message_params)
+    @conversation = Conversation.find(params[:conversation_id])
     @message = @conversation.messages.new(message_params)
+    @message.conversation = @conversation
     #respond_to do |format|
     #  if @message.save
     #    format.html { redirect_to @message, notice: 'Message was successfully created.' }
@@ -93,9 +95,9 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      #params.fetch(:message, {}).permit(:body, :user_id,
-      #                                  users_attributes: [:username, :email, :password,
-      #                                                     :in_blacklist])
-      params.require(:message).permit(:body, :user_id)
+      params.fetch(:message, {}).permit(:body, :user_id,
+                                        users_attributes: [:username, :email, :password,
+                                                           :in_blacklist])
+        #params.require(:message).permit(:body, :user_id)
     end
 end

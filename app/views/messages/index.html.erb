@@ -1,6 +1,7 @@
 <% if @over_ten %>
   <%= link_to 'Show Previous', '?m=all' %>
-<% end %><div class="ui segment">
+<% end %>
+<div class="ui segment">
   <% @messages.each do |message| %>
     <% if message.body %>
       <% user = User.find(message.user_id) %>
@@ -21,9 +22,5 @@
     <% end %>
   <% end %>
 </div>
-<%= render partial: "form",
-           locals: {
-               message: @message,
-               conversation: @conversation,
-               current_person: @current_person} %>
+<%= link_to "New Message", new_message_path(@message), class: ["btn", "btn-primary"] %>
 

@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :guests, dependent: :destroy
+  has_many :conversations
+  has_many :messages
   #has_many :received_messages, :class_name => 'Message', :foreign_key => 'user_receiver_id'
   #has_many :transmitted_messages, :class_name => 'Message', :foreign_key => 'user_transmitter_id'
 

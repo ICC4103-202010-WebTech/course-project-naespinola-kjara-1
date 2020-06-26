@@ -4,8 +4,9 @@
   </div>
   <div>
     <div class="row ml-0 mt-2 mb-3">
-      <%= link_to "Create Event", new_event_path(@members), class: ["btn", "btn-primary"] %>
-      &nbsp;
+      <% if (user_signed_in?) || (admin_signed_in?) %>
+        <%= link_to "Create Event", new_event_path(@members), class: ["btn", "btn-primary"] %>
+      <% end %>
     </div>
   </div>
 

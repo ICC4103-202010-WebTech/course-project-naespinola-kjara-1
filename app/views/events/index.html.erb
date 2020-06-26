@@ -1,11 +1,15 @@
 <div class="row ml-0 mt-3">
-  <h2 class="text-info">🎆 Events</h2>
+  <h2 class="text-info">🎆 My Events</h2>
 </div>
 <div class="row ml-0 mt-2">
-  <p>Hi</p>
+  <% if (user_signed_in?) || (admin_signed_in?) %>
+    <%= link_to "Create Event", new_event_path(@members), class: ["btn", "btn-primary"] %>
+  <% end %>
 </div>
 <div class="row ml-0 mt-2 mb-3">
-  <%= link_to "Add Event", new_event_path, class: ["btn", "btn-primary"] %>
+  <% if (can? :manage, @event) || (admin_signed_in?) %>
+    <%= link_to "Add Event", new_event_path, class: ["btn", "btn-primary"] %>
+  <% end %>
 </div>
 <div class="row">
   <% @events.each do |event| %>

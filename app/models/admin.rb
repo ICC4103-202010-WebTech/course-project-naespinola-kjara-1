@@ -6,4 +6,12 @@ class Admin < ApplicationRecord
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable
 
+  def admin?
+    true
+  end
+
+  def user?
+    false
+  end
+
 end

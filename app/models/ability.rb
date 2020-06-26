@@ -5,16 +5,22 @@ class Ability
 
   def initialize(user)
 
-    if user.present? and user.class.name == "User"
-      can :manage, Organization
-      can :manage, User, user_id: user.id
-      can :manage, Event, user_id: user.id
-      can :read, Event, :all
+    if user.present?
+      user ||= User.new
 
-    elsif user.present? and user.class.name == "Admin"
-      can :manage, :all
-    else
-      can :read, Event
+      if user.admin?
+        can :manage, :all
+
+      elsif user.user?
+        can :manage, Organization
+        can :manage, User, id: user.id
+        can :manage, Event, user_id: user.id
+        can :read, Event, :all
+        can :create, Event
+      else
+        can :read, Event
+        can :read, Organization
+      end
     end
     # Define abilities for the passed in user here. For example:
     #

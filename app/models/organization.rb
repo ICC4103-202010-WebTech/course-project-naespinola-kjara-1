@@ -18,6 +18,7 @@ class Organization < ApplicationRecord
 
 
   accepts_nested_attributes_for :homepage
+  accepts_nested_attributes_for :members, allow_destroy: true
 
   validates :name, presence: true
   validates :description, presence: true

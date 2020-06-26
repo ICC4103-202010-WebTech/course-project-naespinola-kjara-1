@@ -15,6 +15,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event_guests = Guest.includes(:user, :event).where("guests.event_id= #{params[:id]}")
+
     @event_dates_to_votes = DatesToVote.joins(:event).where("dates_to_votes.event_id = #{params[:id]}")
     @event_comments = Comment.joins(:event,:user).where("comments.event_id =#{params[:id]}")
     @reports = Report.joins(:user,:event).where("reports.event_id =#{params[:id]}")

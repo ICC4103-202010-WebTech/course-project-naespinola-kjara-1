@@ -58,6 +58,11 @@ class OrganizationsController < ApplicationController
   # DELETE /organizations/1
   # DELETE /organizations/1.json
   def destroy
+    @members= Member.where(organization_id: @organization.id)
+    @members.each do |member|
+      member.destroy
+    end
+
     @organization.destroy
     respond_to do |format|
       format.html { redirect_to organizations_url, notice: 'Organization was successfully destroyed.' }
@@ -77,6 +82,7 @@ class OrganizationsController < ApplicationController
                                              videos: [], documents: [], pictures: [],
                                              users_attributes: [:username, :email, :password,
                                                                  :in_blacklist],
-                                              homepage_attributes: [:organization_id, :event_id])
+                                              homepage_attributes: [:organization_id, :event_id],
+                                             members_attributes: [:id,:user_id, :_destroy])
     end
 end

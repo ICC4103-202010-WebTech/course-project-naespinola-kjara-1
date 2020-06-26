@@ -1,50 +1,29 @@
-
-<p id="notice"><%= notice %></p>
-<div>
-  <h2 class="text-info"> ✉️ Mailbox </h2>
-</div>
-
-<div id="container">
-  <div class="row">
-    <div class="col-3">
-      <ul id="links">
-        <% @messageList.each_with_index  do |message,i| %>
-
-          <dt class="text-success">Messages </dt>
-          <button type="button" class="list-group-item list-group-item-action p-2"> <%= message[:transmitter]%> </button>
-
-          </ul>
+<% if @over_ten %>
+  <%= link_to 'Show Previous', '?m=all' %>
+<% end %><div class="ui segment">
+  <% @messages.each do |message| %>
+    <% if message.body %>
+      <% user = User.find(message.user_id) %>
+      <div class="item">
+        <div class="content">
+          <div class="header">
+            <strong><%= user.name %></strong>
+            <%= message.message_time %>
           </div>
-          <div class="col">
-
-            <table  class="table table-striped" class="text-success" id = all_messages>
-              <thead class="table-success">
-              <th >
-                N
-              </th>
-              <th >
-                Name
-              </th>
-              <th >
-                Text
-              </th>
-              </thead>
-              <tbody>
-              <tr>
-
-                <td ><%= i+1%></td>
-                <td > <%= message[:transmitter]%> </td>
-                <td><%= message[:text]%></td>
-
-              </tr>
-              </tbody>
-        <%end %>
-        </table>
-
+          <div class="list">
+            <div class="item">
+              <i class="right triangle icon"></i>
+              <%= message.body %>
+            </div>
+          </div>
         </div>
-        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
-
-<br>
-<%= link_to 'New Message', new_user_message_path, class: ["btn", "btn-info"] %>
+<%= render partial: "form",
+           locals: {
+               message: @message,
+               conversation: @conversation,
+               current_person: @current_person} %>
 

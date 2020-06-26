@@ -22,6 +22,10 @@ Rails.application.routes.draw do
     resources :messages, shallow: true
   end
 
+  resources :conversations do
+    resources :messages
+  end
+
   resources :events do
     resources :dates_to_votes, shallow: true
   end

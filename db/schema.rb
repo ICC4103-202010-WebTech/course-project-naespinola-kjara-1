@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_210223) do
+ActiveRecord::Schema.define(version: 2020_06_26_000939) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -55,6 +55,13 @@ ActiveRecord::Schema.define(version: 2020_06_23_210223) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_comments_on_event_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id"
+    t.integer "recipient_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "dates_to_votes", force: :cascade do |t|
@@ -115,13 +122,14 @@ ActiveRecord::Schema.define(version: 2020_06_23_210223) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.integer "user_receiver_id"
-    t.integer "user_transmitter_id"
-    t.string "text_message"
+    t.text "body"
+    t.integer "conversation_id", null: false
+    t.integer "user_id", null: false
+    t.boolean "read", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_receiver_id"], name: "index_messages_on_user_receiver_id"
-    t.index ["user_transmitter_id"], name: "index_messages_on_user_transmitter_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -199,8 +207,8 @@ ActiveRecord::Schema.define(version: 2020_06_23_210223) do
   add_foreign_key "homepages", "organizations"
   add_foreign_key "members", "organizations"
   add_foreign_key "members", "users"
-  add_foreign_key "messages", "users", column: "user_receiver_id"
-  add_foreign_key "messages", "users", column: "user_transmitter_id"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "replies_to_comments", "comments", column: "comment_receiver_id"
   add_foreign_key "replies_to_comments", "comments", column: "comment_transmitter_id"
   add_foreign_key "reports", "events"

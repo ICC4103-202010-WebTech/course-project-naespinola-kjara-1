@@ -1,20 +1,28 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action do
+    @conversation = Conversation.find(1) # hardcodeado con id 1
+  end
 
   # GET /messages
   # GET /messages.json
   def index
-    id_user = current_person.id
-    message = Message.includes(:user_receiver,:user_transmitter).where("messages.user_receiver_id=#{id_user}")
-    @transmitter= Message.includes(:user_receiver,:user_transmitter).where("messages.user_receiver_id=#{id_user}").select(:user_transmitter)
-
-    @messageList = []
-    message.each do |i|
-      receiverName = User.find_by(id: i.user_receiver_id).username
-      transmitterName = User.find_by(id: i.user_transmitter_id).username
-      @messageList <<{received: receiverName, transmitter:transmitterName, text: i.text_message}
+    @messages = @conversation.messages
+    if @messages.length > 10
+      @over_ten = true
+      @messages = @messages[-10..-1]
     end
-
+    if params[:m]
+      @over_ten = false
+      @messages = @conversation.messages
+    end
+    if @messages.last
+      if @messages.last.user_id != current_user.id
+        @messages.last.read = true;
+      end
+    end
+    @message = @conversation.messages.new
+    @current_person = current_person.id
   end
 
   # GET /messages/1
@@ -24,7 +32,7 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @message = Message.new
+    @message = @conversation.messages.new
   end
 
   # GET /messages/1/edit
@@ -35,17 +43,21 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     #@message = Message.new(message_params)
-    #@post = current_user.posts.new(params[:post])
-    @message = current_person.transmitted_messages.new(params[:received_messages])
+    @message = @conversation.messages.new(message_params)
+    #respond_to do |format|
+    #  if @message.save
+    #    format.html { redirect_to @message, notice: 'Message was successfully created.' }
+    #    format.json { render :show, status: :created, location: @message }
+    #  else
+    #    format.html { render :new }
+    #    format.json { render json: @message.errors, status: :unprocessable_entity }
+    #  end
+    #end
 
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
-      end
+    if @message.save
+      redirect_to conversation_messages_path(@conversation)
+    #else
+    #  render json: @message.errors, status: :unprocessable_entity
     end
   end
 
@@ -76,12 +88,14 @@ class MessagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
-      #@message = Message.find(params[:id])
-      @message = Message.where(id: params[:id])
+      @message = Message.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.fetch(:message, {})
+      #params.fetch(:message, {}).permit(:body, :user_id,
+      #                                  users_attributes: [:username, :email, :password,
+      #                                                     :in_blacklist])
+      params.require(:message).permit(:body, :user_id)
     end
 end

@@ -199,8 +199,6 @@ ActiveRecord::Schema.define(version: 2020_06_25_194050) do
   add_foreign_key "homepages", "organizations"
   add_foreign_key "members", "organizations"
   add_foreign_key "members", "users"
-  add_foreign_key "messages", "users", column: "user_receiver_id"
-  add_foreign_key "messages", "users", column: "user_transmitter_id"
   add_foreign_key "replies_to_comments", "comments", column: "comment_receiver_id"
   add_foreign_key "replies_to_comments", "comments", column: "comment_transmitter_id"
   add_foreign_key "reports", "events"

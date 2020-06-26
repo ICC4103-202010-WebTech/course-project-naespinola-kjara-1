@@ -12,9 +12,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :reports, dependent: :destroy
   has_many :guests, dependent: :destroy
-  has_many :received_messages, :class_name => 'Message', :foreign_key => 'user_receiver_id', dependent: :destroy
-  has_many :transmitted_messages, :class_name => 'Message', :foreign_key => 'user_transmitter_id', dependent: :destroy
-
+  has_many :messages, dependent: :destroy, foreign_key: 'user_transmitter_id'
   has_many :members, dependent: :destroy
   has_many :organizations, through: :members
 

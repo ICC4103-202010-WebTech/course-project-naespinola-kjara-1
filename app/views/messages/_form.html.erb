@@ -1,20 +1,11 @@
 <div class="row ml-0">
   <%= form_with(model: message, local: true) do |form| %>
-    <% if message.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
-
-        <ul>
-          <% message.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-
+<div class="form-group">
+  <%=form.hidden_field :user_transmitter_id, :value => current_user.id %>
+</div>
   <div class="form-group">
-    <%= form.label :user_receiver , class:"text-success font-weight-bold"%>
-    <%= form.collection_select(:user_receiver, User.all.order(username: :asc), :id, :username, {}, { class: "form-control" }) %>
+    <%= form.label :user_receiver , class:"text-success font-weight-bold"%><br>
+    <%= form.collection_select(:user_receiver_id, @user_receiver, :id, :username, {}, { class: 'select' }) %>
   </div>
 
   <div class="form-group">
@@ -22,9 +13,11 @@
     <%= form.text_area :text_message, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit class: ["btn", "btn-primary"] %>
-  </div>
+ <div class="form-group">
+   <%=form.submit "Send",  class: ["btn", "btn-primary"] %>
+   <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
+
+ </div>
   <% end %>
 </div>
 

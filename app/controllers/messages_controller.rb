@@ -4,16 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    id_user = current_person.id
-    message = Message.includes(:user_receiver,:user_transmitter).where("messages.user_receiver_id=#{id_user}")
-    @transmitter= Message.includes(:user_receiver,:user_transmitter).where("messages.user_receiver_id=#{id_user}").select(:user_transmitter)
-
-    @messageList = []
-    message.each do |i|
-      receiverName = User.find_by(id: i.user_receiver_id).username
-      transmitterName = User.find_by(id: i.user_transmitter_id).username
-      @messageList <<{received: receiverName, transmitter:transmitterName, text: i.text_message}
-    end
+    @messages = Message.all
 
   end
 
@@ -25,6 +16,8 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
+    @user_transmitter = User.where(id: current_person.id)
+    @user_receiver = User.where.not(id: current_person.id).order("username ASC")
   end
 
   # GET /messages/1/edit
@@ -34,9 +27,9 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    #@message = Message.new(message_params)
+    @message = Message.new(message_params)
     #@post = current_user.posts.new(params[:post])
-    @message = current_person.transmitted_messages.new(params[:received_messages])
+
 
     respond_to do |format|
       if @message.save
@@ -76,12 +69,12 @@ class MessagesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
-      #@message = Message.find(params[:id])
-      @message = Message.where(id: params[:id])
+      @message = Message.find(params[:id])
+      # @message = Message.where(id: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.fetch(:message, {})
+      params.fetch(:message, {}).permit(:text_message, :user_receiver_id, :user_transmitter_id)
     end
 end

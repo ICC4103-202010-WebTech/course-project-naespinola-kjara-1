@@ -16,6 +16,15 @@ class MembersController < ApplicationController
   def new
     @organization = Organization.find(params[:organization_id])
     @member = Member.new
+
+    @participants = []
+
+    Member.where(organization_id: params[:organization_id]).each do |i|
+      @participants.push(i.user_id)
+    end
+
+    @not_member = User.all.where.not(id: @participants).order("username ASC")
+
   end
 
   # GET /members/1/edit

@@ -17,6 +17,13 @@ class GuestsController < ApplicationController
   def new
     @event = Event.find(params[:event_id])
     @guest = Guest.new
+    @invited = []
+
+    Guest.where(event_id: params[:event_id]).each do |i|
+    @invited.push(i.user_id)
+    end
+
+    @not_guest = User.all.where.not(id: @invited).order("username ASC")
   end
 
   # GET /guests/1/edit

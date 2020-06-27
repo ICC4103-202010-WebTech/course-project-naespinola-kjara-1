@@ -14,9 +14,9 @@ In our views, you can see the content of the web application resources, where it
 
 **Registration:** You can register indicating your first name, last name, username, location, short bio, email, password and accepting the terms of use and services. You can change the password indicating the original, you can also recover it via email.
 
-**User Administration:** You can create a new user, delete a user. 
+**User Administration:** You can create a new user, user can delete and edit himself. 
 
-**System Administration:** You can Create Users, Organizations and Comments of event. You can READ Event, Users, Organizations and Comments of event. You can Update Event, Users, Organizations and Comments of event. 
+**System Administration:** Admin can CREATE Users, Organizations and Comments of event. Admin can READ Event, Users, Organizations and Comments of event. Admin can UPDATE Event, Organizations and Comments of event. 
 
 **User Profile:** You can view the user profile, edit the user profile, edit user fields (name, bio, location), view events to which the user has been invited, view created events. And vote for the event date. You can also cancel your account. You can see the profiles of other users by searching by username in search, you cannot access the profile, just see it.
 
@@ -37,18 +37,14 @@ For events: Start event date vote, configure event date vote.
 
 The delete operation (comments, events, organizations).
 
-System Administration
-(a) Perform CRUD operations on Users.
-(b) Perform CRUD operations on Organizations.
-(c) Perform CRUD operations on Events.
-(d) Perform CRUD operations on Event comments.
+System Administration:
+- Perform create of Event and Event comments
 
 User Administration
-(a) New user.
 (b) View user details.
 i. Last access. ii. User role.
-(c) Edit User.
-(d) Delete user.
+(c) Edit User. (user can edit himself)
+(d) Delete user. (you can delete through a user's password change)
 
 We used Factory Bot and FFaker to create data automatically, but we were never able to prove that this actually worked, because it threw us the error "NoMethodError: undefined method` create_list 'for main: Object "when we used the rake db: populate_fake_data command. But you can see the file test/factories.rb and lib/tasks/model_queries.rake that contains what we did about this.`
 

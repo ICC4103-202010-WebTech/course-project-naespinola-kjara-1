@@ -22,6 +22,9 @@ class User < ApplicationRecord
   # validates :password, presence: true,  :length => { :minimum => 6 }
   validates :in_blacklist, inclusion: { in: [true, false] }
 
+  attr_accessor :terms_of_service
+  validates :terms_of_service, acceptance: true, on: :create
+
   validates :image, allow_blank: true, format: {
       with: %r{\.(gif|jpg|png)\Z}i,
       message: 'must be a url for gif, jpg, or png image.'

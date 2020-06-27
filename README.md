@@ -10,21 +10,21 @@ For this part of the project, we implemented interactivity in the web applicatio
 In our views, you can see the content of the web application resources, where it is only possible to read the content.
 
 
-** System Access: ** You can enter with your email and password. You can enter with google (before you should have registered). You can log out.
+**System Access: ** You can enter with your email and password. You can enter with google (before you should have registered). You can log out.
 
-** Registration: ** You can register indicating your first name, last name, username, location, short bio, email, password and accepting the terms of use and services. You can change the password indicating the original, you can also recover it via email.
+**Registration: ** You can register indicating your first name, last name, username, location, short bio, email, password and accepting the terms of use and services. You can change the password indicating the original, you can also recover it via email.
 
-** User Administration: ** You can create a new user, delete a user. 
+**User Administration: ** You can create a new user, delete a user. 
 
-** System Administration: PENDIENTE **
+**System Administration: PENDIENTE **
 
-** User Profile: ** You can view the user profile, edit the user profile, edit user fields (name, bio, location), view events to which the user has been invited, view created events. And vote for the event date. You can also cancel your account. You can see the profiles of other users by searching by username in search, you cannot access the profile, just see it.
+**User Profile: ** You can view the user profile, edit the user profile, edit user fields (name, bio, location), view events to which the user has been invited, view created events. And vote for the event date. You can also cancel your account. You can see the profiles of other users by searching by username in search, you cannot access the profile, just see it.
 
-** Organization: ** You can see the organization page, manage the organization page by the administrator (delete it, add members), see public events. See: files, photos, videos.
+**Organization: ** You can see the organization page, manage the organization page by the administrator (delete it, add members), see public events. See: files, photos, videos.
 
-** Mailbox: ** You can see your inbox, view incoming messages and create new messages.
+**Mailbox: ** You can see your inbox, view incoming messages and create new messages.
 
-** Events: ** You can view events, see title, description, location and creation date, add comments, see comments, invite guests, see: files, photos, videos.
+**Events: ** You can view events, see title, description, location and creation date, add comments, see comments, invite guests, see: files, photos, videos.
 ** Acceptable Use Policy (AUP) and Terms of Service (ToS): ** Both documents in the footer, in order to register you must accept these terms. You can report abusive content: events.
 
 ** Search: ** You can search user (name or username), organization, event by substring in title / description, event by creator, search event by organization.

@@ -7,6 +7,31 @@
     <%= errors_for resource %>
 
     <div class="form-group">
+      <%= f.label :username, class:"text-success font-weight-bold" %><br />
+      <%= f.text_field :username, autocomplete: "username", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :first_name, class:"text-success font-weight-bold" %><br />
+      <%= f.text_field :name, autocomplete: "name", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :last_name, class:"text-success font-weight-bold" %><br />
+      <%= f.text_field :last_name, autocomplete: "last_name", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :location, class:"text-success font-weight-bold" %><br />
+      <%= f.text_field :location, autocomplete: "location", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :short_bio, class:"text-success font-weight-bold" %><br />
+      <%= f.text_area :short_bio, autocomplete: "short_bio", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
       <%= f.label :email, class:"text-success font-weight-bold" %><br />
       <%= f.email_field :email, autocomplete: "email", class: "form-control" %>
     </div>
@@ -23,6 +48,8 @@
       <%= f.label :password_confirmation, class:"text-success font-weight-bold" %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
     </div>
+
+
 
     <div class="form-group">
       <%= f.label :terms_of_service, class:"text-success font-weight-bold" %><br>

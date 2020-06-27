@@ -18,6 +18,11 @@
   <div class="row ml-0 mt-3">
     <h2 class="text-info">Organizations </h2>
   </div>
+  <div class="row ml-0 mt-2 mb-3">
+    <% if (user_signed_in?) || (admin_signed_in?) %>
+      <%= link_to "Create Organization", new_organization_path(@members), class: ["btn", "btn-primary"] %>
+    <% end %>
+  </div>
   <div class="row">
     <% @organizations.each do |organization| %>
       <%= render partial: 'organizations/organization_tile', locals: { organization: organization } %>

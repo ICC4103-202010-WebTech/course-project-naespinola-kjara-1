@@ -12,14 +12,15 @@ class Ability
         can :manage, :all
 
       elsif user.user?
-        can :manage, Organization
+        can :create, Organization
         can :manage, User, id: user.id
         can :manage, Event, user_id: user.id
         can :read, Event, :all
         can :create, Event
+        can :manage, Comment, user_id: user.id
       else
         can :read, Event
-        can :read, Organization
+        can :manage, Organization
       end
     end
     # Define abilities for the passed in user here. For example:

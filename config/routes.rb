@@ -68,9 +68,12 @@ Rails.application.routes.draw do
   resources :mailbox, defaults:{format: :html}
   resources :tos, defaults:{format: :html}
 
+
   #resources :participants, defaults: {format: :html}
   get '/search' => 'pages#search', :as => 'search_page'
   get '/mailbox', to:'mailbox#show'
+
+  get '/aup', to:'aup#index'
 
 
   match 'participants', to: "participants#participants", via: [:post, :get]

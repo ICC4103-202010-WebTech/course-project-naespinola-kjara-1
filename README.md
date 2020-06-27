@@ -50,5 +50,12 @@ i. Last access. ii. User role.
 (c) Edit User.
 (d) Delete user.
 
-We used Factory Bot and FFaker to create data automatically, but we were never able to prove that this actually worked, because it threw us the error "NoMethodError: undefined method` create_list 'for main: Object "when we used the rake db: populate_fake_data command. But you can see the file test/factories.rb and lib/tasks/model_queries.rake that contains what we did about this.
+We used Factory Bot and FFaker to create data automatically, but we were never able to prove that this actually worked, because it threw us the error "NoMethodError: undefined method` create_list 'for main: Object "when we used the rake db: populate_fake_data command. But you can see the file test/factories.rb and lib/tasks/model_queries.rake that contains what we did about this.`
 
+
+### Commands to test the app
+* yarn install
+* bundle install
+* rake db:migrate
+* rails c
+* Rails.application.load_seed

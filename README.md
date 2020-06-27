@@ -16,7 +16,7 @@ In our views, you can see the content of the web application resources, where it
 
 **User Administration:** You can create a new user, delete a user. 
 
-**System Administration:PENDIENTE **
+**System Administration:** You can Create Users, Organizations and Comments of event. You can READ Event, Users, Organizations and Comments of event. You can Update Event, Users, Organizations and Comments of event. 
 
 **User Profile:** You can view the user profile, edit the user profile, edit user fields (name, bio, location), view events to which the user has been invited, view created events. And vote for the event date. You can also cancel your account. You can see the profiles of other users by searching by username in search, you cannot access the profile, just see it.
 

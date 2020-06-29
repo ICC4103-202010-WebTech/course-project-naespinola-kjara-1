@@ -26,7 +26,7 @@
           </li>
           <% if user_signed_in?%>
           <li class="nav-item">
-            <a class="nav-link text-white" href="<%= user_path%>" >Profile </a>
+            <a class="nav-link text-white" href="<%= user_path(current_user) %>" >Profile </a>
           </li>
           <li class="nav-item mailbox">
             <a class="nav-link text-white" href="<%= mailbox_path(current_user.id) %>">Mailbox </a>

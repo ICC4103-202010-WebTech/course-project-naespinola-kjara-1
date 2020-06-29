@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   end
 
 
-
+  resources :users
 
   resources :dates_to_votes do
       resources :votes, shallow: true

@@ -27,21 +27,29 @@ class EventsController < ApplicationController
     @event.dates_to_votes.build
     @event.guests.build
     @event.comments.build
-    @user = current_person.organizations
+    if user_signed_in?
+      @user = current_person.organizations
+    elsif admin_signed_in?
+      @user = nil
+    end
   end
 
   # GET /events/1/edit
   def edit
-    @user = current_person.organizations
+    if user_signed_in?
+      @user = current_person.organizations
+    elsif admin_signed_in?
+      @user = nil
+    end
+
   end
 
 
   # POST /events
   # POST /events.json
   def create
-    #@event = Event.new(event_params)
-    @event = current_person.events.new(event_params)
-
+    @event = Event.new(event_params)
+    #@event = current_person.events.new(event_params)
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

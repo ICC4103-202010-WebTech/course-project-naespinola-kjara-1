@@ -10,11 +10,12 @@
         <div class="btn-group">
           <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "View", organization %></button>
           <% if user_signed_in? %>
-            <% if Member.where(user_id: current_user).where(organization_id: organization).first.is_admin_org %>
-              <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_organization_path(organization) %></button>
+            <% if Member.where(user_id: current_user).where(organization_id: organization).first != nil %>
+              <% if Member.where(user_id: current_user).where(organization_id: organization).first.is_admin_org %>
+                <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_organization_path(organization) %></button>
+              <% end %>
             <% end %>
-          <% end %>
-          <% if admin_signed_in? %>
+          <% elsif admin_signed_in? %>
             <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to "Edit", edit_organization_path(organization) %></button>
           <% end %>
         </div>

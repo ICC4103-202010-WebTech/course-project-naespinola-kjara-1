@@ -66,7 +66,7 @@ ActiveRecord::Schema.define(version: 2020_06_25_194050) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.string "title"
     t.string "description"
     t.boolean "private"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2020_06_25_194050) do
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "organization_id", null: false
+    t.integer "organization_id"
     t.index ["organization_id"], name: "index_events_on_organization_id"
     t.index ["user_id"], name: "index_events_on_user_id"
   end

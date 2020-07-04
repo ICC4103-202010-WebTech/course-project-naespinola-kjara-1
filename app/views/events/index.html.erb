@@ -6,11 +6,6 @@
     <%= link_to "Create Event", new_event_path(@members), class: ["btn", "btn-primary"] %>
   <% end %>
 </div>
-<div class="row ml-0 mt-2 mb-3">
-  <% if (can? :manage, @event) || (admin_signed_in?) %>
-    <%= link_to "Add Event", new_event_path, class: ["btn", "btn-primary"] %>
-  <% end %>
-</div>
 <div class="row">
   <% @events.each do |event| %>
     <%= render partial: 'event_tile', locals: { event: event } %>

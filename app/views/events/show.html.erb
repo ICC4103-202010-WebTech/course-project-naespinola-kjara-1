@@ -97,7 +97,11 @@
         <% @event_comments.each do |event_comment| %>
         <a href="#" class="list-group-item list-group-item-action">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1"><%= event_comment.user.username%></h5>
+            <% if event_comment.user.nil? %>
+              <h5 class="mb-1"> Admin </h5>
+            <% else %>
+              <h5 class="mb-1"><%= event_comment.user.username%></h5>
+            <% end %>
             <small class="text-muted">🌙 Created at: <%= event_comment.created_at%></small>
           </div>
           <p class="mb-1"><%= event_comment.rich_text%></p>
@@ -110,7 +114,7 @@
             <% if (can? :manage, event_comment) || (admin_signed_in?) %>
               <%= link_to "Edit", edit_comment_path(event_comment),class: ["btn", "btn-outline-success"]%>
             <% end %>
-            <%= link_to "Reply ", new_event_comment_path(event_comment), class: ["btn", "btn-outline-success"] %>
+            <%= link_to "Reply ", new_event_comment_path(@event), class: ["btn", "btn-outline-success"] %>
           </div>
 
         <% end %>

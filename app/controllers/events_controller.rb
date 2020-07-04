@@ -17,7 +17,7 @@ class EventsController < ApplicationController
     @event_guests = Guest.includes(:user, :event).where("guests.event_id= #{params[:id]}")
 
     @event_dates_to_votes = DatesToVote.joins(:event).where("dates_to_votes.event_id = #{params[:id]}")
-    @event_comments = Comment.joins(:event,:user).where("comments.event_id =#{params[:id]}")
+    @event_comments = @event.comments
     @reports = Report.joins(:user,:event).where("reports.event_id =#{params[:id]}")
   end
 
@@ -50,6 +50,9 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     #@event = current_person.events.new(event_params)
+    if user_signed_in?
+      @event.user = current_person
+    end
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }

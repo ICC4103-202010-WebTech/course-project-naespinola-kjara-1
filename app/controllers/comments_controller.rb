@@ -10,15 +10,16 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
-
   end
 
   # GET /comments/new
   def new
     @event = Event.find(params[:event_id])
     #  @user = User.find(params[:user_id])
-    @comment = Comment.new
-
+    @comment = @event.comments.new(comment_params)
+    if user_signed_in?
+      @comment.user = current_person
+    end
 
   end
 
@@ -30,13 +31,16 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @event = Event.find(params[:event_id])
-    @comment = current_person.comments.new(comment_params)
-    @comment.event = @event
+    @comment = @event.comments.new(comment_params)
+    #@comment = current_person.comments.new(comment_params)
+    if user_signed_in?
+      @comment.user = current_person
+    end
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render :show, status: :created, location: @comment }
+        format.html { redirect_to @event, notice: 'Comment was successfully created.' }
+        format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -47,10 +51,11 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
+    @event = @comment.event
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @comment }
+        format.html { redirect_to @event, notice: 'Comment was successfully updated.' }
+        format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit }
         format.json { render json: @comment.errors, status: :unprocessable_entity }

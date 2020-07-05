@@ -15,7 +15,7 @@
            Not logged in
         <% end %>
       </p>
-      <p class="card-text  text-success"> User
+      <p class="card-text  text-success"> Role:
         <% var = false %>
         <% user.members.each do |mem| %>
           <% if mem.is_admin_org %>
@@ -23,9 +23,9 @@
           <% end %>
         <% end %>
         <% if var %>
-          Admin of organization
+          Organization Admin
         <% else %>
-          Recurring user
+          Regular User
         <% end %>
       </p>
       <div class="d-flex justify-content-between align-items-center">
@@ -35,7 +35,7 @@
               <%= link_to " Edit ", edit_user_path(user), class: "btn btn-sm btn-outline-white text-secondary"%>
             </button>
             <button type="button" class="btn btn-sm btn-outline-secondary">
-              <%= button_to "Admin Account",  edit_user_registration_path, class: "btn btn-sm btn-outline-white text-secondary"%>
+              <%= link_to "Delete Account", user, method: :delete, confirm: 'Are You Sure?', class: "btn btn-sm btn-outline-white text-danger" %>
             </button>
           <%end %>
         </div>

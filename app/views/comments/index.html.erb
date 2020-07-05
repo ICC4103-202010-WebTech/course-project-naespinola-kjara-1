@@ -18,7 +18,7 @@
         <td><%= comment.rich_text %></td>
         <td><%= comment.event.title %></td>
 
-        <td><%= link_to 'Destroy', comment_path(comment.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

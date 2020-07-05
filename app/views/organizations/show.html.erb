@@ -31,6 +31,9 @@
             <%= link_to " Edit ", edit_organization_path , class: ["btn", "btn-primary"] %>
             <%= link_to "Add Members", new_organization_member_path(@organization), class: ["btn", "btn-primary"] %>
           <% end %>
+        <% elsif admin_signed_in? %>
+          <%= link_to " Edit ", edit_organization_path , class: ["btn", "btn-primary"] %>
+          <%= link_to "Add Members", new_organization_member_path(@organization), class: ["btn", "btn-primary"] %>
         <% end %>
       </div>
       <div class="text-center mb-2">
@@ -39,9 +42,12 @@
           <% var = Member.where(user_id: current_user).where(organization_id: @organization).first %>
           <% if var.nil? %>
           <% elsif var.is_admin_org %>
-            <%= link_to  "Delete", organization_path(@organization.id), method: :delete, class: ["btn", "btn-primary"] %>
+            <%= link_to  "Delete", organization_path(@organization), method: :delete, class: ["btn", "btn-primary"] %>
             <%= link_to "Add Event",  new_event_path , class: ["btn", "btn-info"] %>
           <% end %>
+        <% elsif admin_signed_in? %>
+          <%= link_to  "Delete", organization_path(@organization), method: :delete, class: ["btn", "btn-primary"] %>
+          <%= link_to "Add Event",  new_event_path , class: ["btn", "btn-info"] %>
         <% end %>
       </div>
     </div>

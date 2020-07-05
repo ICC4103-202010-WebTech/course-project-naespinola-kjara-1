@@ -131,7 +131,9 @@
               <%= link_to "Edit", edit_comment_path(event_comment),class: ["btn", "btn-outline-success"]%>
               <%= link_to 'Delete', comment_path(event_comment), method: :delete, data: { confirm: 'Are you sure?' },class: ["btn", "btn-outline-danger"] %>
             <% end %>
-            <%= link_to "Reply ", new_event_comment_path(@event), class: ["btn", "btn-outline-success"] %>
+            <% if (admin_signed_in?) || (user_signed_in?) %>
+              <%= link_to "Reply ", new_event_comment_path(@event), class: ["btn", "btn-outline-success"] %>
+            <% end %>
           </div>
 
         <% end %>

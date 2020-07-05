@@ -35,8 +35,8 @@ class DatesToVotesController < ApplicationController
 
     respond_to do |format|
       if @dates_to_vote.save
-        format.html { redirect_to @dates_to_vote, notice: 'Dates to vote was successfully created.' }
-        format.json { render :show, status: :created, location: @dates_to_vote }
+        format.html { redirect_to @event, notice: 'Dates to vote was successfully created.' }
+        format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
         format.json { render json: @dates_to_vote.errors, status: :unprocessable_entity }

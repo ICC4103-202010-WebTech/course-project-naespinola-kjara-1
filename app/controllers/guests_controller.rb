@@ -39,8 +39,8 @@ class GuestsController < ApplicationController
 
     respond_to do |format|
       if @guest.save
-        format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
-        format.json { render :show, status: :created, location: @guest }
+        format.html { redirect_to @event, notice: 'Guest was successfully created.' }
+        format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
         format.json { render json: @guest.errors, status: :unprocessable_entity }

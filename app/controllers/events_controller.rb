@@ -19,6 +19,7 @@ class EventsController < ApplicationController
     @event_dates_to_votes = DatesToVote.joins(:event).where("dates_to_votes.event_id = #{params[:id]}")
     @event_comments = @event.comments
     @reports = Report.joins(:user,:event).where("reports.event_id =#{params[:id]}")
+    @votes = DatesToVote.joins(event: :user).joins(:votes).where("dates_to_votes.event_id = #{params[:id]}")
   end
 
   # GET /events/new

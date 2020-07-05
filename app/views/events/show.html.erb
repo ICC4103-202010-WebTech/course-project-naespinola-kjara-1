@@ -12,14 +12,20 @@
           <select class="custom-select">
             <option selected>Dates to event</option>
             <%@event_dates_to_votes.each_with_index do |event_dates_to_vote,i| %>
-            <option value="i"><%=  event_dates_to_vote.date %></option>
+            <option value="i"><%=i+1 %>) <%=  event_dates_to_vote.date %></option>
             <% end %>
           </select>
           <button type="button" class="list-group-item list-group-item-action p-2">❄</button>
           <select class="custom-select">
             <option selected>Guests</option>
-            <% @event_guests.each do |event_guest| %>
-              <option value="i"><%=event_guest.user.username%></option>
+            <% @event_guests.each_with_index do |event_guest,i| %>
+              <option value="i"> <%=i+1 %>) <%=event_guest.user.username%></option>
+            <% end %>
+          </select>
+          <select class="custom-select">
+            <option selected>Votes</option>
+            <%@votes.each_with_index do |vote,i| %>
+              <option value="i"><%=  vote.date %></option>
             <% end %>
           </select>
         </ul>

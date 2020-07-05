@@ -31,14 +31,21 @@
         </ul>
       </aside>
       <div class="text-center mb-2">
-        <% if (can? :manage, @event) || (admin_signed_in?) %>
+        <% var = false %>
+        <% list = Member.where(user_id: current_user).where(is_admin_org: true) %>
+        <% list.each do |mem| %>
+          <% if mem.organization_id === @event.organization_id %>
+            <% var = true %>
+          <% end %>
+        <% end %>
+        <% if (can? :manage, @event) || (admin_signed_in?) || var %>
           <%= link_to " Edit ", edit_event_path, class: ["btn", "btn-primary"] %>
           <%= link_to "Add Dates", new_event_dates_to_vote_path(@event), class: ["btn", "btn-primary"] %>
         <% end %>
       </div>
       <div class="text-center mb-2">
         <%= link_to "Back",  events_path , class: ["btn", "btn-info"] %>
-        <% if (can? :manage, @event) || (admin_signed_in?) %>
+        <% if (can? :manage, @event) || (admin_signed_in?) || var %>
           <%= link_to "Delete", event_path(@event.id), method: :delete, class: ["btn", "btn-primary"] %>
           <%= link_to "Add Guests",  new_event_guest_path(@event) , class: ["btn", "btn-info"] %>
         <% end %>
@@ -117,7 +124,8 @@
             <% end %>
           </div>
           <div class="btn-group" role="group" aria-label="Basic example">
-            <% if (can? :manage, event_comment) || (admin_signed_in?) %>
+
+            <% if (can? :manage, event_comment) || (admin_signed_in?) || var %>
               <%= link_to "Edit", edit_comment_path(event_comment),class: ["btn", "btn-outline-success"]%>
             <% end %>
             <%= link_to "Reply ", new_event_comment_path(@event), class: ["btn", "btn-outline-success"] %>

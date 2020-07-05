@@ -25,7 +25,9 @@
       </aside>
       <div class="text-center mb-2">
         <% if user_signed_in? %>
-          <% if Member.where(user_id: current_user).where(organization_id: @organization).first.is_admin_org %>
+          <% var = Member.where(user_id: current_user).where(organization_id: @organization).first %>
+          <% if var.nil? %>
+          <% elsif var.is_admin_org %>
             <%= link_to " Edit ", edit_organization_path , class: ["btn", "btn-primary"] %>
             <%= link_to "Add Members", new_organization_member_path(@organization), class: ["btn", "btn-primary"] %>
           <% end %>
@@ -34,9 +36,11 @@
       <div class="text-center mb-2">
         <%= link_to "Back",  root_path , class: ["btn", "btn-info"] %>
         <% if user_signed_in? %>
-          <% if Member.where(user_id: current_user).where(organization_id: @organization).first.is_admin_org %>
+          <% var = Member.where(user_id: current_user).where(organization_id: @organization).first %>
+          <% if var.nil? %>
+          <% elsif var.is_admin_org %>
             <%= link_to  "Delete", organization_path(@organization.id), method: :delete, class: ["btn", "btn-primary"] %>
-            <%= link_to "Add Event",  root_path , class: ["btn", "btn-info"] %>
+            <%= link_to "Add Event",  new_event_path , class: ["btn", "btn-info"] %>
           <% end %>
         <% end %>
       </div>
@@ -46,10 +50,12 @@
       <dl id="organization_info">
         <dt class="text-success">Description </dt>
         <dd>• <%= @organization.description %> <%= @organization.rich_text%></dd>
+        <p></p>
+        <dt class="text-success">Events </dt>
       </dl>
       <div class="row">
         <% @events1.each do |event| %>
-          <%= render partial: 'events/event_tile', locals: { event: event } %>
+          <%= render partial: 'events/event_tile', locals: { event: event, organization: @organization } %>
         <% end %>
       </div>
     </div>

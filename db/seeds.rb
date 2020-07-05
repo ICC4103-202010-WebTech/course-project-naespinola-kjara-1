@@ -54,7 +54,7 @@ msm2 = Message.create(user_receiver: u2, user_transmitter: u3, text_message: "hi
 msm3 = Message.create(user_receiver: u3, user_transmitter: u4, text_message: "hi3")
 msm4 = Message.create(user_receiver: u4, user_transmitter: u1, text_message: "hi4")
 
-e1 = Event.create(user: u1, title: "Winter is comming", description: "The winter is the better weather of the year so welcome to gala 2020!!", private: false, organization: o1,
+e1 = Event.create(user: u1, title: "Winter is coming", description: "The winter is the better weather of the year so welcome to gala 2020!!", private: false, organization: o1,
                  image: "", location: "Las Vegas")
 e2 = Event.create(user: u2, title: "Party Somewhere", description: "Cool party", private: true, organization: o2,
                   image: "", location:"London")
@@ -66,7 +66,9 @@ e5 = Event.create(user: u6, title: "The Sky", description: "Hello everyone 30th 
                   image: "", location:"Coquimbo")
 
 e6 = Event.create(user: u5, title: "One more year", description: "Hello everyone 60th birthday celebration", private: false, organization: o2,
-                  image: "", location:"Antofagasta")
+                  image: "", location:"Arica")
+e7 = Event.create(user: u5, title: "Stars", description: "Hello everyone 45th birthday celebration", private: false, organization: o2,
+                  image: "", location:"Las Vegas")
 
 h1 = Homepage.create(organization: o1, event:e1)
 
@@ -75,11 +77,13 @@ g2 = Guest.create(user: u2, event: e2)
 g3 = Guest.create(user: u3, event: e3)
 g4 = Guest.create(user: u1, event: e3)
 g5 = Guest.create(user: u2, event: e4)
+g6 = Guest.create(user: u1, event: e7)
 
 dtv1 = DatesToVote.create(event: e1, date: DateTime.parse("2020-04-02 19:00:00 UTC-4"))
 dtv2 = DatesToVote.create(event: e2, date: DateTime.parse("2020-04-07 19:00:00 UTC-4"))
 dtv3 = DatesToVote.create(event: e3, date: DateTime.parse("2020-04-14 19:00:00 UTC-4"))
 dtv4 = DatesToVote.create(event: e4, date: DateTime.parse("2020-04-17 19:00:00 UTC-4"))
+dtv4 = DatesToVote.create(event: e7, date: DateTime.parse("2020-04-17 19:00:00 UTC-4"))
 
 v1 = Vote.create(dates_to_vote: dtv1,user: u1)
 v2 = Vote.create(dates_to_vote: dtv2,user: u2)
@@ -93,7 +97,7 @@ c1 = Comment.create(user: u1, event: e1, rich_text: "hello world")
 c2 = Comment.create(user: u2, event: e2, rich_text: "hello friends")
 c3 = Comment.create(user: u3, event: e3, rich_text: "hello mom")
 c4 = Comment.create(user: u4,event: e4, rich_text: "hello dude")
-
+c5 = Comment.create(user: u1,event: e7, rich_text: "hello friends")
 
 
 # replies to comment

@@ -31,6 +31,8 @@ class EventsController < ApplicationController
     if user_signed_in?
       @user = current_person.organizations
     elsif admin_signed_in?
+      @user = Organization.all
+    else
       @user = nil
     end
   end
@@ -40,6 +42,8 @@ class EventsController < ApplicationController
     if user_signed_in?
       @user = current_person.organizations
     elsif admin_signed_in?
+      @user = Organization.all
+    else
       @user = nil
     end
 

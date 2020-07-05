@@ -22,7 +22,7 @@
     <div class="form-group">
       <% if current != nil %>
       <%= form.label :organization_id, class:"text-success font-weight-bold"%>
-      <%= form.collection_select(:organization_id, current, :id, :name, {}, { class: "form-control" }) %>
+      <%= form.collection_select(:organization_id, current, :id, :name, {:include_blank => "No Organization"}, { class: "form-control" }) %>
       <% end %>
 
     </div>

@@ -11,7 +11,7 @@ o1 = Organization.create(name: "Snow", image:"",
 o2 = Organization.create(name: "Autumn fall", image:"",
                          rich_text: " ", description: "Hello members, welcome everyone!!")
 
-u1 = User.create( username: "user1", email: "user1@gmail.com", password: "1234567k",  in_blacklist:false,
+u1 = User.create( username: "user1", email: "kjara@miuandes.cl", password: "1234567k",  in_blacklist:false,
                   name: "Ana", last_name: "Polo", image: "",
                   short_bio: "I live in Miami and love justice.", location:"Chile")
 

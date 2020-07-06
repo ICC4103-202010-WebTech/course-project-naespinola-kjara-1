@@ -10,11 +10,6 @@
   </span><br />
 <% end %>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <span class="d-inline mr-2">
-    <%= link_to "Forgot your password?", new_password_path(resource_name), class: ['btn', 'btn-warning'] %> <br />
-  </span>
-<% end %>
 
 
 

@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   def home
     @events = Event.where("events.private = 0")
+    @events_private = Event.where("events.private = 1")
     @organizations = Organization.all
 
   end

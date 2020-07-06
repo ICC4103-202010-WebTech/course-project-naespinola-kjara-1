@@ -14,7 +14,12 @@
     <% @events.each do |event| %>
       <%= render partial: 'events/event_tile', locals: { event: event } %>
     <% end %>
-  </div>
+    <%if  admin_signed_in?%>
+      <% @events_private.each do |event| %>
+        <%= render partial: 'events/event_tile', locals: { event: event } %>
+      <% end %>
+      <%end %>
+      </div>
   <div class="row ml-0 mt-3">
     <h2 class="text-info">Organizations </h2>
   </div>

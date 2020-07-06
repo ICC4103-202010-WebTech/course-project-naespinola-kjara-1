@@ -15,7 +15,6 @@
             <option value="i"><%=i+1 %>) <%=  event_dates_to_vote.date %></option>
             <% end %>
           </select>
-          <button type="button" class="list-group-item list-group-item-action p-2">❄</button>
           <select class="custom-select">
             <option selected>Guests</option>
             <% @event_guests.each_with_index do |event_guest,i| %>

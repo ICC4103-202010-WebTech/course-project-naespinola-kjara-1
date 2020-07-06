@@ -23,7 +23,7 @@ class PagesController < ApplicationController
                             "%#{Event.sanitize_sql_like(@parameter)}%",
                             "%#{Event.sanitize_sql_like(@parameter)}%")
 
-      @events_by_creator = Event.joins(:user).where("events.user_id=users.id and lower(users.username) and events.private=0 LIKE :search", search: "%#{@parameter}%")
+      @events_by_creator = Event.joins(:user).where("events.user_id=users.id and lower(users.username) LIKE :search", search: "%#{@parameter}%")
 
       @events_by_org = Event.joins(:organization).where("events.organization_id= organizations.id and lower(organizations.name) LIKE :search", search: "%#{@parameter}%")
 

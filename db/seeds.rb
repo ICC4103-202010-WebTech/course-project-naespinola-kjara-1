@@ -11,25 +11,25 @@ o1 = Organization.create(name: "Snow", image:"",
 o2 = Organization.create(name: "Autumn fall", image:"",
                          rich_text: " ", description: "Hello members, welcome everyone!!")
 
-u1 = User.create( username: "user1", email: "kjara@miuandes.cl", password: "1234567k",  in_blacklist:false,
+u1 = User.create( username: "user1", email: "kjara@miuandes.cl", password: "123123123",  in_blacklist:false,
                   name: "Ana", last_name: "Polo", image: "",
                   short_bio: "I live in Miami and love justice.", location:"Chile")
 
-u2 = User.create( username: "user2", email: "user2@gmail.com", password: "winter123",  in_blacklist:false,
+u2 = User.create( username: "user2", email: "user2@gmail.com", password: "123123123",  in_blacklist:false,
                   name: "Sam", last_name: "Smith", image: "",
                   short_bio: "Hello everyone, i love singing!", location: "Argentina")
 
-u3 = User.create(username: "user3", email: "user3@gmail.com", password: "summer78", in_blacklist:false,
+u3 = User.create(username: "user3", email: "user3@gmail.com", password: "123123123", in_blacklist:false,
                  name: "Pepito", last_name: "Torres", image: "",
                  short_bio: "I don't sing to be famous.",location: "Arica y Parinacota")
 
-u4 = User.create(username: "user4", email: "user4@gmail.com", password: "black560", in_blacklist:true,
+u4 = User.create(username: "user4", email: "user4@gmail.com", password: "123123123", in_blacklist:true,
                  name: "Pepita", last_name: "Sol", image: "",
                  short_bio: "Hi!", location: "Región Norte - Acre")
-u5 = User.create( username: "user5", email: "user5@gmail.com", password: "autumn5632", in_blacklist:false,
+u5 = User.create( username: "user5", email: "user5@gmail.com", password: "123123123", in_blacklist:false,
                   name: "Rick", last_name: "Sánchez",image: "",
                   short_bio: "Hello everyone!!",location: "Biobío")
-u6 = User.create(username: "user6", email: "user6@gmail.com", password: "jaja12345", in_blacklist:false,
+u6 = User.create(username: "user6", email: "user6@gmail.com", password: "123123123", in_blacklist:false,
                  name: "Elmer", last_name: "Figueroa", image: "",
                  short_bio: "Hello everyone, a dance?",location: "Buenos Aires" )
 

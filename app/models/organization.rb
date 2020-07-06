@@ -27,7 +27,7 @@ class Organization < ApplicationRecord
 
   validates :image, allow_blank: true, format: {
       with: %r{\.(gif|jpg|png|jpeg)\Z}i,
-      message: 'must be a url for gif, jpg, jpeg or png image.'
+      message: 'must be a gif, jpg, jpeg or png image.'
   }
 
 #  validates :documents, allow_blank: true, format: {

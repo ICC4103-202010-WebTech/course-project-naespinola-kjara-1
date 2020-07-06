@@ -26,8 +26,8 @@ class User < ApplicationRecord
   validates :terms_of_service, acceptance: true, on: :create
 
   validates :image, allow_blank: true, format: {
-      with: %r{\.(gif|jpg|png)\Z}i,
-      message: 'must be a url for gif, jpg, or png image.'
+      with: %r{\.(gif|jpg|png|jpeg)\Z}i,
+      message: 'must be a gif, jpg, jpeg or png image.'
   }
 
   def admin?

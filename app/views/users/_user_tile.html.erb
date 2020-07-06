@@ -4,10 +4,10 @@
       <%= image_tag(user.image.thumb.url, class: "card-img-top", width: "100%", background: "#55595c", color: "#eceeef") %>
     </div>
     <div class="card-body">
-      <p class="card-text text-success "><%= user.username%></p>
-      <p class="card-text  text-success"><%= user.name %> <%= user.last_name %></p>
-      <p class="card-text text-success"><%= user.location%> </p>
-      <p class="card-text  text-success"><%= user.short_bio %> </p>
+      <p class="card-text text-success ">Username: <%= user.username%></p>
+      <p class="card-text  text-success">Name: <%= user.name %> <%= user.last_name %></p>
+      <p class="card-text text-success">Location: <%= user.location%> </p>
+      <p class="card-text  text-success">Bio: <%= user.short_bio %> </p>
       <p class="card-text  text-success"> Last access:
         <% if user.last_sign_in_at %>
           <%= user.last_sign_in_at %>

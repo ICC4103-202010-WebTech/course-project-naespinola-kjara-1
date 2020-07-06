@@ -14,6 +14,7 @@ class OrganizationsController < ApplicationController
   def show
     @members =  Member.joins(:user).where("members.organization_id= #{params[:id]}")
     @events1 = Event.where("organization_id = #{params[:id]} and private = 0")
+    @events_private = Event.where("organization_id = #{params[:id]} and private = 1")
   end
 
   # GET /organizations/new

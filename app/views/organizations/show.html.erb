@@ -61,8 +61,17 @@
       <div class="row">
         <% @events1.each do |event| %>
           <%= render partial: 'events/event_tile', locals: { event: event, organization: @organization } %>
+        <%end %>
+        <% if admin_signed_in? %>
+
+          <% @events_private.each do |event_private| %>
+            <%= render partial: 'events/event_tile', locals: { event: event_private, organization: @organization } %>
+          <% end %>
+
+
         <% end %>
       </div>
+
     </div>
   </div>
   <div class="row ml-0 mt-2 mb-3">

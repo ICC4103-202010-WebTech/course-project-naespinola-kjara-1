@@ -38,7 +38,9 @@ class OrganizationsController < ApplicationController
         format.html { render :new }
         format.json { render json: @organization.errors, status: :unprocessable_entity }
       end
-      @member = Member.create(user: current_person, organization: @organization, is_admin_org:true)
+      if user_signed_in?
+        @member = Member.create(user: current_person, organization: @organization, is_admin_org:true)
+      end
     end
   end
 

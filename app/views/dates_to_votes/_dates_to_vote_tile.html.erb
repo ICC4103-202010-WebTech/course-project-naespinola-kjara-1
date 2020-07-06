@@ -3,7 +3,7 @@
     <div class="card-header bg-success text-white border-success"><%= dates_to_vote.event.title %></div>
     <div class="card-body text-success">
       <h5 class="card-title">Date</h5>
-      <p class="card-text"><%= link_to dates_to_vote.date, dates_to_vote %></p>
+      <p class="card-text"><%= link_to dates_to_vote.date, new_dates_to_vote_vote_path(dates_to_vote.id) %></p>
     </div>
     <div class="card-footer text-muted bg-transparent border-success"> Created: <%= dates_to_vote.created_at%></div>
   </div>

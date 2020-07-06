@@ -30,9 +30,8 @@
      <p class="text-success font-weight-bold"> •  <%= link_to result.title , result   %>  •  </p>
     <% end %>
 </div>
-
-<%end %>
-<%=render partial: "events/event_list", locals: { event: @events_by_creator} %>
+  <%=render partial: "events/event_list", locals: { event: @events_by_creator} %>
+<% end %>
 
 
 

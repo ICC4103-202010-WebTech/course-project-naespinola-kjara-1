@@ -8,38 +8,38 @@
       <p class="card-text  text-success">Name: <%= user.name %> <%= user.last_name %></p>
       <p class="card-text text-success">Location: <%= user.location%> </p>
       <p class="card-text  text-success">Bio: <%= user.short_bio %> </p>
-      <p class="card-text  text-success"> Last access:
-        <% if user.last_sign_in_at %>
-          <%= user.last_sign_in_at %>
-        <% else %>
-           Not logged in
-        <% end %>
-      </p>
-      <p class="card-text  text-success"> Role:
-        <% var = false %>
-        <% user.members.each do |mem| %>
-          <% if mem.is_admin_org %>
-            <% var = true %>
+      <%if admin_signed_in?  %>
+        <p class="card-text  text-success"> Last access:
+          <% if user.last_sign_in_at %>
+            <%= user.last_sign_in_at %>
+          <% else %>
+             Not logged in
           <% end %>
-        <% end %>
-        <% if var %>
-          Organization Admin
-        <% else %>
-          Regular User
-        <% end %>
-      </p>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="btn-group">
-          <%if admin_signed_in?  %>
+        </p>
+        <p class="card-text  text-success"> Role:
+          <% var = false %>
+          <% user.members.each do |mem| %>
+            <% if mem.is_admin_org %>
+              <% var = true %>
+            <% end %>
+          <% end %>
+          <% if var %>
+            Organization Admin
+          <% else %>
+            Regular User
+          <% end %>
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
             <button type="button" class="btn btn-sm btn-outline-secondary">
               <%= link_to " Edit ", edit_user_path(user), class: "btn btn-sm btn-outline-white text-secondary"%>
             </button>
             <button type="button" class="btn btn-sm btn-outline-secondary">
               <%= link_to "Delete Account", user, method: :delete, confirm: 'Are You Sure?', class: "btn btn-sm btn-outline-white text-danger" %>
             </button>
-          <%end %>
+          </div>
         </div>
-      </div>
+      <%end %>
     </div>
   </div>
 </div>

@@ -78,6 +78,7 @@ g3 = Guest.create(user: u3, event: e3)
 g4 = Guest.create(user: u1, event: e3)
 g5 = Guest.create(user: u2, event: e4)
 g6 = Guest.create(user: u1, event: e7)
+g7 = Guest.create(user: u2, event: e7)
 
 dtv1 = DatesToVote.create(event: e1, date: DateTime.parse("2020-04-02 19:00:00 UTC-4"))
 dtv2 = DatesToVote.create(event: e2, date: DateTime.parse("2020-04-07 19:00:00 UTC-4"))
@@ -97,7 +98,7 @@ c1 = Comment.create(user: u1, event: e1, rich_text: "hello world")
 c2 = Comment.create(user: u2, event: e2, rich_text: "hello friends")
 c3 = Comment.create(user: u3, event: e3, rich_text: "hello mom")
 c4 = Comment.create(user: u4,event: e4, rich_text: "hello dude")
-c5 = Comment.create(user: u1,event: e7, rich_text: "hello friends")
+c5 = Comment.create(user: u2,event: e7, rich_text: "hello friends")
 
 
 # replies to comment
